@@ -1,0 +1,12 @@
+{
+    "activate.reset.password": "Retype Password",
+    "activate.reset.password.required": "Retype Password please",
+    "activate.same.password": "Please make sure your passwords match",
+    "activate.result.content": "You MUST save the Secret Key and keep it safe NOW! Although this App will help to save the key, you will still be asked to provide it when you launch ZeroPass from a new device.",
+    "activate.result.download": "Download and Save Your Secret Key",
+    "activate.result.title": "Secret key created",
+    "activate.result.tips": "Please copy or download the key before you continue!",
+    "activate.copy.success": "Successfully Copied",
+    "activate.result.message.copy": "Copy Secret Key",
+    "activate.result.message.download": "Or Download"
+}

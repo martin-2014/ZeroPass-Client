@@ -1,0 +1,23 @@
+{
+    "userProfile.email": "จดหมาย",
+    "userProfile.userName": "ชื่อ",
+    "userProfile.timezone": "เขตเวลา",
+    "userProfile.userType": "ประเภทบัญชี",
+    "userProfile.userName.required": "ชื่อไม่สามารถเว้นว่างได้",
+    "userProfile.timeZone.required": "เขตเวลาไม่สามารถเว้นว่างได้",
+    "userProfile.userType.standard": "ลองดู",
+    "userProfile.userType.basic": "รุ่นพื้นฐาน",
+    "userProfile.divider.accountBasic": "ข้อมูลพื้นฐาน",
+    "userProfile.divider.secretKey": "รหัสเข้าสู่ระบบ",
+    "userProfile.divider.secretKey.copy": "คัดลอกไปที่คลิปบอร์ด",
+    "userProfile.divider.secretKey.copy.success": "คัดลอก",
+    "userProfile.divider.secretKey.or": "หรือ",
+    "userProfile.divider.secretKey.download": "ดาวน์โหลดลงดิสก์ในเครื่อง",
+    "userProfile.secretKey.notFound.error": "ไม่พบรหัสเข้าสู่ระบบ",
+    "userProfile.divider.secretKey.copy.tip": "คัดลอกรหัสเข้าสู่ระบบไปยังคลิปบอร์ด จากนั้นคุณสามารถวางลงในไฟล์ที่คุณต้องการบันทึก",
+    "userProfile.divider.secretKey.download.tip": "รหัสเข้าสู่ระบบถูกเขียนลงในไฟล์ คุณเพียงแค่ต้องดาวน์โหลดและบันทึกไฟล์",
+    "userProfile.divider.settings": "ติดตั้ง",
+    "userProfile.title": "ข้อมูลเกี่ยวกับบัญชี",
+    "userProfile.photo": "รูปถ่าย",
+    "userProfile.edit.image": "แก้ไขรูปภาพ"
+}

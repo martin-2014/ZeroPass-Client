@@ -1,0 +1,23 @@
+{
+    "userProfile.email": "E-mail",
+    "userProfile.userName": "Nom et prénom",
+    "userProfile.timezone": "Fuseau horaire",
+    "userProfile.userType": "Type d'abonnement",
+    "userProfile.userName.required": "Nom d'utilisateur est nécessaire",
+    "userProfile.timeZone.required": "Le fuseau horaire est requis",
+    "userProfile.userType.standard": "Pilote",
+    "userProfile.userType.basic": "De base",
+    "userProfile.divider.accountBasic": "De base",
+    "userProfile.divider.secretKey": "Clef secrète",
+    "userProfile.divider.secretKey.copy": "Copier dans le presse-papier",
+    "userProfile.divider.secretKey.copy.success": "Copié",
+    "userProfile.divider.secretKey.or": "Ou",
+    "userProfile.divider.secretKey.download": "Télécharger sur disque",
+    "userProfile.secretKey.notFound.error": "Clé secrète introuvable",
+    "userProfile.divider.secretKey.copy.tip": "Copiez la clé secrète dans le presse-papiers, puis vous pourrez la coller dans le fichier que vous souhaitez enregistrer.",
+    "userProfile.divider.secretKey.download.tip": "La clé secrète est écrite dans un fichier, qu'il vous suffit de télécharger et d'enregistrer.",
+    "userProfile.divider.settings": "Réglages",
+    "userProfile.title": "Profil du compte",
+    "userProfile.photo": "Photo",
+    "userProfile.edit.image": "Éditer l'image"
+}

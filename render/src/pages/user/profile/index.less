@@ -1,0 +1,43 @@
+@import '~antd/es/style/themes/default.less';
+
+.optional {
+    color: @text-color-secondary;
+    font-style: normal;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+
+    .header {
+        float: right;
+        margin: -10px 10px 10px 0;
+    }
+
+    .submit {
+    }
+
+    .form {
+        max-width: 600px;
+    }
+
+    .phone {
+        :global {
+            .ant-col-18 {
+                max-width: 100%;
+            }
+        }
+    }
+
+    .labelCol {
+        ::after {
+            position: relative;
+            top: -0.5px;
+            margin: 0 8px 0 2px;
+            content: ':';
+        }
+        span {
+            float: right;
+        }
+    }
+}

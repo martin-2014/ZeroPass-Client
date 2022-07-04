@@ -1,0 +1,16 @@
+{
+    "pages.login.password.required": "密碼是必填項！",
+    "pages.login.submit": "登錄",
+    "pages.searchTable.new": "新建",
+    "pages.searchTable.import": "導入",
+    "pages.searchTable.export": "導出",
+    "pages.import.upload.title": "點擊或拖動文件到這裡上傳",
+    "pages.import.empty.error": "CSV文件是必填項",
+    "pages.import.format.error": "CSV文件格式不正確或為空",
+    "pages.import.errorList.download": "下載錯誤詳細",
+    "pages.import.hint.line1.before": "請下載 ",
+    "pages.import.hint.line1.middle": "導入模板 (.csv) ",
+    "pages.import.hint.line1.after": "然後根據要求填寫相應的字段值。",
+    "pages.import.hint.line2": "只支持csv文件，文件大小不超過10M，每次導入的數據量不超過300條。",
+    "pages.import.inProgress.hint": "數據正在導入..."
+}

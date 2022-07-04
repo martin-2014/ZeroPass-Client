@@ -1,0 +1,16 @@
+{
+    "pages.login.password.required": "Mật khẩu là bắt buộc!",
+    "pages.login.submit": "Đăng nhập",
+    "pages.searchTable.new": "Mới",
+    "pages.searchTable.import": "nhập khẩu",
+    "pages.searchTable.export": "xuất khẩu",
+    "pages.import.upload.title": "Nhấp hoặc kéo tệp để tải lên tại đây",
+    "pages.import.empty.error": "Tệp CSV là bắt buộc",
+    "pages.import.format.error": "Tệp CSV không đúng định dạng hoặc trống",
+    "pages.import.errorList.download": "Tải xuống chi tiết lỗi",
+    "pages.import.hint.line1.before": "Vui lòng tải xuống",
+    "pages.import.hint.line1.middle": "Nhập mẫu (.csv)",
+    "pages.import.hint.line1.after": "Sau đó điền các giá trị trường tương ứng theo yêu cầu.",
+    "pages.import.hint.line2": "Chỉ các tệp csv được hỗ trợ, kích thước tệp không vượt quá 10M và lượng dữ liệu được nhập mỗi lần không vượt quá 300.",
+    "pages.import.inProgress.hint": "Dữ liệu đang nhập ..."
+}

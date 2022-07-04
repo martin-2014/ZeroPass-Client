@@ -1,0 +1,12 @@
+{
+    "activate.reset.password": "Vuelva a escribir la contraseña",
+    "activate.reset.password.required": "Vuelva a escribir la contraseña por favor",
+    "activate.same.password": "Por favor, asegúrese de que sus contraseñas coinciden",
+    "activate.result.content": "¡DEBE guardar la clave secreta y mantenerla segura AHORA! Aunque esta aplicación le ayudará a guardar la clave, aún debe proporcionarla cuando use ZeroPass desde un dispositivo nuevo.",
+    "activate.result.download": "Descargue y guarde su clave secreta",
+    "activate.result.title": "Clave secreta creada",
+    "activate.result.tips": "¡Copie o descargue la clave antes de irse!",
+    "activate.copy.success": "Copiado con éxito",
+    "activate.result.message.copy": "Copiar clave secreta",
+    "activate.result.message.download": "O descargar"
+}

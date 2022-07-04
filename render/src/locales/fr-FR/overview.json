@@ -1,0 +1,18 @@
+{
+    "overview.top.appUsed": "Connexion la plus utilisée",
+    "overview.top.appView": "Classement des vues de connexion",
+    "overview.top.today": "Aujourd'hui",
+    "overview.top.week": "La semaine",
+    "overview.top.month": "Mois",
+    "overview.top.year": "An",
+    "overview.count.app": "Connexion",
+    "overview.count.user": "Utilisateur",
+    "overview.count.machine": "Conteneur client",
+    "overview.invite.title": "Invitations",
+    "overview.invite.info": "En attente d'approbation",
+    "overview.invite.approve": "Approuver",
+    "overview.invite.reject": "Rejeter",
+    "overview.invite.more": "Suite...",
+    "overview.password.title": "Surveillance des mots de passe",
+    "overview.password.info": "Mots de passe vulnérables"
+}

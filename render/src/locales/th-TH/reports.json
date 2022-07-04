@@ -1,0 +1,12 @@
+{
+    "reports.list.privilege": "การอนุญาต",
+    "reports.list.lastUsed": "เวลาใช้งานล่าสุด",
+    "reports.list.app.privilege.canAssign": "แชร์ได้",
+    "reports.list.app.privilege.accessOnly": "เข้าถึงได้",
+    "reports.list.userType": "ประเภทผู้ใช้",
+    "reports.button.export": "ส่งออก",
+    "reports.title.login": "รายงานการกำหนดรหัสผ่านบัญชี",
+    "reports.web.login": "รหัสผ่านบัญชี",
+    "reports.assignee": "ผู้รับโอน",
+    "reports.permission": "การอนุญาต"
+}

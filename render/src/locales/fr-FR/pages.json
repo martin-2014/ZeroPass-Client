@@ -1,0 +1,16 @@
+{
+    "pages.login.password.required": "Veuillez entrer votre mot de passe",
+    "pages.login.submit": "Connexion",
+    "pages.searchTable.new": "Nouveau",
+    "pages.searchTable.import": "Importer",
+    "pages.searchTable.export": "Exporter",
+    "pages.import.upload.title": "Cliquez ou faites glisser le fichier dans cette zone pour le télécharger",
+    "pages.import.empty.error": "Le fichier CSV est requis",
+    "pages.import.format.error": "Le format de fichier CSV est incorrect ou les données sont vides",
+    "pages.import.errorList.download": "Télécharger les détails de l'erreur",
+    "pages.import.hint.line1.before": "Veuillez télécharger le",
+    "pages.import.hint.line1.middle": "modèle d'importation (.csv)",
+    "pages.import.hint.line1.after": "et remplissez le modèle en fonction des exigences avant de le télécharger.",
+    "pages.import.hint.line2": "Seuls les fichiers avec les suffixes csv sont pris en charge, la taille du fichier est limitée à 10 Mo et le nombre d'entrées importées à chaque fois ne dépasse pas 300.",
+    "pages.import.inProgress.hint": "Importation des données en cours..."
+}

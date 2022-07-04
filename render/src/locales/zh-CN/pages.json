@@ -1,0 +1,16 @@
+{
+    "pages.login.password.required": "密码是必填项！",
+    "pages.login.submit": "登录",
+    "pages.searchTable.new": "新建",
+    "pages.searchTable.import": "导入",
+    "pages.searchTable.export": "导出",
+    "pages.import.upload.title": "点击或拖动文件到这里上传",
+    "pages.import.empty.error": "CSV文件是必填项",
+    "pages.import.format.error": "CSV文件格式不正确或为空",
+    "pages.import.errorList.download": "下载错误详细",
+    "pages.import.hint.line1.before": "请下载 ",
+    "pages.import.hint.line1.middle": "导入模板 (.csv) ",
+    "pages.import.hint.line1.after": "然后根据要求填写相应的字段值。",
+    "pages.import.hint.line2": "只支持csv文件，文件大小不超过10M，每次导入的数据量不超过300条。",
+    "pages.import.inProgress.hint": "数据正在导入..."
+}

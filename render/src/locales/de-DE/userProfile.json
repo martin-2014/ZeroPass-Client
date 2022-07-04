@@ -1,0 +1,23 @@
+{
+    "userProfile.email": "Email",
+    "userProfile.userName": "Vollständiger Name",
+    "userProfile.timezone": "Zeitzone",
+    "userProfile.userType": "Abonnementtyp",
+    "userProfile.userName.required": "Benutzername wird benötigt",
+    "userProfile.timeZone.required": "Zeitzone ist erforderlich",
+    "userProfile.userType.standard": "Pilot",
+    "userProfile.userType.basic": "Basic",
+    "userProfile.divider.accountBasic": "Basic",
+    "userProfile.divider.secretKey": "Geheimer Schlüssel",
+    "userProfile.divider.secretKey.copy": "In die Zwischenablage kopieren",
+    "userProfile.divider.secretKey.copy.success": "Kopiert",
+    "userProfile.divider.secretKey.or": "Oder",
+    "userProfile.divider.secretKey.download": "Auf Datenträger herunterladen",
+    "userProfile.secretKey.notFound.error": "Geheimer Schlüssel nicht gefunden",
+    "userProfile.divider.secretKey.copy.tip": "Kopieren Sie den geheimen Schlüssel in die Zwischenablage und fügen Sie ihn dann in die Datei ein, die Sie speichern möchten.",
+    "userProfile.divider.secretKey.download.tip": "Der geheime Schlüssel wird in eine Datei geschrieben, die Sie nur herunterladen und speichern müssen.",
+    "userProfile.divider.settings": "Einstellungen",
+    "userProfile.title": "Konto Profil",
+    "userProfile.photo": "Foto",
+    "userProfile.edit.image": "Bild bearbeiten"
+}

@@ -1,0 +1,8 @@
+{
+    "about.upgrade": "アップグレード",
+    "about.upgrade.tip": "アプリは自動的に閉じてから、新しいバージョンをインストールします",
+    "about.upgrade.automatically": "更新があったときに通知する",
+    "about.message.privacy": "プライバシーに関する声明",
+    "about.message.copyright": "Copyright 2022 zpassapp.com All rights reserved",
+    "about.message.user.service": "利用規約"
+}

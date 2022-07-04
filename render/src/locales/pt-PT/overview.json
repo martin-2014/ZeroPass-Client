@@ -1,0 +1,18 @@
+{
+    "overview.top.appUsed": "Login mais usado",
+    "overview.top.appView": "Classificação de visualizações de login",
+    "overview.top.today": "Hoje",
+    "overview.top.week": "Semana",
+    "overview.top.month": "Mês",
+    "overview.top.year": "Ano",
+    "overview.count.app": "Conecte-se",
+    "overview.count.user": "Do utilizador",
+    "overview.count.machine": "Contêiner do cliente",
+    "overview.invite.title": "Convites",
+    "overview.invite.info": "Aguardando aprovação",
+    "overview.invite.approve": "Aprovar",
+    "overview.invite.reject": "Rejeitar",
+    "overview.invite.more": "Mais...",
+    "overview.password.title": "Monitoramento de senha",
+    "overview.password.info": "Senhas vulneráveis"
+}

@@ -1,0 +1,15 @@
+{
+    "notification.title": "알아채다",
+    "notification.title.count": "알림({messageCount})",
+    "notification.clear": "비어 있는",
+    "notification.invitation.received.title": "초대장을 받았다",
+    "notification.invitation.received.message": "{domainName}({companyName}) 회사에 가입하도록 초대되었습니다.",
+    "notification.invitation.rejected.title": "초대가 거부되었습니다",
+    "notification.invitation.rejected.message": "{userEmail}이(가) {domainName} 회사({companyName}) 가입을 거부했습니다.",
+    "notification.joindomain.pending.title": "회사에 합류하기를 기다리는 중",
+    "notification.joindomain.pending.message": "{userEmail}이(가) {domainName}({companyName}) 회사에 합류하기를 기다리고 있습니다. [회사관리]->[사용자]에서 승인을 받으시기 바랍니다.",
+    "notification.joindomain.approved.title": "회사에 오신 것을 환영합니다",
+    "notification.joindomain.approved.message": "{domainName}({companyName}) 회사에 가입하도록 승인되었습니다. 재로그인 후 추가된 회사에 접속할 수 있습니다.",
+    "notification.joindomain.rejected.title": "회사 입사를 거부했다",
+    "notification.joindomain.rejected.message": "{domainName}({companyName}) 회사에 대한 액세스가 거부되었습니다."
+}

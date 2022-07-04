@@ -1,0 +1,16 @@
+{
+    "pages.login.password.required": "ต้องการรหัสผ่าน!",
+    "pages.login.submit": "เข้าสู่ระบบ",
+    "pages.searchTable.new": "ใหม่",
+    "pages.searchTable.import": "นำเข้า",
+    "pages.searchTable.export": "ส่งออก",
+    "pages.import.upload.title": "คลิกหรือลากไฟล์เพื่ออัปโหลดที่นี่",
+    "pages.import.empty.error": "ต้องใช้ไฟล์ CSV",
+    "pages.import.format.error": "ไฟล์ CSV มีรูปแบบไม่ถูกต้องหรือว่างเปล่า",
+    "pages.import.errorList.download": "ดาวน์โหลดรายละเอียดข้อผิดพลาด",
+    "pages.import.hint.line1.before": "กรุณาดาวน์โหลด",
+    "pages.import.hint.line1.middle": "นำเข้าเทมเพลต (.csv)",
+    "pages.import.hint.line1.after": "จากนั้นกรอกค่าฟิลด์ที่เกี่ยวข้องตามต้องการ",
+    "pages.import.hint.line2": "รองรับเฉพาะไฟล์ csv ขนาดไฟล์ไม่เกิน 10M และจำนวนข้อมูลที่นำเข้าในแต่ละครั้งไม่เกิน 300",
+    "pages.import.inProgress.hint": "กำลังนำเข้าข้อมูล..."
+}

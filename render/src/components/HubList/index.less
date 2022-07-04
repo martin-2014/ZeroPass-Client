@@ -1,0 +1,50 @@
+@import '~@/themes.less';
+@font-size: 12px;
+
+.table {
+    :global {
+        .ant-table-column-sort {
+            background-color: transparent !important;
+        }
+    }
+}
+.title {
+    font-size: 14px;
+    line-height: 1.33;
+}
+.description {
+    .title();
+    color: @font-color-1;
+    font-size: @font-size;
+}
+
+.titleWrapper {
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.titleIconContainter {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 33px;
+    height: 33px;
+    margin-right: 16px;
+    background-color: @primary-color-4;
+    border-radius: 10px;
+    box-shadow: 0px 1px 3.8px 0.2px rgba(0, 0, 0, 0.1);
+}
+
+.titleContent {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+}
+
+.last {
+    color: @font-color-1;
+}

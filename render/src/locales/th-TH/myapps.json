@@ -1,0 +1,12 @@
+{
+    "myapps.remove.star": "ลบออกจากรายการโปรด",
+    "myapps.add.star": "เพิ่มในรายการโปรด",
+    "myapps.title.name": "แอพโปรดของฉัน",
+    "myapps.title.alias": "นามแฝง",
+    "myapps.title.url": "ทางเข้า",
+    "myapps.title.machine": "สภาพแวดล้อมของอุปกรณ์",
+    "myapps.alias.tips": "การตั้งค่านามแฝงช่วยให้คุณค้นหาแอพได้อย่างรวดเร็ว",
+    "myapps.title": "แอปพลิเคชันของฉัน",
+    "myapps.title.star": "คอลเลกชันของฉัน",
+    "myapps.all.app": "แอพทั้งหมดของฉัน"
+}

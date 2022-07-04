@@ -1,0 +1,9 @@
+{
+    "component.invitation.ignore": "飛び越える",
+    "component.invitation.reject": "拒絶",
+    "component.invitation.accept": "受け入れる",
+    "component.invitation.title": "招待",
+    "component.invitation.message": "ZeroPassの{domainName}（{company}）にご参加ください。",
+    "component.tag.newTag.placeholder": "ここに入力",
+    "component.domain.switch.title": "スイッチ会社"
+}

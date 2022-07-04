@@ -1,0 +1,18 @@
+{
+    "overview.top.appUsed": "가장 많이 사용하는 계정 비밀번호",
+    "overview.top.appView": "계정 비밀번호 사용 순위",
+    "overview.top.today": "오늘",
+    "overview.top.week": "주",
+    "overview.top.month": "달",
+    "overview.top.year": "년도",
+    "overview.count.app": "계정 암호",
+    "overview.count.user": "사용자",
+    "overview.count.machine": "장비 환경",
+    "overview.invite.title": "초대",
+    "overview.invite.info": "동의 대기 중",
+    "overview.invite.approve": "동의하다",
+    "overview.invite.reject": "거부하다",
+    "overview.invite.more": "더...",
+    "overview.password.title": "비밀번호 모니터링",
+    "overview.password.info": "취약한 비밀번호"
+}

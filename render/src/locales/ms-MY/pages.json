@@ -1,0 +1,16 @@
+{
+    "pages.login.password.required": "Kata laluan diperlukan!",
+    "pages.login.submit": "Log masuk",
+    "pages.searchTable.new": "baru",
+    "pages.searchTable.import": "import",
+    "pages.searchTable.export": "eksport",
+    "pages.import.upload.title": "Klik atau seret fail untuk memuat naik di sini",
+    "pages.import.empty.error": "Fail CSV diperlukan",
+    "pages.import.format.error": "Fail CSV salah bentuk atau kosong",
+    "pages.import.errorList.download": "Muat turun butiran ralat",
+    "pages.import.hint.line1.before": "Sila muat turun",
+    "pages.import.hint.line1.middle": "Import Templat (.csv)",
+    "pages.import.hint.line1.after": "Kemudian isikan nilai medan yang sepadan seperti yang diperlukan.",
+    "pages.import.hint.line2": "Hanya fail csv yang disokong, saiz fail tidak melebihi 10M dan jumlah data yang diimport setiap kali tidak melebihi 300.",
+    "pages.import.inProgress.hint": "Data sedang mengimport..."
+}

@@ -1,0 +1,15 @@
+{
+    "notification.title": "Notificaciones",
+    "notification.title.count": "Notificaciones ({messageCount})",
+    "notification.clear": "Claro",
+    "notification.invitation.received.title": "Invitación recibida",
+    "notification.invitation.received.message": "Está invitado a unirse a la empresa {domainName} ({companyName}).",
+    "notification.invitation.rejected.title": "Invitación rechazada",
+    "notification.invitation.rejected.message": "{userEmail} ha rechazado unirse a la empresa {domainName} ({companyName}).",
+    "notification.joindomain.pending.title": "Pendiente de unirse",
+    "notification.joindomain.pending.message": "{userEmail} está pendiente para unirse a la empresa {domainName} ({companyName}). Vaya a [Consola de administración]->[Usuario] para aprobar o rechazar.",
+    "notification.joindomain.approved.title": "Bienvenido a unirse a la empresa",
+    "notification.joindomain.approved.message": "Está aprobado para unirse a la empresa {domainName} ({companyName}). Antes de poder participar en la empresa, debe cerrar sesión y volver a iniciar sesión.",
+    "notification.joindomain.rejected.title": "Rechazado para unirse a la empresa",
+    "notification.joindomain.rejected.message": "Ha sido rechazado para unirse a la empresa {domainName} ({companyName})."
+}

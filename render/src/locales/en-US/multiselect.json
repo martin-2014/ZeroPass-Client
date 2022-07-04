@@ -1,0 +1,6 @@
+{
+    "multiselect.select.all": "All",
+    "multiselect.select.invert": "Invert",
+    "multiselect.clear": "Clear",
+    "multiselect.owner": "Owner"
+}

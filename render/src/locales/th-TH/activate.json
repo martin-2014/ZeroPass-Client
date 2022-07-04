@@ -1,0 +1,12 @@
+{
+    "activate.reset.password": "ใส่รหัสผ่านอีกครั้ง",
+    "activate.reset.password.required": "กรุณาใส่รหัสผ่านอีกครั้ง",
+    "activate.same.password": "กรุณาใส่รหัสผ่านเดียวกัน",
+    "activate.result.content": "ตอนนี้คุณต้องบันทึกคีย์และเก็บไว้ให้ปลอดภัย เพราะทุกครั้งที่คุณใช้ ZeroPass จากอุปกรณ์ใหม่ คุณจะต้องให้คีย์เพื่อเข้าถึงโดเมน",
+    "activate.result.download": "ดาวน์โหลดและบันทึกคีย์ของคุณ",
+    "activate.result.title": "กุญแจที่สร้าง",
+    "activate.result.tips": "โปรดคัดลอกหรือดาวน์โหลดคีย์ก่อนออกเดินทาง!",
+    "activate.copy.success": "คัดลอกสำเร็จ",
+    "activate.result.message.copy": "คัดลอกคีย์ไปยังแผ่นแปะ",
+    "activate.result.message.download": "หรือดาวน์โหลด"
+}

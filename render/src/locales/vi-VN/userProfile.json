@@ -1,0 +1,23 @@
+{
+    "userProfile.email": "Thư",
+    "userProfile.userName": "Tên",
+    "userProfile.timezone": "Múi giờ",
+    "userProfile.userType": "Kiểu tài khoản",
+    "userProfile.userName.required": "Tên không được để trống",
+    "userProfile.timeZone.required": "Múi giờ không được để trống",
+    "userProfile.userType.standard": "thử đi",
+    "userProfile.userType.basic": "Phiên bản cơ bản",
+    "userProfile.divider.accountBasic": "Thông tin cơ bản",
+    "userProfile.divider.secretKey": "khóa đăng nhập",
+    "userProfile.divider.secretKey.copy": "sao chép vào clipboard",
+    "userProfile.divider.secretKey.copy.success": "đã sao chép",
+    "userProfile.divider.secretKey.or": "hoặc",
+    "userProfile.divider.secretKey.download": "Tải xuống đĩa cục bộ",
+    "userProfile.secretKey.notFound.error": "Không tìm thấy khóa đăng nhập",
+    "userProfile.divider.secretKey.copy.tip": "Sao chép khóa đăng nhập vào khay nhớ tạm, sau đó bạn có thể dán khóa đó vào tệp bạn cần lưu.",
+    "userProfile.divider.secretKey.download.tip": "Khóa đăng nhập được ghi vào một tệp, bạn chỉ cần tải xuống và lưu tệp.",
+    "userProfile.divider.settings": "cài đặt",
+    "userProfile.title": "thông tin tài khoản",
+    "userProfile.photo": "ảnh",
+    "userProfile.edit.image": "Chỉnh sửa hình ảnh"
+}

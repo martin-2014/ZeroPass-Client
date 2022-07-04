@@ -1,0 +1,109 @@
+@import '~@/themes.less';
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding-left: 10px;
+}
+.line {
+    width: 100%;
+    height: 1px;
+    margin-top: 14px;
+    background-color: #dedede;
+}
+.img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    border-radius: @zp-border-radius;
+    box-shadow: @zp-box-shadow-big;
+    :global {
+        .ant-avatar {
+            border-radius: 0;
+        }
+    }
+}
+
+.leftContainter {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+.headerWrapper {
+    display: flex;
+    width: 100%;
+}
+
+.title {
+    overflow: hidden;
+    font-size: 20px;
+}
+.header {
+    width: 100%;
+}
+.buttonWrapper {
+    margin-right: 20px;
+}
+.content {
+    flex: 1;
+    padding: 0 0 15px 0;
+}
+.buttonContent {
+    width: 72px;
+    height: 31px;
+}
+.titleWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 100%;
+    height: 55px;
+}
+.editContainter {
+    margin-top: -2px;
+    margin-right: 15px;
+}
+.loading {
+    width: 100%;
+    height: 100%;
+    :global {
+        .ant-spin-nested-loading {
+            height: 100%;
+        }
+        .ant-spin-container {
+            height: 100%;
+        }
+    }
+}
+
+.favourite {
+    cursor: pointer;
+}
+
+.actionIcon {
+    height: 16px;
+    font-size: 16px;
+    &:hover {
+        color: @primary-color-5;
+    }
+}
+.editIconContainter {
+    margin-right: 10px;
+    cursor: pointer;
+}
+.toolsContainter {
+    display: flex;
+    flex: 1;
+    justify-content: end;
+    height: 20px;
+    margin-top: 20px;
+    padding-right: 11px;
+}

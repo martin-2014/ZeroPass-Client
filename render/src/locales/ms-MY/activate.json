@@ -1,0 +1,12 @@
+{
+    "activate.reset.password": "Masukkan kata laluan sekali lagi",
+    "activate.reset.password.required": "Sila masukkan kata laluan sekali lagi",
+    "activate.same.password": "Sila masukkan kata laluan yang sama",
+    "activate.result.content": "Anda kini mesti menyimpan kunci dan memastikannya selamat, kerana setiap kali anda menggunakan ZeroPass daripada peranti baharu, anda perlu memberikan kunci untuk mengakses domain.",
+    "activate.result.download": "Muat turun dan simpan kunci anda",
+    "activate.result.title": "kunci dicipta",
+    "activate.result.tips": "Sila salin atau muat turun kunci sebelum pergi!",
+    "activate.copy.success": "Berjaya menyalin",
+    "activate.result.message.copy": "Salin kekunci ke papan penampal",
+    "activate.result.message.download": "atau muat turun"
+}

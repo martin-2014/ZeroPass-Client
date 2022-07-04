@@ -1,0 +1,101 @@
+@import '~@/themes.less';
+.networkSelect {
+    width: 190px;
+    margin-bottom: 16px;
+}
+
+.detailTable {
+    :global {
+        .ant-table {
+            font-size: 12px;
+        }
+        .ant-table-cell {
+            height: 45px !important;
+            padding: 0 10px !important;
+        }
+    }
+}
+
+.actionIcon {
+    font-size: 16px;
+    &:hover {
+        color: @primary-color-5;
+    }
+}
+
+.actionMenu {
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+.tokenSumCount {
+    padding: 0 5px;
+    font-weight: bold;
+    font-size: 12px;
+    background-color: #0096fd;
+    border-radius: 3px;
+}
+
+.showMore {
+    display: flex;
+    margin: 25px 0 0 15px;
+    :global {
+        .ant-input-number {
+            width: 60px;
+            border-radius: 5px !important;
+        }
+        .ant-input-number-group-addon {
+            background-color: #fff;
+            border: none;
+        }
+    }
+    input {
+        height: 24px;
+        font-size: 12px;
+    }
+}
+
+.headerContainer {
+    padding-left: 15px;
+}
+
+.overviewContainer {
+    display: flex;
+    height: 60px;
+}
+
+.overviewItem {
+    width: 220px;
+    margin-right: 10px;
+    padding-right: 10px;
+    font-size: 12px;
+    border-right: 1px solid #f0f0f0;
+}
+
+.overviewNumber {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.searchContainer {
+    width: 360px;
+    margin: 10px 0;
+    input {
+        font-size: 12px;
+    }
+}
+
+.formTitle {
+    font-size: 16px;
+}
+
+.formTitleDescription {
+    margin-left: 5px;
+    color: #949494;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 1.9;
+    white-space: nowrap;
+}

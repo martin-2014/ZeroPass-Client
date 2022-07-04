@@ -1,0 +1,8 @@
+{
+    "about.upgrade": "Mise à niveau vers",
+    "about.upgrade.tip": "L'application se fermera automatiquement, puis commencera à installer la mise à jour.",
+    "about.upgrade.automatically": "M'avertir lorsqu'une mise à jour est disponible",
+    "about.message.privacy": "Avis de confidentialité",
+    "about.message.copyright": "Copyright 2022 zpassapp.com Tous droits réservés.",
+    "about.message.user.service": "Contrat de service utilisateur"
+}

@@ -1,0 +1,17 @@
+{
+    "domain.profile.img.type": "Hanya menyokong muat naik fail PNG/JPG/SVG",
+    "domain.profile.img.size.max": "Imej mestilah lebih kecil daripada 2MB",
+    "domain.profile.logo.tips": "Muat naik ikon kurang daripada 2MB dalam format PNG/JPG/SVG.",
+    "domainProfile.upload": "muat naik",
+    "domainProfile.title": "sediakan",
+    "domainProfile.logo": "logo syarikat",
+    "domainProfile.domainName": "nama domain",
+    "domainProfile.companyName": "nama syarikat",
+    "domainProfile.contactPerson": "Nama kenalan",
+    "domainProfile.contactPhone": "nombor telefon",
+    "domainProfile.country": "negara / wilayah",
+    "domainProfile.companyName.required": "Nama syarikat tidak boleh kosong",
+    "domainProfile.contactPerson.required": "Nama kenalan tidak boleh kosong",
+    "domainProfile.contactPhone.required": "Nombor telefon kenalan tidak boleh kosong",
+    "domainProfile.country.required": "Negara tidak boleh kosong"
+}

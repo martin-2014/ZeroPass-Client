@@ -1,0 +1,38 @@
+@import '~@/themes.less';
+
+.wrapper {
+    height: 100%;
+}
+
+.input {
+    height: 30px;
+}
+
+.select {
+    :global {
+        .ant-select-selector {
+            padding: 0 !important;
+        }
+    }
+}
+.form {
+    :global {
+        .ant-input-group-addon {
+            background-color: transparent !important;
+            border: none !important;
+        }
+    }
+}
+.delete {
+    color: red;
+    font-size: 14px;
+    &:hover {
+        color: #fd3e3e;
+    }
+}
+.actionIcon {
+    font-size: 16px;
+    &:hover {
+        color: @primary-color-5;
+    }
+}

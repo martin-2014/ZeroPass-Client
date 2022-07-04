@@ -1,0 +1,9 @@
+{
+    "component.invitation.ignore": "Saltare",
+    "component.invitation.reject": "Rifiutare",
+    "component.invitation.accept": "Accettare",
+    "component.invitation.title": "Invito",
+    "component.invitation.message": "Sei invitato a unirti al dominio {domainName} ({company}) su ZeroPass.",
+    "component.tag.newTag.placeholder": "Inserisci qui",
+    "component.domain.switch.title": "Cambia azienda"
+}

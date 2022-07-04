@@ -1,0 +1,15 @@
+{
+    "notification.title": "通知",
+    "notification.title.count": "通知 ({messageCount})",
+    "notification.clear": "清空",
+    "notification.invitation.received.title": "收到邀請",
+    "notification.invitation.received.message": "您被邀請加入公司{domainName}({companyName})。",
+    "notification.invitation.rejected.title": "邀請被拒絕",
+    "notification.invitation.rejected.message": "{userEmail}已拒絕加入公司{domainName}({companyName})。",
+    "notification.joindomain.pending.title": "等待加入公司",
+    "notification.joindomain.pending.message": "{userEmail}正等待加入公司{domainName}({companyName})。請到[公司管理]->[用戶]審批。",
+    "notification.joindomain.approved.title": "歡迎加入公司",
+    "notification.joindomain.approved.message": "你已通過審批加入公司{domainName}({companyName})。重新登陸後可以訪問加入後的公司。",
+    "notification.joindomain.rejected.title": "被拒絕加入公司",
+    "notification.joindomain.rejected.message": "您被拒絕加入公司{domainName}({companyName})。"
+}

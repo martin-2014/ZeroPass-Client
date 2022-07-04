@@ -1,0 +1,15 @@
+{
+    "notification.title": "知らせ",
+    "notification.title.count": "通知（{messageCount}）",
+    "notification.clear": "空の",
+    "notification.invitation.received.title": "招待状を受け取りました",
+    "notification.invitation.received.message": "会社{domainName}（{companyName}）に招待されました。",
+    "notification.invitation.rejected.title": "招待は辞退しました",
+    "notification.invitation.rejected.message": "{userEmail}は会社{domainName}（{companyName}）への参加を拒否しました。",
+    "notification.joindomain.pending.title": "入社を待っています",
+    "notification.joindomain.pending.message": "{userEmail}は会社{domainName}（{companyName}）への参加を待っています。 [会社の管理]->[ユーザー]に移動して承認を受けてください。",
+    "notification.joindomain.approved.title": "会社へようこそ",
+    "notification.joindomain.approved.message": "会社{domainName}（{companyName}）への参加が承認されました。再度ログインすると、追加した会社にアクセスできます。",
+    "notification.joindomain.rejected.title": "入社を拒否した",
+    "notification.joindomain.rejected.message": "会社{domainName}（{companyName}）へのアクセスが拒否されました。"
+}

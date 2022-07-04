@@ -1,0 +1,12 @@
+{
+    "activate.reset.password": "Ripeti password",
+    "activate.reset.password.required": "Ridigitare la password per favore",
+    "activate.same.password": "Assicurati che le tue password corrispondano",
+    "activate.result.content": "DEVI salvare la chiave segreta e tenerla al sicuro ORA! Sebbene questa App ti aiuterà a salvare la chiave, sei comunque tenuto a fornirla quando usi ZeroPass da un nuovo dispositivo.",
+    "activate.result.download": "Scarica e salva la tua chiave segreta",
+    "activate.result.title": "Chiave segreta creata",
+    "activate.result.tips": "Si prega di copiare o scaricare la chiave prima di partire!",
+    "activate.copy.success": "Copiato con successo",
+    "activate.result.message.copy": "Copia la chiave segreta",
+    "activate.result.message.download": "Oppure Scarica"
+}

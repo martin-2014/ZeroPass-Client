@@ -1,0 +1,12 @@
+{
+    "activate.reset.password": "Redigite a senha",
+    "activate.reset.password.required": "Redigite a senha por favor",
+    "activate.same.password": "Verifique se suas senhas correspondem",
+    "activate.result.content": "Você DEVE salvar a Chave Secreta e mantê-la segura AGORA! Embora este aplicativo ajude a salvar a chave, você ainda precisa fornecê-la ao usar o ZeroPass de um novo dispositivo.",
+    "activate.result.download": "Baixe e salve sua chave secreta",
+    "activate.result.title": "Chave secreta criada",
+    "activate.result.tips": "Por favor, copie ou baixe a chave antes de sair!",
+    "activate.copy.success": "Copiado com sucesso",
+    "activate.result.message.copy": "Copiar chave secreta",
+    "activate.result.message.download": "Ou Baixar"
+}

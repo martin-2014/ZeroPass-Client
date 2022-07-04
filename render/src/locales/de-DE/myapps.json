@@ -1,0 +1,12 @@
+{
+    "myapps.remove.star": "Vom Stern entfernen",
+    "myapps.add.star": "Zum Stern hinzufügen",
+    "myapps.title.name": "Meine markierten Apps",
+    "myapps.title.alias": "Alias",
+    "myapps.title.url": "URL",
+    "myapps.title.machine": "Client-Container",
+    "myapps.alias.tips": "Das Festlegen von Aliassen kann Ihnen helfen, Apps schnell zu finden",
+    "myapps.title": "Meine App",
+    "myapps.title.star": "Stern",
+    "myapps.all.app": "Alle meine Apps"
+}

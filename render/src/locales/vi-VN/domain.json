@@ -1,0 +1,17 @@
+{
+    "domain.profile.img.type": "Chỉ hỗ trợ tải lên các tệp PNG / JPG / SVG",
+    "domain.profile.img.size.max": "Hình ảnh phải nhỏ hơn 2MB",
+    "domain.profile.logo.tips": "Tải lên biểu tượng nhỏ hơn 2MB ở định dạng PNG / JPG / SVG.",
+    "domainProfile.upload": "tải lên",
+    "domainProfile.title": "cài đặt",
+    "domainProfile.logo": "logo công ty",
+    "domainProfile.domainName": "tên miền",
+    "domainProfile.companyName": "Tên công ty",
+    "domainProfile.contactPerson": "Tên Liên lạc",
+    "domainProfile.contactPhone": "số liên lạc",
+    "domainProfile.country": "quốc gia / khu vực",
+    "domainProfile.companyName.required": "Tên công ty không được để trống",
+    "domainProfile.contactPerson.required": "Tên liên hệ không được để trống",
+    "domainProfile.contactPhone.required": "Số điện thoại liên hệ không được để trống",
+    "domainProfile.country.required": "Quốc gia không được để trống"
+}

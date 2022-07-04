@@ -1,0 +1,11 @@
+{
+    "name": "chromium.extension.zpass",
+    "description": "Open the ZeroPass App",
+    "path": ".\\ext-native.exe",
+    "loglevel": "warn",
+    "type": "stdio",
+    "allowed_origins": [
+        "chrome-extension://eoioohbhgednnbpdfhpbaejfcafhjmnb/",
+        "chrome-extension://gmfbcmpolfoehenbkhagaldpolpgbock/"
+    ]
+}

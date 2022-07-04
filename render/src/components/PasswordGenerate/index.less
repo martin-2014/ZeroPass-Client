@@ -1,0 +1,160 @@
+@import '~@/themes.less';
+@import '~@/global.less';
+
+.close {
+    float: right;
+    width: 16px;
+}
+
+.closeIicon {
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.body {
+    height: 360px;
+
+    margin-top: -10px;
+    margin-bottom: -20px;
+
+    :global {
+        .ant-radio-wrapper,
+        .ant-checkbox-wrapper,
+        .ant-select,
+        .ant-select-item {
+            font-size: 12px;
+        }
+
+        .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+            background-color: @primary-color-6;
+            border: 1px solid @primary-color-6;
+        }
+
+        .ant-select-single.ant-select-sm:not(.ant-select-customize-input).ant-select-show-arrow
+            .ant-select-selection-item {
+            padding-right: 16px;
+        }
+
+        .ant-select-arrow {
+            right: 7px;
+        }
+    }
+}
+
+.optionContainer {
+    font-size: 12px;
+}
+
+.divider {
+    margin: 10px 0 !important;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.input {
+    display: flex;
+    width: auto;
+    height: 28px;
+    padding: 0 5px;
+    line-height: 28px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.textArea {
+    height: 100px;
+    background-color: @primary-color-6;
+    border-radius: 10px;
+
+    .label {
+        padding: 10px 20px;
+        opacity: 0.5;
+    }
+    .text {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        font-size: 20px;
+    }
+}
+
+.option {
+    font-size: 12px;
+}
+
+.inputNumber {
+    width: 80px !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.switchButton {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid rgba(168, 168, 168, 0.2);
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+        color: white;
+        border: 1px solid rgba(168, 168, 168, 0.5);
+    }
+}
+
+.switchIcon {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+}
+
+.history {
+    height: 100%;
+    margin-right: -4px;
+
+    :global {
+        .ant-spin-nested-loading,
+        .ant-spin-container {
+            height: 100%;
+        }
+    }
+
+    .list {
+        height: 90%;
+        padding-bottom: 20px;
+    }
+
+    .item {
+        width: 100%;
+        height: 78px;
+        padding: 2px 6px;
+        border-radius: 6px;
+
+        .action {
+            display: none;
+        }
+
+        &:hover {
+            background: rgba(128, 128, 128, 0.1);
+
+            .action {
+                display: inherit;
+            }
+        }
+    }
+
+    .deleteIcon {
+        .zp-icon();
+
+        &:hover {
+            color: red;
+        }
+    }
+}
+
+.menItem {
+    padding: 0 5px;
+    font-size: 12px;
+    &:hover {
+        background-color: #eaf2ff;
+    }
+}

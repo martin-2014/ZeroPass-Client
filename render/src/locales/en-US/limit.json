@@ -1,0 +1,8 @@
+{
+    "limit.max.32": "Maximum 32 characters",
+    "limit.max.64": "Maximum 64 characters",
+    "limit.max.128": "Maximum 128 characters",
+    "limit.max.255": "Maximum 255 characters",
+    "limit.max.50": "Maximum 50 characters",
+    "limit.max.2048": "Maximum 2048 characters"
+}

@@ -1,0 +1,140 @@
+# This file is a template, and might need editing before it works on your project.
+# To contribute improvements to CI/CD templates, please follow the Development guide at:
+# https://docs.gitlab.com/ee/development/cicd/templates.html
+# This specific template is located at:
+# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
+
+# This is a sample GitLab CI/CD configuration file that should run without any modifications.
+# It demonstrates a basic 3 stage CI/CD pipeline. Instead of real tests or scripts,
+# it uses echo commands to simulate the pipeline execution.
+#
+# A pipeline is composed of independent jobs that run scripts, grouped into stages.
+# Stages run in sequential order, but jobs within stages run in parallel.
+#
+# For more information, see: https://docs.gitlab.com/ee/ci/yaml/index.html#stages
+
+stages: # List of stages for jobs, and their order of execution
+    - build
+    - test
+    - analyze
+    - deploy
+
+variables:
+    SOURCE_FOLDER: "build/"
+    VERSTION_PREFIX: "1.3"
+    CURRENT_VERSION: "$VERSTION_PREFIX.$CI_PIPELINE_IID"
+    INSTALLER_PREFIX: "ZeroPass-Community"
+    CURRENT_INSTALLER: "$INSTALLER_PREFIX-$VERSTION_PREFIX.$CI_PIPELINE_IID.exe"
+    LATEST_INSTALLER: "$INSTALLER_PREFIX-latest.exe"
+
+build-job: # This job runs in the build stage, which runs first.
+    stage: build
+    script:
+        - echo "Compiling the code..."
+        - npm run render:install
+        - yarn
+        - npm run build
+        - npm run etsc
+        - echo "Compile complete."
+    cache:
+        paths:
+            - dist/
+        key: "$CI_COMMIT_REF_SLUG"
+
+unit-test-job: # This job runs in the test stage.
+    stage: test # It only starts when the job in the build stage completes successfully.
+    script:
+        - echo "Running unit tests..."
+        - npm run test
+        - echo "Test complete."
+    cache:
+        paths:
+            - dist/
+        key: "$CI_COMMIT_REF_SLUG"
+
+analyze-job:
+    stage: analyze
+    only:
+        - dev
+        - master
+        - /^release.*$/
+    script:
+        - sonar-scanner -Dsonar.projectKey=$CI_PROJECT_NAME:$CI_COMMIT_REF_NAME -Dsonar.projectName=$CI_PROJECT_NAME:$CI_COMMIT_REF_NAME
+
+deploy-dev: # This job runs in the deploy stage.
+    stage: deploy # It only runs when *both* jobs in the test stage complete successfully.
+    only:
+        - dev
+        - master
+        - /^release.*$/
+        - /^feature.*$/
+        - /^pre-release.*$/
+        - /^hotfix.*$/
+    script:
+        - npm run render:install
+        - yarn
+        - npm version $CURRENT_VERSION --no-git-tag --allow-same-version
+        - npm run electron-win:build:dev --BASE_URL=$DEV_BASE_URL --UPDATE_URL=$DEV_UPDATE_URL --CSC_PASSWORD=$CSC_PASSWORD --ETH_API_KEY=$ETH_API_KEY --BSC_API_KEY=$BSC_API_KEY --CRYPTOCOMPARE_API_KEY=$CRYPTOCOMPARE_API_KEY
+        - cp $SOURCE_FOLDER$CURRENT_INSTALLER $SOURCE_FOLDER$LATEST_INSTALLER
+        - AWS_ACCESS_KEY_ID=$DEV_AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$DEV_AWS_SECRET_ACCESS_KEY aws s3 cp $SOURCE_FOLDER s3://zeropass-community-app-dev-$DEV_AWS_DEFAULT_REGION --recursive --exclude "*/*" --acl public-read
+    environment:
+        name: development
+        url: https://development.example.com
+    when: manual
+
+deploy-test: # This job runs in the deploy stage.
+    stage: deploy # It only runs when *both* jobs in the test stage complete successfully.
+    only:
+        - dev
+        - master
+        - /^release.*$/
+        - /^feature.*$/
+        - /^pre-release.*$/
+        - /^hotfix.*$/
+    script:
+        - npm run render:install
+        - yarn
+        - npm version $CURRENT_VERSION --no-git-tag --allow-same-version
+        - npm run electron-win:build:dev --BASE_URL=$TEST_BASE_URL --UPDATE_URL=$TEST_UPDATE_URL --CSC_PASSWORD=$CSC_PASSWORD --ETH_API_KEY=$ETH_API_KEY --BSC_API_KEY=$BSC_API_KEY --CRYPTOCOMPARE_API_KEY=$CRYPTOCOMPARE_API_KEY
+        - cp $SOURCE_FOLDER$CURRENT_INSTALLER $SOURCE_FOLDER$LATEST_INSTALLER
+        - AWS_ACCESS_KEY_ID=$DEV_AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$DEV_AWS_SECRET_ACCESS_KEY aws s3 cp $SOURCE_FOLDER s3://zeropass-community-app-test-$DEV_AWS_DEFAULT_REGION --recursive --exclude "*/*" --acl public-read
+    environment:
+        name: testing
+        url: https://testing.example.com
+    when: manual
+
+deploy-staging: # This job runs in the deploy stage.
+    stage: deploy # It only runs when *both* jobs in the test stage complete successfully.
+    only:
+        - master
+        - /^release.*$/
+        - /^hotfix.*$/
+    script:
+        - npm run render:install
+        - yarn
+        - npm version $CURRENT_VERSION --no-git-tag --allow-same-version
+        - npm run electron-win:build --BASE_URL=$STAGING_BASE_URL --UPDATE_URL=$STAGING_UPDATE_URL --CSC_PASSWORD=$CSC_PASSWORD --ETH_API_KEY=$ETH_API_KEY --BSC_API_KEY=$BSC_API_KEY --CRYPTOCOMPARE_API_KEY=$CRYPTOCOMPARE_API_KEY
+        - cp $SOURCE_FOLDER$CURRENT_INSTALLER $SOURCE_FOLDER$LATEST_INSTALLER
+        - AWS_ACCESS_KEY_ID=$PROD_AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$PROD_AWS_SECRET_ACCESS_KEY aws s3 cp $SOURCE_FOLDER s3://zeropass-community-app-staging-$PROD_AWS_DEFAULT_REGION --recursive --exclude "*/*" --acl public-read
+    environment:
+        name: staging
+        url: https://staging.example.com
+    when: manual
+
+deploy-prod: # This job runs in the deploy stage.
+    stage: deploy # It only runs when *both* jobs in the test stage complete successfully.
+    only:
+        - master
+        - /^release.*$/
+        - /^hotfix.*$/
+    script:
+        - npm run render:install
+        - yarn
+        - npm version $CURRENT_VERSION --no-git-tag --allow-same-version
+        - npm run electron-win:build --BASE_URL=$PROD_BASE_URL --UPDATE_URL=$PROD_UPDATE_URL --CSC_PASSWORD=$CSC_PASSWORD --ETH_API_KEY=$ETH_API_KEY --BSC_API_KEY=$BSC_API_KEY --CRYPTOCOMPARE_API_KEY=$CRYPTOCOMPARE_API_KEY
+        - cp $SOURCE_FOLDER$CURRENT_INSTALLER $SOURCE_FOLDER$LATEST_INSTALLER
+        - AWS_ACCESS_KEY_ID=$PROD_AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$PROD_AWS_SECRET_ACCESS_KEY aws s3 cp $SOURCE_FOLDER s3://zeropass-community-app-prod-$PROD_AWS_DEFAULT_REGION --recursive --exclude "*/*" --acl public-read
+    environment:
+        name: production
+        url: https://production.example.com
+    when: manual

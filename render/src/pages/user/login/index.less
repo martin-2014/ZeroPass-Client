@@ -1,0 +1,154 @@
+@import '~antd/es/style/themes/default.less';
+@import '~@/themes.less';
+
+.toolbar {
+    &:hover {
+        background-color: #e5e5e5;
+    }
+}
+.More {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    &:hover {
+        background: #e5e5e5;
+        border-radius: 5px;
+    }
+}
+.main {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    background-image: @zp-header-background;
+    :global {
+        .ant-upload-select-text {
+            width: 100%;
+        }
+        .ant-form-item {
+            padding-bottom: 6px;
+        }
+    }
+
+    .appDrag {
+        position: absolute;
+        width: 100%;
+        height: 60px;
+        -webkit-app-region: drag;
+    }
+
+    .appNoDrag {
+        display: flex;
+        align-items: center;
+        float: right;
+        width: fit-content;
+        -webkit-app-region: no-drag;
+    }
+
+    .left {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        color: white;
+        background-image: url(../../../../public/background.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .leftTop {
+            display: flex;
+            flex: 0.34;
+
+            img {
+                margin: auto;
+                margin-bottom: 5%;
+            }
+        }
+
+        .leftMid {
+            display: flex;
+            flex: 0.32;
+            width: 100%;
+            .content {
+                height: fit-content;
+                margin: auto 10% auto 10%;
+                .header {
+                    margin-bottom: 10px;
+                    font-weight: 400;
+                    font-size: 32px;
+                    text-align: center;
+                }
+            }
+        }
+
+        .leftBot {
+            flex: 0.34;
+            margin-top: 9%;
+        }
+    }
+
+    .right {
+        width: 436px;
+
+        background-color: white;
+        border-top-left-radius: @zp-border-radius;
+        border-bottom-left-radius: @zp-border-radius;
+
+        .login {
+            position: relative;
+            top: 25.8%;
+            height: fit-content;
+            margin: 0 60px;
+        }
+
+        .img {
+            margin-bottom: 56px;
+            font-size: 48px;
+            text-align: center;
+        }
+
+        .uploadSwitch {
+            margin-top: -10px;
+            margin-bottom: -6px;
+            text-align: center;
+        }
+
+        .uploadSwitchIcon {
+            color: @primary-color-5;
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .fileInput {
+            z-index: 99;
+            margin: 24px 0 0 0;
+            padding-right: 2px;
+            background-color: @primary-color-6;
+            border: 1px solid @primary-color-6;
+            border-radius: 2px;
+            cursor: pointer;
+            &:hover {
+                border: 1px solid @primary-default;
+                border-radius: 2px;
+            }
+        }
+
+        .fileInputError {
+            height: 30px;
+            color: @primary-color-error;
+        }
+
+        .uploadIcon {
+            margin-top: 4px;
+            color: @primary-color-5;
+            font-size: 22px;
+        }
+
+        .prefix {
+            margin-left: -4px;
+            font-size: 22px;
+            opacity: 0.3;
+        }
+    }
+}

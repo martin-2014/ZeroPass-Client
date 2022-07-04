@@ -1,0 +1,12 @@
+{
+    "reports.list.privilege": "權限",
+    "reports.list.lastUsed": "最後使用時間",
+    "reports.list.app.privilege.canAssign": "可分享",
+    "reports.list.app.privilege.accessOnly": "可訪問",
+    "reports.list.userType": "用戶類型",
+    "reports.button.export": "導出",
+    "reports.title.login": "賬戶密碼分配報告",
+    "reports.web.login": "賬戶密碼",
+    "reports.assignee": "受讓人",
+    "reports.permission": "權限"
+}

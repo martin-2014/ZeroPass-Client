@@ -1,0 +1,16 @@
+{
+    "pages.login.password.required": "Per favore inserisci la tua password",
+    "pages.login.submit": "Login",
+    "pages.searchTable.new": "Nuovo",
+    "pages.searchTable.import": "Importare",
+    "pages.searchTable.export": "Esportare",
+    "pages.import.upload.title": "Fare clic o trascinare il file in quest'area per caricarlo",
+    "pages.import.empty.error": "Il file CSV è obbligatorio",
+    "pages.import.format.error": "Il formato del file CSV non è corretto o i dati sono vuoti",
+    "pages.import.errorList.download": "Scarica i dettagli dell'errore",
+    "pages.import.hint.line1.before": "Si prega di scaricare il",
+    "pages.import.hint.line1.middle": "modello di importazione (.csv)",
+    "pages.import.hint.line1.after": "e compila il modello secondo i requisiti prima di caricare.",
+    "pages.import.hint.line2": "Sono supportati solo i file con suffisso csv, la dimensione del file è limitata a 10 M e il numero di voci importate ogni volta non supera 300.",
+    "pages.import.inProgress.hint": "Importazione dati in corso..."
+}

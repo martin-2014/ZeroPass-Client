@@ -1,0 +1,18 @@
+{
+    "overview.top.appUsed": "使用最多的账户密码",
+    "overview.top.appView": "账户密码使用排行榜",
+    "overview.top.today": "今天",
+    "overview.top.week": "周",
+    "overview.top.month": "月",
+    "overview.top.year": "年",
+    "overview.count.app": "账户密码",
+    "overview.count.user": "用户",
+    "overview.count.machine": "设备环境",
+    "overview.invite.title": "邀请",
+    "overview.invite.info": "等待同意",
+    "overview.invite.approve": "同意",
+    "overview.invite.reject": "拒绝",
+    "overview.invite.more": "更多...",
+    "overview.password.title": "密码监控",
+    "overview.password.info": "易受攻击密码"
+}

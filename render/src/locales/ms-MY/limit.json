@@ -1,0 +1,8 @@
+{
+    "limit.max.32": "Sehingga 32 aksara",
+    "limit.max.64": "Sehingga 64 aksara",
+    "limit.max.128": "Sehingga 128 aksara",
+    "limit.max.255": "Maksimum 255 aksara",
+    "limit.max.50": "Maksimum 50 aksara",
+    "limit.max.2048": "Sehingga 2048 aksara"
+}

@@ -1,0 +1,15 @@
+{
+    "notification.title": "Notifications",
+    "notification.title.count": "Notifications ({messageCount})",
+    "notification.clear": "Clear",
+    "notification.invitation.received.title": "Invitation Received",
+    "notification.invitation.received.message": "You are invited to join company {domainName} ({companyName}).",
+    "notification.invitation.rejected.title": "Invitation Rejected",
+    "notification.invitation.rejected.message": "{userEmail} has rejected to join company {domainName} ({companyName}).",
+    "notification.joindomain.pending.title": "Pending To Join",
+    "notification.joindomain.pending.message": "{userEmail} is pending to join company {domainName} ({companyName}). Please go to [Admin Console]->[User] to approve or reject.",
+    "notification.joindomain.approved.title": "Welcom To Join Company",
+    "notification.joindomain.approved.message": "You are approved to join company {domainName} ({companyName}). Before you can participate in the company, you need to log out and log in again.",
+    "notification.joindomain.rejected.title": "Rejected To Join Company",
+    "notification.joindomain.rejected.message": "You are rejected to join company {domainName} ({companyName})."
+}

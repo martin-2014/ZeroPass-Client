@@ -1,0 +1,9 @@
+{
+    "groups.groups": "グループリスト",
+    "groups.group": "グループ",
+    "groups.groupName": "グループ名",
+    "groups.editGroup": "改訂グループ",
+    "groups.groupMembers": "グループメンバー",
+    "groups.requireName": "グループ名を入力してください",
+    "groups.description": "説明"
+}

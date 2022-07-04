@@ -1,0 +1,23 @@
+{
+    "userProfile.email": "Mel",
+    "userProfile.userName": "nama",
+    "userProfile.timezone": "Zon masa",
+    "userProfile.userType": "Jenis Akaun",
+    "userProfile.userName.required": "Nama tidak boleh kosong",
+    "userProfile.timeZone.required": "Zon waktu tidak boleh kosong",
+    "userProfile.userType.standard": "mencuba",
+    "userProfile.userType.basic": "Edisi Asas",
+    "userProfile.divider.accountBasic": "Maklumat asas",
+    "userProfile.divider.secretKey": "kunci log masuk",
+    "userProfile.divider.secretKey.copy": "salin ke papan keratan",
+    "userProfile.divider.secretKey.copy.success": "disalin",
+    "userProfile.divider.secretKey.or": "atau",
+    "userProfile.divider.secretKey.download": "Muat turun ke cakera tempatan",
+    "userProfile.secretKey.notFound.error": "Kunci log masuk tidak ditemui",
+    "userProfile.divider.secretKey.copy.tip": "Salin kekunci log masuk ke papan keratan, kemudian anda boleh menampalnya ke dalam fail yang perlu anda simpan.",
+    "userProfile.divider.secretKey.download.tip": "Kunci log masuk ditulis pada fail, anda hanya perlu memuat turun dan menyimpan fail tersebut.",
+    "userProfile.divider.settings": "sediakan",
+    "userProfile.title": "Maklumat Akaun",
+    "userProfile.photo": "foto",
+    "userProfile.edit.image": "Edit gambar"
+}

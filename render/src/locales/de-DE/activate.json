@@ -1,0 +1,12 @@
+{
+    "activate.reset.password": "Passwort erneut eingeben",
+    "activate.reset.password.required": "Geben Sie das Passwort bitte erneut ein",
+    "activate.same.password": "Bitte stellen Sie sicher, dass Ihre Kennwörter übereinstimmen",
+    "activate.result.content": "Sie MÜSSEN den geheimen Schlüssel speichern und ihn JETZT sicher aufbewahren! Obwohl diese App beim Speichern des Schlüssels hilft, müssen Sie ihn dennoch angeben, wenn Sie ZeroPass von einem neuen Gerät aus verwenden.",
+    "activate.result.download": "Laden Sie Ihren geheimen Schlüssel herunter und speichern Sie ihn",
+    "activate.result.title": "Geheimer Schlüssel erstellt",
+    "activate.result.tips": "Bitte kopieren oder laden Sie den Schlüssel herunter, bevor Sie gehen!",
+    "activate.copy.success": "Erfolgreich kopiert",
+    "activate.result.message.copy": "Geheimen Schlüssel kopieren",
+    "activate.result.message.download": "Oder herunterladen"
+}

@@ -1,0 +1,12 @@
+{
+    "reports.list.privilege": "sự cho phép",
+    "reports.list.lastUsed": "thời gian sử dụng cuối cùng",
+    "reports.list.app.privilege.canAssign": "Có thể chia sẻ",
+    "reports.list.app.privilege.accessOnly": "có thể truy cập",
+    "reports.list.userType": "kiểu người dùng",
+    "reports.button.export": "xuất khẩu",
+    "reports.title.login": "Báo cáo chỉ định mật khẩu tài khoản",
+    "reports.web.login": "mật khẩu tài khoản",
+    "reports.assignee": "người được giao",
+    "reports.permission": "sự cho phép"
+}

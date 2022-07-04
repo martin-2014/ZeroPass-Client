@@ -1,0 +1,18 @@
+{
+    "overview.top.appUsed": "Accesso per lo più utilizzato",
+    "overview.top.appView": "Classifica visualizzazioni di accesso",
+    "overview.top.today": "In data odierna",
+    "overview.top.week": "Settimana",
+    "overview.top.month": "Mese",
+    "overview.top.year": "Anno",
+    "overview.count.app": "Login",
+    "overview.count.user": "Utente",
+    "overview.count.machine": "Contenitore del cliente",
+    "overview.invite.title": "Inviti",
+    "overview.invite.info": "In attesa di approvazione",
+    "overview.invite.approve": "Approvare",
+    "overview.invite.reject": "Rifiutare",
+    "overview.invite.more": "Di più...",
+    "overview.password.title": "Monitoraggio password",
+    "overview.password.info": "Password vulnerabili"
+}

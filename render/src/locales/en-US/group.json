@@ -1,0 +1,9 @@
+{
+    "groups.groups": "Team",
+    "groups.group": "Team",
+    "groups.groupName": "Team Name",
+    "groups.editGroup": "Edit Team",
+    "groups.groupMembers": "Team Members",
+    "groups.requireName": "Please input your team name",
+    "groups.description": "Description"
+}
