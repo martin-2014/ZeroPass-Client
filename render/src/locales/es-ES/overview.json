@@ -1,0 +1,18 @@
+{
+    "overview.top.appUsed": "Principalmente utilizado Inicio de sesión",
+    "overview.top.appView": "Clasificación de vistas de inicio de sesión",
+    "overview.top.today": "Este Dia",
+    "overview.top.week": "Semana",
+    "overview.top.month": "Mes",
+    "overview.top.year": "Año",
+    "overview.count.app": "Acceso",
+    "overview.count.user": "Usuario",
+    "overview.count.machine": "Contenedor de cliente",
+    "overview.invite.title": "Invitaciones",
+    "overview.invite.info": "En espera de aprobación",
+    "overview.invite.approve": "Aprobar",
+    "overview.invite.reject": "Rechazar",
+    "overview.invite.more": "Más...",
+    "overview.password.title": "Supervisión de contraseñas",
+    "overview.password.info": "Contraseñas vulnerables"
+}

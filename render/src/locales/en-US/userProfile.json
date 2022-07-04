@@ -1,0 +1,23 @@
+{
+    "userProfile.email": "Email",
+    "userProfile.userName": "Full Name",
+    "userProfile.timezone": "Time Zone",
+    "userProfile.userType": "Subscription Type",
+    "userProfile.userName.required": "User Name is Required",
+    "userProfile.timeZone.required": "Time Zone is Required",
+    "userProfile.userType.standard": "Pilot",
+    "userProfile.userType.basic": "Basic",
+    "userProfile.divider.accountBasic": "Basic",
+    "userProfile.divider.secretKey": "Secret Key",
+    "userProfile.divider.secretKey.copy": "Copy to clipboard",
+    "userProfile.divider.secretKey.copy.success": "Copied",
+    "userProfile.divider.secretKey.or": "Or",
+    "userProfile.divider.secretKey.download": "Download to disk",
+    "userProfile.secretKey.notFound.error": "Secret key not found",
+    "userProfile.divider.secretKey.copy.tip": "Copy the secret key to clipboard and then you can paste it into the file you want to save.",
+    "userProfile.divider.secretKey.download.tip": "The secret key is written to a file, which you just need to download and save.",
+    "userProfile.divider.settings": "Settings",
+    "userProfile.title": "Account Profile",
+    "userProfile.photo": "Photo",
+    "userProfile.edit.image": "Edit Image"
+}

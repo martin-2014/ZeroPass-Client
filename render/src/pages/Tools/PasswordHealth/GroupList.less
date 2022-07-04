@@ -1,0 +1,47 @@
+@import '~@/themes.less';
+
+.headerWrapper {
+    width: 100%;
+    border-bottom: 1px solid #f0f0f0;
+}
+.headerContainer {
+    flex: 1;
+}
+.ul {
+    margin: 0;
+    padding: 0;
+}
+.li {
+    margin-top: 5px;
+}
+.groupWrapper {
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+.groupTitle {
+    padding-left: 10px;
+    user-select: none;
+    cursor: pointer;
+    &:hover {
+        .btn {
+        color: @primary-color-5;
+        }
+    }
+}
+.content {
+    flex: 1;
+}
+
+.wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    transition: .2s;
+    margin-right: 5px;
+}
+.expanded {
+    transform: rotate(90deg);
+}

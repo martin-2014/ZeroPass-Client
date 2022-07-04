@@ -1,0 +1,18 @@
+{
+    "overview.top.appUsed": "Mật khẩu tài khoản được sử dụng nhiều nhất",
+    "overview.top.appView": "Thứ hạng sử dụng mật khẩu tài khoản",
+    "overview.top.today": "hôm nay",
+    "overview.top.week": "tuần",
+    "overview.top.month": "mặt trăng",
+    "overview.top.year": "năm",
+    "overview.count.app": "mật khẩu tài khoản",
+    "overview.count.user": "người sử dụng",
+    "overview.count.machine": "Môi trường thiết bị",
+    "overview.invite.title": "mời",
+    "overview.invite.info": "Đang chờ sự đồng ý",
+    "overview.invite.approve": "đồng ý",
+    "overview.invite.reject": "Từ chối",
+    "overview.invite.more": "Hơn...",
+    "overview.password.title": "Giám sát mật khẩu",
+    "overview.password.info": "Mật khẩu dễ bị tổn thương"
+}

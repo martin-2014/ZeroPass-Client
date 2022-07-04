@@ -1,0 +1,15 @@
+{
+    "notification.title": "Notis",
+    "notification.title.count": "Pemberitahuan ({messageCount})",
+    "notification.clear": "kosong",
+    "notification.invitation.received.title": "menerima jemputan",
+    "notification.invitation.received.message": "Anda telah dijemput untuk menyertai syarikat {domainName}({companyName}).",
+    "notification.invitation.rejected.title": "jemputan ditolak",
+    "notification.invitation.rejected.message": "{userEmail} telah menolak untuk menyertai syarikat {domainName} ({companyName}).",
+    "notification.joindomain.pending.title": "Menunggu untuk menyertai syarikat",
+    "notification.joindomain.pending.message": "{userEmail} sedang menunggu untuk menyertai syarikat {domainName}({companyName}). Sila pergi ke [Pengurusan Syarikat]->[Pengguna] untuk kelulusan.",
+    "notification.joindomain.approved.title": "Selamat datang ke syarikat",
+    "notification.joindomain.approved.message": "Anda telah diluluskan untuk menyertai syarikat {domainName}({companyName}). Selepas log masuk semula, anda boleh mengakses syarikat yang ditambahkan.",
+    "notification.joindomain.rejected.title": "enggan menyertai syarikat itu",
+    "notification.joindomain.rejected.message": "Anda telah dinafikan akses kepada syarikat {domainName}({companyName})."
+}

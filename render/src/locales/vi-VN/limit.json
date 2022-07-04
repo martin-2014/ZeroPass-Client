@@ -1,0 +1,8 @@
+{
+    "limit.max.32": "Lên đến 32 ký tự",
+    "limit.max.64": "Lên đến 64 ký tự",
+    "limit.max.128": "Lên đến 128 ký tự",
+    "limit.max.255": "Tối đa 255 ký tự",
+    "limit.max.50": "Tối đa 50 ký tự",
+    "limit.max.2048": "Lên đến 2048 ký tự"
+}

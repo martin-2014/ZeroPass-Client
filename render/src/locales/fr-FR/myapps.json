@@ -1,0 +1,12 @@
+{
+    "myapps.remove.star": "Supprimer de l'étoile",
+    "myapps.add.star": "Ajouter à l'étoile",
+    "myapps.title.name": "Mes applications favorites",
+    "myapps.title.alias": "Alias",
+    "myapps.title.url": "URL",
+    "myapps.title.machine": "Conteneur client",
+    "myapps.alias.tips": "La définition d'alias peut vous aider à trouver rapidement des applications",
+    "myapps.title": "Mon application",
+    "myapps.title.star": "Étoile",
+    "myapps.all.app": "Toutes mes applications"
+}

@@ -1,0 +1,108 @@
+.main {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    min-width: 216px;
+    max-width: 360px;
+    min-height: 72px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 15px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+}
+
+.show {
+    -webkit-animation: fadeIn 0.5s infinite;
+    animation: fadeIn 0.5s infinite;
+    animation-iteration-count: 1;
+}
+
+.hide {
+    -webkit-animation: fadeOut 0.5s infinite;
+    animation: fadeOut 0.5s infinite;
+    animation-iteration-count: 1;
+}
+
+.close {
+    float: right;
+    padding-right: 4px;
+    cursor: pointer;
+}
+
+.body {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+
+    .wrapper {
+        display: flex;
+        margin: auto;
+    }
+
+    .icon {
+        display: flex;
+        align-items: center;
+        width: 44px;
+        padding-right: 6px;
+        font-size: 38px;
+    }
+
+    .content {
+        flex: 1;
+        margin-top: auto;
+        margin-bottom: auto;
+        word-break: break-word;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        top: 0px;
+        opacity: 0;
+    }
+    to {
+        top: 40px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn /*Safari and Chrome*/ {
+    from {
+        top: 0px;
+        opacity: 0;
+    }
+    to {
+        top: 40px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        top: 40px;
+        opacity: 1;
+    }
+    to {
+        top: 0px;
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes fadeOut /*Safari and Chrome*/ {
+    from {
+        top: 40px;
+        opacity: 1;
+    }
+    to {
+        top: 0px;
+        opacity: 0;
+    }
+}

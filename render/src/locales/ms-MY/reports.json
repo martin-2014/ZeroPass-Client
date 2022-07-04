@@ -1,0 +1,12 @@
+{
+    "reports.list.privilege": "kebenaran",
+    "reports.list.lastUsed": "masa penggunaan terakhir",
+    "reports.list.app.privilege.canAssign": "Boleh dikongsi",
+    "reports.list.app.privilege.accessOnly": "boleh diakses",
+    "reports.list.userType": "jenis pengguna",
+    "reports.button.export": "eksport",
+    "reports.title.login": "Laporan Penetapan Kata Laluan Akaun",
+    "reports.web.login": "kata laluan akaun",
+    "reports.assignee": "penerima tugasan",
+    "reports.permission": "kebenaran"
+}

@@ -1,0 +1,16 @@
+{
+    "pages.login.password.required": "パスワードが必要です！",
+    "pages.login.submit": "ログイン",
+    "pages.searchTable.new": "追加",
+    "pages.searchTable.import": "インポート",
+    "pages.searchTable.export": "エクスポート",
+    "pages.import.upload.title": "ファイルをクリックまたはドラッグして、ここにアップロードします",
+    "pages.import.empty.error": "CSVファイルが必要です",
+    "pages.import.format.error": "CSVファイルの形式が正しくないか空です",
+    "pages.import.errorList.download": "エラーの詳細をダウンロード",
+    "pages.import.hint.line1.before": "ダウンロードしてください",
+    "pages.import.hint.line1.middle": "テンプレートのインポート（.csv）",
+    "pages.import.hint.line1.after": "次に、必要に応じて対応するフィールド値を入力します。",
+    "pages.import.hint.line2": "csvファイルのみがサポートされており、ファイルサイズは10Mを超えず、毎回インポートされるデータの量は300を超えません。",
+    "pages.import.inProgress.hint": "データをインポートしています..."
+}

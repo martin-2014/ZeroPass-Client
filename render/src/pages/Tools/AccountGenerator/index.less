@@ -1,0 +1,77 @@
+.body {
+    padding: 10px 25px;
+    font-size: 12px;
+}
+
+.title {
+    margin-bottom: 22px;
+    font-size: 16px;
+}
+.row {
+    &:hover {
+        .icon {
+            display: block;
+        }
+    }
+}
+
+.icon {
+    display: none;
+}
+
+.header {
+    :global {
+        .ant-form {
+            color: rgba(0, 0, 0, 0.8);
+            font-size: 12px;
+        }
+        .ant-form-item {
+            margin-bottom: 0;
+        }
+        .ant-form > .ant-row {
+            padding: 3px 0;
+        }
+        .ant-input,
+        .ant-input-number {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .ant-form-item-explain {
+            display: none;
+        }
+    }
+
+    .label {
+        margin-bottom: 5px;
+    }
+
+    .buttomContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        height: 100%;
+        padding: 4px;
+    }
+}
+
+.content {
+    :global {
+        .ant-table {
+            font-size: 12px;
+        }
+        .ant-table-thead {
+            line-height: 2.5;
+            vertical-align: bottom;
+        }
+        .ant-table-cell {
+            height: 45px !important;
+            padding: 0 10px !important;
+        }
+        .ant-pagination-options {
+            display: none;
+        }
+        .ant-table-pagination {
+            font-size: 12px;
+        }
+    }
+}

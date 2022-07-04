@@ -1,0 +1,18 @@
+{
+    "overview.top.appUsed": "Kata laluan akaun yang paling banyak digunakan",
+    "overview.top.appView": "Kedudukan penggunaan kata laluan akaun",
+    "overview.top.today": "hari ini",
+    "overview.top.week": "minggu",
+    "overview.top.month": "bulan",
+    "overview.top.year": "tahun",
+    "overview.count.app": "kata laluan akaun",
+    "overview.count.user": "pengguna",
+    "overview.count.machine": "Persekitaran peralatan",
+    "overview.invite.title": "jemput",
+    "overview.invite.info": "Menunggu persetujuan",
+    "overview.invite.approve": "setuju",
+    "overview.invite.reject": "menolak",
+    "overview.invite.more": "Lagi...",
+    "overview.password.title": "Pemantauan kata laluan",
+    "overview.password.info": "Kata laluan terdedah"
+}

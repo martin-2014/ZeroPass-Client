@@ -1,0 +1,107 @@
+@import '~antd/es/style/themes/default.less';
+
+.list {
+    max-height: 400px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    .item {
+        padding-right: 24px;
+        padding-left: 24px;
+        overflow: hidden;
+        color: var(--notification-font-color);
+        border-bottom-color: var(--notification-item-border-color);
+        cursor: pointer;
+        transition: all 0.3s;
+        .meta {
+            width: 100%;
+        }
+        .avatar {
+            margin-top: 4px;
+            background: @component-background;
+        }
+        .iconElement {
+            font-size: 32px;
+        }
+
+        &.read {
+            opacity: 0.4;
+        }
+        &:last-child {
+            border-bottom: 0;
+        }
+        &:hover {
+            background: @primary-1;
+            background-color: var(--notification-item-hover-backgroud-color);
+        }
+        .title {
+            margin-bottom: 8px;
+            color: var(--notification-font-color);
+            font-weight: normal;
+        }
+        .description {
+            color: var(--notification-font-color);
+            font-size: 12px;
+            line-height: @line-height-base;
+        }
+        .datetime {
+            margin-top: 4px;
+            color: var(--notification-font-color);
+            font-size: 12px;
+            line-height: @line-height-base;
+        }
+        .extra {
+            float: right;
+            margin-top: -1.5px;
+            margin-right: 0;
+            color: @text-color-secondary;
+            font-weight: normal;
+        }
+    }
+    .loadMore {
+        padding: 8px 0;
+        color: @primary-6;
+        text-align: center;
+        cursor: pointer;
+        &.loadedAll {
+            color: rgba(0, 0, 0, 0.25);
+            cursor: unset;
+        }
+    }
+}
+
+.notFound {
+    padding: 73px 0 88px;
+    color: @text-color-secondary;
+    text-align: center;
+    img {
+        display: inline-block;
+        height: 76px;
+        margin-bottom: 16px;
+    }
+}
+
+.bottomBar {
+    height: 46px;
+    color: @text-color;
+    line-height: 46px;
+    text-align: center;
+    border-top: 1px solid var(--notification-item-border-color);
+    border-radius: 0 0 @border-radius-base @border-radius-base;
+    transition: all 0.3s;
+    padding-top: 10px;
+    div {
+        width: 50%;
+        cursor: pointer;
+        transition: all 0.3s;
+        user-select: none;
+
+        &:only-child {
+            width: 100%;
+        }
+        &:not(:only-child):last-child {
+            border-left: 1px solid @border-color-split;
+        }
+    }
+}

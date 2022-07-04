@@ -1,0 +1,18 @@
+{
+    "overview.top.appUsed": "รหัสผ่านบัญชีที่ใช้มากที่สุด",
+    "overview.top.appView": "อันดับการใช้รหัสผ่านบัญชี",
+    "overview.top.today": "วันนี้",
+    "overview.top.week": "สัปดาห์",
+    "overview.top.month": "ดวงจันทร์",
+    "overview.top.year": "ปี",
+    "overview.count.app": "รหัสผ่านบัญชี",
+    "overview.count.user": "ผู้ใช้",
+    "overview.count.machine": "สภาพแวดล้อมของอุปกรณ์",
+    "overview.invite.title": "เชิญชวน",
+    "overview.invite.info": "รอการยินยอม",
+    "overview.invite.approve": "เห็นด้วย",
+    "overview.invite.reject": "ปฏิเสธ",
+    "overview.invite.more": "มากกว่า...",
+    "overview.password.title": "การตรวจสอบรหัสผ่าน",
+    "overview.password.info": "รหัสผ่านที่มีช่องโหว่"
+}

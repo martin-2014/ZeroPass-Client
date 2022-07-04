@@ -1,0 +1,17 @@
+{
+    "domain.profile.img.type": "Você só pode fazer upload de arquivos PNG/JPG/SVG",
+    "domain.profile.img.size.max": "A imagem deve ter menos de 2 MB",
+    "domain.profile.logo.tips": "Faça upload de um ícone quadrado menor que 2 MB como um .PNG transparente ou .JPG ou .SVG",
+    "domainProfile.upload": "Envio",
+    "domainProfile.title": "Definições",
+    "domainProfile.logo": "Logo da empresa",
+    "domainProfile.domainName": "Nome do domínio",
+    "domainProfile.companyName": "nome da empresa",
+    "domainProfile.contactPerson": "Nome da pessoa de contato",
+    "domainProfile.contactPhone": "Telefone da pessoa de contato",
+    "domainProfile.country": "País/Região",
+    "domainProfile.companyName.required": "O nome da empresa é obrigatório",
+    "domainProfile.contactPerson.required": "O nome é obrigatório",
+    "domainProfile.contactPhone.required": "O telefone é obrigatório",
+    "domainProfile.country.required": "O país/região é obrigatório"
+}

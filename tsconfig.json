@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "module": "ES6",
+        "noImplicitAny": false,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "outDir": "./dist",
+        "target": "esnext",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "noEmit": true,
+        "resolveJsonModule": true
+    },
+    "include": [
+        "src/**/*",
+        "render/src/embeddedBrowser/**/*",
+        "render/src/.hub/*",
+        "typing.d.ts"
+    ],
+    "exclude": ["node_modules"]
+}

@@ -1,0 +1,12 @@
+{
+    "activate.reset.password": "Nhập lại mật khẩu",
+    "activate.reset.password.required": "Vui lòng nhập lại mật khẩu",
+    "activate.same.password": "Vui lòng nhập cùng một mật khẩu",
+    "activate.result.content": "Bây giờ bạn phải lưu khóa và giữ nó an toàn, vì mỗi khi bạn sử dụng ZeroPass từ một thiết bị mới, bạn sẽ cần cung cấp khóa để truy cập miền.",
+    "activate.result.download": "Tải xuống và lưu khóa của bạn",
+    "activate.result.title": "khóa được tạo",
+    "activate.result.tips": "Vui lòng sao chép hoặc tải xuống key trước khi rời đi!",
+    "activate.copy.success": "Sao chép thành công",
+    "activate.result.message.copy": "Sao chép khóa vào bảng dán",
+    "activate.result.message.download": "hoặc tải xuống"
+}

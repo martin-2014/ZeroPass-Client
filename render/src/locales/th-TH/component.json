@@ -1,0 +1,9 @@
+{
+    "component.invitation.ignore": "กระโดดข้าม",
+    "component.invitation.reject": "ปฏิเสธ",
+    "component.invitation.accept": "ยอมรับ",
+    "component.invitation.title": "เชิญชวน",
+    "component.invitation.message": "คุณได้รับเชิญให้เข้าร่วม {domainName}({company}) บน ZeroPass",
+    "component.tag.newTag.placeholder": "เข้าที่นี่",
+    "component.domain.switch.title": "เปลี่ยนบริษัท"
+}

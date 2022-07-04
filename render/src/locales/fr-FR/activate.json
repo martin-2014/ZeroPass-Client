@@ -1,0 +1,12 @@
+{
+    "activate.reset.password": "Retaper le mot de passe",
+    "activate.reset.password.required": "Veuillez retaper le mot de passe",
+    "activate.same.password": "Merci de vérifier que vos mots de passe correspondent",
+    "activate.result.content": "Vous DEVEZ enregistrer la clé secrète et la garder en sécurité MAINTENANT ! Bien que cette application vous aide à enregistrer la clé, vous devez toujours la fournir lorsque vous utilisez ZeroPass à partir d'un nouvel appareil.",
+    "activate.result.download": "Téléchargez et enregistrez votre clé secrète",
+    "activate.result.title": "Clé secrète créée",
+    "activate.result.tips": "Veuillez copier ou télécharger la clé avant de partir !",
+    "activate.copy.success": "Copié avec succès",
+    "activate.result.message.copy": "Copier la clé secrète",
+    "activate.result.message.download": "Ou Télécharger"
+}

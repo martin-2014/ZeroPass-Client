@@ -1,0 +1,8 @@
+{
+    "about.upgrade": "升级",
+    "about.upgrade.tip": "应用会自动关闭，然后安装新版本",
+    "about.upgrade.automatically": "当有更新的时候通知我",
+    "about.message.privacy": "隐私说明",
+    "about.message.copyright": "Copyright 2022 zpassapp.com 版权所有",
+    "about.message.user.service": "服务条款"
+}

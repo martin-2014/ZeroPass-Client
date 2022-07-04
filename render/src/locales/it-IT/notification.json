@@ -1,0 +1,15 @@
+{
+    "notification.title": "Notifiche",
+    "notification.title.count": "Notifiche ({messageCount})",
+    "notification.clear": "Chiaro",
+    "notification.invitation.received.title": "Invito ricevuto",
+    "notification.invitation.received.message": "Sei invitato a entrare a far parte dell'azienda {domainName} ({companyName}).",
+    "notification.invitation.rejected.title": "Invito rifiutato",
+    "notification.invitation.rejected.message": "{userEmail} ha rifiutato di entrare a far parte dell'azienda {domainName} ({companyName}).",
+    "notification.joindomain.pending.title": "In attesa di adesione",
+    "notification.joindomain.pending.message": "{userEmail} è in attesa di entrare a far parte dell'azienda {domainName} ({companyName}). Vai su [Admin Console]->[Utente] per approvare o rifiutare.",
+    "notification.joindomain.approved.title": "Benvenuto per entrare a far parte dell'azienda",
+    "notification.joindomain.approved.message": "Sei autorizzato a entrare a far parte dell'azienda {domainName} ({companyName}). Prima di poter partecipare all'azienda, è necessario disconnettersi e accedere nuovamente.",
+    "notification.joindomain.rejected.title": "Rifiutato di entrare a far parte dell'azienda",
+    "notification.joindomain.rejected.message": "Sei stato rifiutato di entrare a far parte dell'azienda {domainName} ({companyName})."
+}

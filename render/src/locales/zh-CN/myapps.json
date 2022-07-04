@@ -1,0 +1,12 @@
+{
+    "myapps.remove.star": "从收藏中删除",
+    "myapps.add.star": "添加到收藏",
+    "myapps.title.name": "我收藏的应用",
+    "myapps.title.alias": "别名",
+    "myapps.title.url": "访问路径",
+    "myapps.title.machine": "设备环境",
+    "myapps.alias.tips": "设置别名可以让您快速找到应用",
+    "myapps.title": "我的应用",
+    "myapps.title.star": "我的收藏",
+    "myapps.all.app": "我的所有应用"
+}

@@ -1,0 +1,9 @@
+{
+    "component.invitation.ignore": "nhảy qua",
+    "component.invitation.reject": "Từ chối",
+    "component.invitation.accept": "Chấp nhận",
+    "component.invitation.title": "mời",
+    "component.invitation.message": "Bạn được mời tham gia {domainName} ({company}) trên ZeroPass.",
+    "component.tag.newTag.placeholder": "Điền vào đây",
+    "component.domain.switch.title": "chuyển công ty"
+}

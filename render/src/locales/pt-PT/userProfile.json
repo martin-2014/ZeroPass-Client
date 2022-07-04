@@ -1,0 +1,23 @@
+{
+    "userProfile.email": "E-mail",
+    "userProfile.userName": "Nome completo",
+    "userProfile.timezone": "Fuso horário",
+    "userProfile.userType": "Tipo de assinatura",
+    "userProfile.userName.required": "Nome de usuário é requerido",
+    "userProfile.timeZone.required": "O fuso horário é obrigatório",
+    "userProfile.userType.standard": "Piloto",
+    "userProfile.userType.basic": "Básico",
+    "userProfile.divider.accountBasic": "Básico",
+    "userProfile.divider.secretKey": "Chave secreta",
+    "userProfile.divider.secretKey.copy": "Copiar para área de transferência",
+    "userProfile.divider.secretKey.copy.success": "Copiado",
+    "userProfile.divider.secretKey.or": "Ou",
+    "userProfile.divider.secretKey.download": "Baixar para o disco",
+    "userProfile.secretKey.notFound.error": "Chave secreta não encontrada",
+    "userProfile.divider.secretKey.copy.tip": "Copie a chave secreta para a área de transferência e cole-a no arquivo que deseja salvar.",
+    "userProfile.divider.secretKey.download.tip": "A chave secreta é gravada em um arquivo, que você só precisa baixar e salvar.",
+    "userProfile.divider.settings": "Definições",
+    "userProfile.title": "Perfil da conta",
+    "userProfile.photo": "foto",
+    "userProfile.edit.image": "Editar imagem"
+}

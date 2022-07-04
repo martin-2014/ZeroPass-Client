@@ -1,0 +1,16 @@
+{
+    "name": "addons",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "node-gyp clean && node-gyp configure && node-gyp build",
+        "test": "node index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "node-addon-api": "^5.0.0"
+    },
+    "gyp": true
+}

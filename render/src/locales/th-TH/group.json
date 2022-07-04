@@ -1,0 +1,9 @@
+{
+    "groups.groups": "รายชื่อกลุ่ม",
+    "groups.group": "กลุ่ม",
+    "groups.groupName": "ชื่อกลุ่ม",
+    "groups.editGroup": "แก้ไขกลุ่ม",
+    "groups.groupMembers": "สมาชิกกลุ่ม",
+    "groups.requireName": "กรุณากรอกชื่อกลุ่ม",
+    "groups.description": "อธิบาย"
+}

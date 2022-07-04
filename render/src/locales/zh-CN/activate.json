@@ -1,0 +1,12 @@
+{
+    "activate.reset.password": "再次输入密码",
+    "activate.reset.password.required": "请再次输入密码",
+    "activate.same.password": "请输入相同的密码",
+    "activate.result.content": "您现在必须保存密钥并且妥善保管，因为每当您从新设备上使用 ZeroPass 时，您都需要提供访问域的密钥。",
+    "activate.result.download": "下载和保存您的密钥",
+    "activate.result.title": "密钥已创建",
+    "activate.result.tips": "离开前请复制或者下载密钥!",
+    "activate.copy.success": "复制成功",
+    "activate.result.message.copy": "复制密钥到粘贴板",
+    "activate.result.message.download": "或者下载"
+}

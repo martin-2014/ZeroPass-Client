@@ -1,0 +1,12 @@
+{
+    "reports.list.privilege": "Privilège",
+    "reports.list.lastUsed": "Dernière utilisation",
+    "reports.list.app.privilege.canAssign": "Peut en outre attribuer",
+    "reports.list.app.privilege.accessOnly": "Accès uniquement",
+    "reports.list.userType": "Type d'utilisateur",
+    "reports.button.export": "Exporter",
+    "reports.title.login": "Rapport d'attribution de connexion",
+    "reports.web.login": "Connexion",
+    "reports.assignee": "Cessionnaire",
+    "reports.permission": "Autorisation"
+}

@@ -1,0 +1,12 @@
+{
+    "activate.reset.password": "비밀번호를 다시 입력하세요",
+    "activate.reset.password.required": "비밀번호를 다시 입력해주세요",
+    "activate.same.password": "같은 비밀번호를 입력해주세요",
+    "activate.result.content": "이제 키를 저장하고 안전하게 보관해야 합니다. 새 장치에서 ZeroPass를 사용할 때마다 도메인에 액세스하기 위해 키를 제공해야 하기 때문입니다.",
+    "activate.result.download": "키 다운로드 및 저장",
+    "activate.result.title": "생성된 키",
+    "activate.result.tips": "떠나기 전에 키를 복사하거나 다운로드하세요!",
+    "activate.copy.success": "성공적으로 복사",
+    "activate.result.message.copy": "키를 대지에 복사",
+    "activate.result.message.download": "또는 다운로드"
+}

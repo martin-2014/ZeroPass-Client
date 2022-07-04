@@ -1,0 +1,23 @@
+{
+    "userProfile.email": "邮箱",
+    "userProfile.userName": "姓名",
+    "userProfile.timezone": "时区",
+    "userProfile.userType": "帐号类型",
+    "userProfile.userName.required": "姓名不能为空",
+    "userProfile.timeZone.required": "时区不能为空",
+    "userProfile.userType.standard": "试用",
+    "userProfile.userType.basic": "基础版",
+    "userProfile.divider.accountBasic": "基本信息",
+    "userProfile.divider.secretKey": "登录秘钥",
+    "userProfile.divider.secretKey.copy": "复制到剪贴板",
+    "userProfile.divider.secretKey.copy.success": "已复制",
+    "userProfile.divider.secretKey.or": "或者",
+    "userProfile.divider.secretKey.download": "下载到本地磁盘",
+    "userProfile.secretKey.notFound.error": "没找到登录秘钥",
+    "userProfile.divider.secretKey.copy.tip": "复制登录秘钥到剪贴板，然后你可以将它粘贴到你需要保存的文件中。",
+    "userProfile.divider.secretKey.download.tip": "登录秘钥会写入到文件中，您只需要下载并保存该文件。",
+    "userProfile.divider.settings": "设置",
+    "userProfile.title": "账户信息",
+    "userProfile.photo": "照片",
+    "userProfile.edit.image": "编辑图片"
+}

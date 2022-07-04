@@ -1,0 +1,18 @@
+{
+    "overview.top.appUsed": "Meist verwendeter Login",
+    "overview.top.appView": "Login-Aufrufe-Rang",
+    "overview.top.today": "Heute",
+    "overview.top.week": "Woche",
+    "overview.top.month": "Monat",
+    "overview.top.year": "Jahr",
+    "overview.count.app": "Anmeldung",
+    "overview.count.user": "Benutzer",
+    "overview.count.machine": "Client-Container",
+    "overview.invite.title": "Einladungen",
+    "overview.invite.info": "Warten auf Genehmigung",
+    "overview.invite.approve": "Genehmigen",
+    "overview.invite.reject": "Ablehnen",
+    "overview.invite.more": "Mehr...",
+    "overview.password.title": "Passwortüberwachung",
+    "overview.password.info": "Anfällige Passwörter"
+}

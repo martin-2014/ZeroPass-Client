@@ -1,0 +1,8 @@
+{
+    "about.upgrade": "升級",
+    "about.upgrade.tip": "應用會自動關閉，然後安裝新版本",
+    "about.upgrade.automatically": "當有更新的時候通知我",
+    "about.message.privacy": "隱私說明",
+    "about.message.copyright": "Copyright 2022 zpassapp.com 版權所有",
+    "about.message.user.service": "服務條款"
+}

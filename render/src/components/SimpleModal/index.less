@@ -1,0 +1,58 @@
+@import '~@/themes.less';
+
+.modal {
+    :global {
+        .ant-modal-wrap {
+            top: 50px;
+        }
+        .ant-modal-body {
+            padding: 0;
+        }
+        .ant-modal-content {
+            background-image: @zp-header-background;
+            border-radius: 15px;
+        }
+    }
+}
+
+.headerWrapper {
+    color: #eeeeee;
+    font-size: 16px;
+}
+
+.header {
+    display: flex;
+    height: 30px;
+    padding: 2px 10px;
+
+    .title {
+        flex: 1;
+        margin-right: -10px;
+        text-align: center;
+    }
+
+    .close {
+        width: 20px;
+        cursor: pointer;
+        &:hover {
+            color: #ffffff;
+        }
+    }
+}
+
+.body {
+    padding: 20px;
+    color: var(--font-color-mild);
+    background-color: #fff;
+    border-radius: 15px;
+
+    .content {
+        width: 100%;
+    }
+
+    .footer {
+        width: 100%;
+        padding: 20px 0 0 0;
+        text-align: center;
+    }
+}

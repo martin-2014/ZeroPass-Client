@@ -1,0 +1,18 @@
+{
+    "overview.top.appUsed": "最もよく使用されるアカウントのパスワード",
+    "overview.top.appView": "アカウントパスワード使用ランキング",
+    "overview.top.today": "今日",
+    "overview.top.week": "週",
+    "overview.top.month": "月",
+    "overview.top.year": "年",
+    "overview.count.app": "アカウントパスワード",
+    "overview.count.user": "ユーザー",
+    "overview.count.machine": "設備環境",
+    "overview.invite.title": "招待",
+    "overview.invite.info": "同意待ち",
+    "overview.invite.approve": "同意",
+    "overview.invite.reject": "拒絶",
+    "overview.invite.more": "もっと...",
+    "overview.password.title": "パスワードの監視",
+    "overview.password.info": "脆弱なパスワード"
+}

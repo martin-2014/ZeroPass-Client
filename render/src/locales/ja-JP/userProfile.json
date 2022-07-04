@@ -1,0 +1,23 @@
+{
+    "userProfile.email": "郵便",
+    "userProfile.userName": "名前",
+    "userProfile.timezone": "タイムゾーン",
+    "userProfile.userType": "口座の種類",
+    "userProfile.userName.required": "名前を空にすることはできません",
+    "userProfile.timeZone.required": "タイムゾーンを空にすることはできません",
+    "userProfile.userType.standard": "試してみる",
+    "userProfile.userType.basic": "ベーシックエディション",
+    "userProfile.divider.accountBasic": "基本情報",
+    "userProfile.divider.secretKey": "ログインキー",
+    "userProfile.divider.secretKey.copy": "クリップボードにコピー",
+    "userProfile.divider.secretKey.copy.success": "コピー",
+    "userProfile.divider.secretKey.or": "また",
+    "userProfile.divider.secretKey.download": "ローカルディスクにダウンロード",
+    "userProfile.secretKey.notFound.error": "ログインキーが見つかりません",
+    "userProfile.divider.secretKey.copy.tip": "ログインキーをクリップボードにコピーして、保存する必要のあるファイルに貼り付けることができます。",
+    "userProfile.divider.secretKey.download.tip": "ログインキーはファイルに書き込まれます。ファイルをダウンロードして保存するだけです。",
+    "userProfile.divider.settings": "設定",
+    "userProfile.title": "口座情報",
+    "userProfile.photo": "写真",
+    "userProfile.edit.image": "写真を編集する"
+}

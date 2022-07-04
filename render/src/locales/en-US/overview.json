@@ -1,0 +1,18 @@
+{
+    "overview.top.appUsed": "Mostly Used Logins",
+    "overview.top.appView": "Login Views Rank",
+    "overview.top.today": "Today",
+    "overview.top.week": "Week",
+    "overview.top.month": "Month",
+    "overview.top.year": "Year",
+    "overview.count.app": "Login",
+    "overview.count.user": "User",
+    "overview.count.machine": "Client Container",
+    "overview.invite.title": "Invitations",
+    "overview.invite.info": "Awaiting For Approval",
+    "overview.invite.approve": "Approve",
+    "overview.invite.reject": "Reject",
+    "overview.invite.more": "More...",
+    "overview.password.title": "Password Monitoring",
+    "overview.password.info": "Vulnerable Passwords"
+}

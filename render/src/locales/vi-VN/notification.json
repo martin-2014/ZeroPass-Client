@@ -1,0 +1,15 @@
+{
+    "notification.title": "Để ý",
+    "notification.title.count": "Thông báo ({messageCount})",
+    "notification.clear": "trống rỗng",
+    "notification.invitation.received.title": "đã nhận được một lời mời",
+    "notification.invitation.received.message": "Bạn đã được mời tham gia công ty {domainName} ({companyName}).",
+    "notification.invitation.rejected.title": "lời mời bị từ chối",
+    "notification.invitation.rejected.message": "{userEmail} đã từ chối tham gia công ty {domainName} ({companyName}).",
+    "notification.joindomain.pending.title": "Đang chờ gia nhập công ty",
+    "notification.joindomain.pending.message": "{userEmail} đang chờ gia nhập công ty {domainName} ({companyName}). Vui lòng truy cập [Quản lý công ty] -> [Người dùng] để được phê duyệt.",
+    "notification.joindomain.approved.title": "Chào mừng bạn đến với công ty",
+    "notification.joindomain.approved.message": "Bạn đã được chấp thuận tham gia công ty {domainName} ({companyName}). Sau khi đăng nhập lại, bạn có thể truy cập vào công ty đã thêm.",
+    "notification.joindomain.rejected.title": "từ chối gia nhập công ty",
+    "notification.joindomain.rejected.message": "Bạn đã bị từ chối quyền truy cập vào công ty {domainName} ({companyName})."
+}

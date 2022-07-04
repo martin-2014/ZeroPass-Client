@@ -1,0 +1,12 @@
+{
+    "myapps.remove.star": "Quitar de estrella",
+    "myapps.add.star": "Agregar a estrella",
+    "myapps.title.name": "Mis aplicaciones destacadas",
+    "myapps.title.alias": "Alias",
+    "myapps.title.url": "URL",
+    "myapps.title.machine": "Contenedor de cliente",
+    "myapps.alias.tips": "Establecer alias puede ayudarlo a encontrar aplicaciones rápidamente",
+    "myapps.title": "mi aplicación",
+    "myapps.title.star": "Estrella",
+    "myapps.all.app": "Todas mis aplicaciones"
+}

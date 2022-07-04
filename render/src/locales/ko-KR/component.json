@@ -1,0 +1,9 @@
+{
+    "component.invitation.ignore": "뛰어 넘다",
+    "component.invitation.reject": "거부하다",
+    "component.invitation.accept": "동의하기",
+    "component.invitation.title": "초대",
+    "component.invitation.message": "ZeroPass에서 {domainName}({company})에 가입하도록 초대받았습니다.",
+    "component.tag.newTag.placeholder": "여기에 입력",
+    "component.domain.switch.title": "스위치 회사"
+}

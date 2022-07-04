@@ -1,0 +1,12 @@
+{
+    "reports.list.privilege": "許可",
+    "reports.list.lastUsed": "最終使用時間",
+    "reports.list.app.privilege.canAssign": "共有可能",
+    "reports.list.app.privilege.accessOnly": "アクセス可能",
+    "reports.list.userType": "ユーザータイプ",
+    "reports.button.export": "書き出す",
+    "reports.title.login": "アカウントパスワード割り当てレポート",
+    "reports.web.login": "アカウントパスワード",
+    "reports.assignee": "譲受人",
+    "reports.permission": "許可"
+}

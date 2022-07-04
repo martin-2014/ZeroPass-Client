@@ -1,0 +1,12 @@
+{
+    "myapps.remove.star": "Remove from star",
+    "myapps.add.star": "Add to star",
+    "myapps.title.name": "My Starred Apps",
+    "myapps.title.alias": "Alias",
+    "myapps.title.url": "URL",
+    "myapps.title.machine": "Client Container",
+    "myapps.alias.tips": "Setting aliases can help you find apps quickly",
+    "myapps.title": "My App",
+    "myapps.title.star": "Star",
+    "myapps.all.app": "All My Apps"
+}

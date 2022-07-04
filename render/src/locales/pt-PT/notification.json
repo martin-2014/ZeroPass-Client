@@ -1,0 +1,15 @@
+{
+    "notification.title": "Notificações",
+    "notification.title.count": "Notificações ({messageCount})",
+    "notification.clear": "Claro",
+    "notification.invitation.received.title": "Convite recebido",
+    "notification.invitation.received.message": "Você está convidado a participar da empresa {domainName} ({companyName}).",
+    "notification.invitation.rejected.title": "Convite rejeitado",
+    "notification.invitation.rejected.message": "{userEmail} rejeitou participar da empresa {domainName} ({companyName}).",
+    "notification.joindomain.pending.title": "Pendente para participar",
+    "notification.joindomain.pending.message": "{userEmail} está pendente para ingressar na empresa {domainName} ({companyName}). Acesse [Admin Console]->[Usuário] para aprovar ou rejeitar.",
+    "notification.joindomain.approved.title": "Bem-vindo para ingressar na empresa",
+    "notification.joindomain.approved.message": "Você foi aprovado para ingressar na empresa {domainName} ({companyName}). Antes de poder participar da empresa, você precisa sair e fazer login novamente.",
+    "notification.joindomain.rejected.title": "Rejeitado para ingressar na empresa",
+    "notification.joindomain.rejected.message": "Você foi rejeitado para ingressar na empresa {domainName} ({companyName})."
+}

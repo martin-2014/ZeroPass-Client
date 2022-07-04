@@ -1,0 +1,56 @@
+@import '~antd/es/style/themes/default.less';
+//toolbar
+@hub-toolbar-background: @background-color-light;
+@hub-button-background: linear-gradient(90deg, #0099ff, #0066ff);
+@hub-button-box-shadow: 0px 6px 16px 2px rgba(0, 72, 255, 0.2);
+@hub-big-button-background: var(--big-button-bg-color);
+@hub-menu-item-background: #44474c;
+@hub-menu-item-left: 3px solid #0084ff;
+@hub-menu-active-font-color: #fff;
+@hub-siderbar-background-color: #2f3238;
+@menu-divider-background-color: #383838;
+
+@primary-color-1: #4342ff;
+@primary-color-2: #5273fe;
+@primary-color-3: #f6f7ff;
+@primary-color-4: #fff;
+@primary-color-5: #1d9cfd;
+@primary-color-6: #f2f2f2;
+@primary-color-7: #383dcc;
+@primary-color-error: #ff4d4f;
+@font-color-1: #949494;
+@primary-default: #40a9ff;
+@zp-border-radius: 20px;
+@zp-header-background: linear-gradient(to right, @primary-color-2, @primary-color-1);
+@zp-circular-btn-background: linear-gradient(to bottom right, @primary-color-1, @primary-color-2);
+@zp-containter-background: @primary-color-3;
+@zp-content-background: @primary-color-4;
+@zp-logo-background: @primary-color-2;
+@zp-item-icon-backgrond: @primary-color-4;
+@zp-item-height: 33px;
+@zp-item-hover-background: rgba(49, 127, 255, 0.2);
+@zp-item-border-radius: 5px;
+@zp-box-shadow-big: 0px 3px 7px 0px rgba(0, 0, 0, 0.1);
+@divider-bg-color: rgba(128, 128, 128, 0.3);
+.item-left {
+    &::before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        border-right: @hub-menu-item-left;
+        content: '';
+    }
+}
+
+.item-active() {
+    // font-weight: bold;
+    color: @hub-menu-active-font-color;
+    background-color: @hub-menu-item-background;
+}
+
+.item-hover {
+    &:hover {
+        .item-active();
+    }
+}

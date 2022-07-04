@@ -1,0 +1,32 @@
+@import '~@/themes.less';
+
+.wrapper {
+    height: 100%;
+}
+
+.input {
+    height: 30px;
+}
+
+.select {
+    :global {
+        .ant-select-selector {
+            padding: 0 !important;
+        }
+    }
+}
+
+.actionIcon {
+    font-size: 16px;
+    &:hover {
+        color: @primary-color-5;
+    }
+}
+
+.button {
+    :global {
+        .ant-btn {
+            padding: 0 !important;
+        }
+    }
+}

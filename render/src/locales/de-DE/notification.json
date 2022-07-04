@@ -1,0 +1,15 @@
+{
+    "notification.title": "Benachrichtigungen",
+    "notification.title.count": "Benachrichtigungen ({messageCount})",
+    "notification.clear": "Klar",
+    "notification.invitation.received.title": "Einladung erhalten",
+    "notification.invitation.received.message": "Sie wurden eingeladen, dem Unternehmen {domainName} ({companyName}) beizutreten.",
+    "notification.invitation.rejected.title": "Einladung abgelehnt",
+    "notification.invitation.rejected.message": "{userEmail} hat den Beitritt zum Unternehmen {domainName} ({companyName}) abgelehnt.",
+    "notification.joindomain.pending.title": "Beitritt ausstehend",
+    "notification.joindomain.pending.message": "{userEmail} ist ausstehend, dem Unternehmen {domainName} ({companyName}) beizutreten. Bitte gehen Sie zu [Admin-Konsole]->[Benutzer], um zu genehmigen oder abzulehnen.",
+    "notification.joindomain.approved.title": "Willkommen, um dem Unternehmen beizutreten",
+    "notification.joindomain.approved.message": "Sie sind zum Beitritt zum Unternehmen {domainName} ({companyName}) zugelassen. Bevor Sie am Unternehmen teilnehmen können, müssen Sie sich ab- und wieder anmelden.",
+    "notification.joindomain.rejected.title": "Beitritt zum Unternehmen abgelehnt",
+    "notification.joindomain.rejected.message": "Sie werden abgelehnt, dem Unternehmen {domainName} ({companyName}) beizutreten."
+}

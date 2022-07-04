@@ -1,0 +1,9 @@
+{
+    "component.invitation.ignore": "melompat ke atas",
+    "component.invitation.reject": "menolak",
+    "component.invitation.accept": "terima",
+    "component.invitation.title": "jemput",
+    "component.invitation.message": "Anda dijemput untuk menyertai {domainName}({company}) di ZeroPass.",
+    "component.tag.newTag.placeholder": "masuk sini",
+    "component.domain.switch.title": "tukar syarikat"
+}

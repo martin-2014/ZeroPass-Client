@@ -1,0 +1,131 @@
+{
+    "name": "zeropass",
+    "version": "1.0.0",
+    "main": "dist/src/main.js",
+    "author": "zpassapp.com",
+    "private": true,
+    "description": "ZeroPass",
+    "repository": "https://github.com/electron/electron-quick-start",
+    "scripts": {
+        "electron-win:build": "cross-env BASE_URL=$npm_config_base_url UPDATE_URL=$npm_config_update_url npm run build && npm run etsc && cross-env CSC_KEY_PASSWORD=$npm_config_csc_password electron-builder --win -p never",
+        "electron-win:build:dev": "cross-env BASE_URL=$npm_config_base_url UPDATE_URL=$npm_config_update_url DEV_TOOLS=true npm run build && npm run etsc && cross-env CSC_KEY_PASSWORD=$npm_config_csc_password electron-builder --win -p never",
+        "electron:build": "electron-builder --win",
+        "electron": "npm run tsc && npm run etsc && set NODE_ENV=deve&& electron .",
+        "etsc": "etsc",
+        "tsc": "tsc",
+        "build": "cd render && npm run build",
+        "test": "cd render; ln -s ~/community/node_modules; npm run test:all",
+        "render:install": "cd render; if [ -d node_modules ]; then rm -r node_modules; fi; ln -s ~/community/node_modules; yarn"
+    },
+    "pre-commit": [
+        "tsc"
+    ],
+    "build": {
+        "appId": "ZeroPass",
+        "copyright": "Copyright 2022 zpassapp.com All Rights Reserved.",
+        "productName": "ZeroPass",
+        "artifactName": "ZeroPass-Community-${version}.exe",
+        "files": [
+            "./render/dist/**/*",
+            "./dist/**/*",
+            "./render/src/.hub/node_config.js",
+            "./icons/*"
+        ],
+        "directories": {
+            "output": "build"
+        },
+        "nsis": {
+            "allowElevation": false,
+            "include": "nsis/installer.nsh",
+            "deleteAppDataOnUninstall": true
+        },
+        "win": {
+            "icon": "icons/logo.ico",
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "ia32"
+                    ]
+                }
+            ],
+            "signDlls": false,
+            "certificateFile": "zeropass.pfx",
+            "sign": "./sign.js"
+        },
+        "extraResources": [
+            {
+                "from": "resources/",
+                "to": "./"
+            },
+            {
+                "from": "src/addons/vc14/msvcp140.dll",
+                "to": "../"
+            },
+            {
+                "from": "src/addons/vc14/vcruntime140.dll",
+                "to": "../"
+            }
+        ]
+    },
+    "dependencies": {
+        "7zip-bin": "^5.2.0",
+        "@types/archiver": "^5.3.1",
+        "@types/node-7z": "^2.1.4",
+        "@types/uuid": "^8.3.4",
+        "@zxing/library": "^0.19.1",
+        "archiver": "^5.3.1",
+        "cids": "^1.1.9",
+        "cors": "^2.8.5",
+        "electron-log": "^4.4.4",
+        "electron-settings": "^4.0.2",
+        "electron-store": "^8.0.2",
+        "electron-updater": "^4.6.1",
+        "esbuild": "^0.14.47",
+        "esbuild-node-tsc": "^1.8.6",
+        "express": "^4.17.3",
+        "extract-zip": "^2.0.1",
+        "fs-extra": "^10.1.0",
+        "i18next": "^21.6.14",
+        "ipfs-http-client": "56.0.2",
+        "ipfsd-ctl": "^10.0.6",
+        "it-all": "^1.0.6",
+        "it-first": "^1.0.7",
+        "it-last": "^1.0.6",
+        "it-map": "^1.0.6",
+        "jsqr": "^1.4.0",
+        "level": "^8.0.0",
+        "lodash": "^4.17.11",
+        "mkdirp": "^1.0.4",
+        "multiaddr": "^10.0.1",
+        "node-7z": "^3.0.0",
+        "node-machine-id": "^1.1.12",
+        "pkcs7-padding": "^0.1.1",
+        "portfinder": "^1.0.28",
+        "request": "^2.88.2",
+        "rijndael-js": "^2.0.0",
+        "ssestream": "^1.1.0",
+        "tar": "^6.1.11",
+        "uuid": "^8.3.2",
+        "ws": "^8.5.0"
+    },
+    "devDependencies": {
+        "@google-cloud/translate": "^6.3.1",
+        "@types/ws": "^8.5.2",
+        "cpy-cli": "^4.1.0",
+        "cross-env": "^7.0.3",
+        "cross-port-killer": "^1.1.1",
+        "electron": "^16.0.2",
+        "electron-builder": "^22.14.5",
+        "pre-commit": "^1.2.2",
+        "source-map-support": "^0.5.21",
+        "tsc": "^2.0.3",
+        "typescript": "^4.5.4"
+    },
+    "engines": {
+        "node": ">=10.0.0"
+    },
+    "gitHooks": {
+        "commit-msg": "fabric verify-commit"
+    }
+}

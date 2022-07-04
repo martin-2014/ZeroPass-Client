@@ -1,0 +1,45 @@
+@import '~@/themes.less';
+
+.fooTer {
+    padding: 6px 12px 6px 12px;
+    .invert {
+        float: right;
+    }
+}
+
+.main {
+    min-width: 200px;
+
+    .body {
+        border: 1px solid @primary-color-6;
+    }
+    .divider {
+        margin: 5px 0;
+    }
+    .list {
+        .item {
+            &:hover {
+                background-color: rgb(243, 243, 243);
+            }
+            .label {
+                padding-left: 6px;
+                cursor: default;
+            }
+            .delete {
+                float: right;
+                margin-right: 6px;
+                cursor: pointer;
+            }
+        }
+        .listContent {
+            height: 90px;
+        }
+    }
+    .footer {
+        height: 22px;
+        a {
+            float: right;
+            margin-right: 3px;
+        }
+    }
+}

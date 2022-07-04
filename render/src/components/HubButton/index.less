@@ -1,0 +1,46 @@
+@import '../../themes.less';
+
+@selected-color: #40a9ff;
+
+.base {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    cursor: pointer;
+    user-select: none;
+}
+
+.primary {
+    .base;
+    color: white;
+    background-image: @zp-header-background;
+}
+
+.primaryHover {
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.default {
+    .base;
+    color: #0101ff;
+    border: 1px solid #0101ff;
+    opacity: 0.75;
+}
+
+.defaultHover {
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.disableTypography {
+    :global {
+        .ant-typography {
+            color: unset;
+        }
+    }
+}

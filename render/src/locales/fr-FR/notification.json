@@ -1,0 +1,15 @@
+{
+    "notification.title": "Avis",
+    "notification.title.count": "Notifications ({messageCount})",
+    "notification.clear": "Dégager",
+    "notification.invitation.received.title": "Invitation reçue",
+    "notification.invitation.received.message": "Vous êtes invité à rejoindre la société {domainName} ({companyName}).",
+    "notification.invitation.rejected.title": "Invitation rejetée",
+    "notification.invitation.rejected.message": "{userEmail} a refusé de rejoindre la société {domainName} ({companyName}).",
+    "notification.joindomain.pending.title": "En attente d'adhésion",
+    "notification.joindomain.pending.message": "{userEmail} est en attente de rejoindre la société {domainName} ({companyName}). Veuillez accéder à [Admin Console]->[User] pour approuver ou rejeter.",
+    "notification.joindomain.approved.title": "Bienvenue à rejoindre la société",
+    "notification.joindomain.approved.message": "Vous êtes autorisé à rejoindre la société {domainName} ({companyName}). Avant de pouvoir participer à l'entreprise, vous devez vous déconnecter et vous reconnecter.",
+    "notification.joindomain.rejected.title": "Refusé de rejoindre la société",
+    "notification.joindomain.rejected.message": "Vous êtes rejeté pour rejoindre la société {domainName} ({companyName})."
+}

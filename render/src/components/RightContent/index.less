@@ -1,0 +1,180 @@
+@import '~antd/es/style/themes/default.less';
+
+@pro-header-hover-bg: rgba(0, 0, 0, 0.025);
+
+.menu {
+    -webkit-app-region: no-drag;
+    :global(.anticon) {
+        margin-right: 8px;
+    }
+    :global(.ant-dropdown-menu-item) {
+        min-width: 150px;
+    }
+    :global(.ant-dropdown-menu-item-divider) {
+        background-color: rgba(128, 128, 128, 0.3);
+    }
+}
+.close {
+    margin-right: 10px;
+}
+.right {
+    display: flex;
+    float: right;
+    margin-left: auto;
+    overflow: hidden;
+    .action {
+        display: flex;
+        align-items: center;
+
+        cursor: pointer;
+        transition: all 0.3s;
+        > span {
+            vertical-align: middle;
+        }
+
+        &:global(.opened) {
+            background: @pro-header-hover-bg;
+        }
+    }
+    .search {
+        padding: 0 12px;
+        &:hover {
+            background: transparent;
+        }
+    }
+    .account {
+        .avatar {
+            margin-right: 8px;
+            color: @primary-color;
+            vertical-align: top;
+            background: rgba(255, 255, 255, 0.85);
+        }
+    }
+}
+
+.dark {
+    .action {
+        &:hover {
+            background: #252a3d;
+        }
+        &:global(.opened) {
+            background: #252a3d;
+        }
+    }
+}
+
+@media only screen and (max-width: @screen-md) {
+    :global(.ant-divider-vertical) {
+        vertical-align: unset;
+    }
+    .name {
+        display: none;
+    }
+    .right {
+        position: absolute;
+        top: 0;
+        right: 12px;
+        .account {
+            .avatar {
+                margin-right: 0;
+            }
+        }
+        .search {
+            display: none;
+        }
+    }
+}
+.divider {
+    height: 30px !important;
+    margin: 0 4px !important;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.userInfo {
+    margin-left: -15px;
+}
+
+.base {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    -webkit-app-region: no-drag;
+}
+.controlContainter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 30px;
+}
+
+.blank {
+    flex: 1;
+    width: 100%;
+}
+.toolbarWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+.iconContainter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+    }
+}
+.toolbarContainter {
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+.avatarBg {
+    background-color: var(--avatar-bg);
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+    }
+}
+
+.switchIcon {
+    display: flex;
+    width: 173px;
+    height: 24px;
+    margin-right: 20px;
+    line-height: 24px;
+    text-align: center;
+    background-color: #373acc;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.info {
+    display: flex;
+    flex-direction: row;
+}
+.SwitchIconSelect {
+    width: 91px;
+    height: 100%;
+    color: #4446ff;
+    background-color: #f0f0ff;
+    border-radius: 50px;
+}
+.SwitchIconNoSelect {
+    flex: 1;
+    color: #fff;
+}

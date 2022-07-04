@@ -1,0 +1,340 @@
+@import '~antd/es/style/themes/default.less';
+@import './themes.less';
+#root {
+    position: relative;
+    width: 100% !important;
+    height: 100%;
+    overflow-y: hidden;
+}
+@font-face {
+    color: #383838;
+    font-family: 'Adobe黑体';
+    src: url('../public/AlibabaSans-Regular.otf');
+}
+.colorWeak {
+    filter: invert(80%);
+}
+html {
+    font-size: calc(100vw / 73 / 14);
+}
+html > body {
+    overflow: hidden;
+    font-size: 14px;
+    font-family: 'Adobe黑体';
+    background-color: transparent;
+    .ant-pro-sider-logo {
+        cursor: unset;
+    }
+    .ant-layout {
+        background-color: transparent;
+    }
+    .ant-layout-header {
+        background-color: transparent;
+    }
+    .ant-layout-header.ant-pro-fixed-header-action.ant-pro-header-light {
+        background-color: transparent;
+    }
+    #logo {
+        padding: 0;
+    }
+    main {
+        background-color: @zp-containter-background;
+        border-top-left-radius: @zp-border-radius;
+        border-top-right-radius: @zp-border-radius;
+    }
+    aside {
+        box-shadow: none !important;
+    }
+    section {
+        position: relative;
+        background: transparent !important;
+    }
+    .ant-layout {
+        background: @zp-header-background;
+    }
+    .ant-layout-sider-light {
+        background: @zp-containter-background;
+    }
+
+    .ant-input-affix-wrapper,
+    .ant-input-affix-wrapper-borderless:hover,
+    .ant-input,
+    .ant-input-number {
+        background-color: @primary-color-6;
+        border: 1px solid @primary-color-6;
+    }
+    .ant-input-number {
+        border: 1px solid @primary-color-6;
+        &:hover {
+            border-color: @primary-color-5;
+        }
+    }
+    .ant-input-number-focused {
+        box-shadow: unset;
+    }
+    .ant-input[disabled],
+    .ant-input-affix-wrapper-disabled {
+        border: 1px solid @primary-color-6;
+        &:hover {
+            border-color: @primary-color-6;
+        }
+    }
+    // .ant-input-affix-wrapper-disabled:hover
+
+    .ant-table-thead > tr > th {
+        background-color: unset;
+    }
+    .ant-table-cell-scrollbar {
+        box-shadow: none;
+    }
+    .ant-table-thead
+        > tr
+        > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+        height: 0;
+    }
+    .ant-table-body,
+    .ant-select-tree-list-holder {
+        overflow-y: overlay !important;
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+        }
+        &::-webkit-scrollbar-track {
+            background: #e5e5e5;
+            border-radius: 10px;
+        }
+    }
+    .ant-table.ant-table-middle .ant-table-tbody > tr > td {
+        padding: 10px 10px;
+    }
+
+    .hub-scrollbar-hidden::-webkit-scrollbar,
+    .ant-table-body::-webkit-scrollbar {
+        width: 6px !important;
+    }
+    .ant-pro-sider.ant-layout-sider.ant-pro-sider-fixed {
+        position: absolute;
+    }
+    .hub-scrollbar::-webkit-scrollbar,
+    .ant-table-body::-webkit-scrollbar {
+        width: 6px !important;
+        height: 0px !important;
+    }
+    .hub-scrollbar::-webkit-scrollbar-thumb {
+        background: white !important;
+        border: 1px solid #e5e5e5 !important;
+        border-radius: 10px !important;
+    }
+
+    .hub-scrollbar::-webkit-scrollbar-track {
+        background: #e5e5e5;
+        border-radius: 10px;
+    }
+    .ant-table-cell-row-hover {
+        background-color: transparent !important;
+        background-image: linear-gradient(#eaf2ff, #eaf2ff) !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        background-size: 100% 44px !important;
+    }
+    .zp-table-row-active {
+        td {
+            background-color: transparent;
+            background-image: linear-gradient(#eaf2ff, #eaf2ff);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 44px;
+            &:first-child {
+                background-image: url('../public/hover2.svg');
+            }
+            &:last-child {
+                background-image: url('../public/hover1.svg');
+            }
+            &:only-child {
+                background-image: url('../public/hover3.svg');
+            }
+        }
+    }
+    .ant-table-column-sorters {
+        justify-content: start;
+    }
+    th {
+        padding: 5px 17px !important;
+    }
+    td.ant-table-cell {
+        height: 51px;
+        padding: 0 17px !important;
+    }
+    .ant-card {
+        background-color: transparent !important;
+    }
+    .ant-table-column-title {
+        flex: none;
+        margin-right: 5px;
+        user-select: none;
+    }
+    .ant-table-column-sorters {
+        justify-content: start !important;
+    }
+    .ant-table-cell-row-hover:first-child {
+        background-image: url('../public/hover2.svg') !important;
+    }
+    .ant-table-cell-row-hover:last-child {
+        background-image: url('../public/hover1.svg') !important;
+    }
+    .ant-table-cell-row-hover:only-child {
+        background-image: url('../public/hover3.svg') !important;
+    }
+    .ant-table-tbody > tr > td {
+        transition: 0s;
+    }
+    .rc-virtual-list-scrollbar-show {
+        width: 6px !important;
+        background: #e5e5e5;
+        border-radius: 10px;
+    }
+    .rc-virtual-list-scrollbar-thumb {
+        width: 6px;
+        background: white !important;
+        border: 1px solid #e5e5e5;
+        border-radius: 10px;
+    }
+
+    .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+        background-color: @primary-color-6;
+        border: 1px solid @primary-color-6;
+    }
+
+    .ant-table-pagination.ant-pagination {
+        margin: 8px 0 !important;
+    }
+
+    .ant-input[disabled] {
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+    .ant-select-disabled.ant-select-multiple .ant-select-selection-item {
+        border: none;
+    }
+    .ant-drawer-right.ant-drawer-open .ant-drawer-content-wrapper {
+        box-shadow: -3px 0px 7.6px 0.4px rgba(168, 168, 168, 0.1);
+    }
+    .ant-drawer-mask {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .ant-input-group-addon {
+        background-color: unset;
+        border: unset;
+    }
+
+    .ant-tooltip-inner,
+    .ant-tooltip-arrow-content {
+        color: black;
+        font-size: 12px;
+        background-color: white;
+    }
+    .ant-popover-inner-content {
+        padding: 0;
+    }
+    .ant-popover-inner {
+        border-radius: 10px;
+    }
+    .ant-tag {
+        min-width: 50px;
+        padding: 0 10px;
+        text-align: center;
+        background-color: #d6e5ff;
+        border-color: #d6e5ff;
+    }
+
+    .ant-tag-close-icon {
+        color: #83b2ff;
+        &:hover {
+            color: #0062ff;
+        }
+    }
+}
+
+.zp-icon {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 16px;
+    cursor: pointer;
+    &:hover {
+        color: @primary-color-5;
+    }
+}
+
+.zp-icon-red {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 16px;
+    cursor: pointer;
+    &:hover {
+        color: @primary-color-error;
+    }
+}
+
+.image-edit-modal {
+    .ant-modal-content {
+        margin-top: -13px;
+        background-image: @zp-header-background;
+        border-radius: 15px;
+    }
+    .ant-modal-header {
+        padding: 3px 12px;
+        background-image: @zp-header-background;
+        border-bottom: unset;
+        border-radius: 15px 15px 0 0;
+        .ant-modal-title {
+            color: white;
+            text-align: center;
+        }
+    }
+    .ant-modal-close-x {
+        width: 45px;
+        height: 30px;
+        color: white;
+        line-height: 30px;
+    }
+    .ant-modal-body {
+        padding-top: 40px;
+        background-color: white;
+        border-radius: 15px 15px 0 0;
+    }
+    .ant-modal-footer {
+        padding: 10px 0 30px 0;
+        text-align: center;
+        background-color: white;
+        border-top: unset;
+        border-radius: 0 0 15px 15px;
+        .ant-btn {
+            width: 100px;
+            height: 26px;
+            color: @primary-color-1;
+            line-height: 13px;
+            border-color: @primary-color-1;
+            border-radius: 13px;
+            opacity: 0.75;
+            &:hover {
+                opacity: 1;
+            }
+        }
+        .ant-btn-primary {
+            width: 100px;
+            height: 26px;
+            color: white;
+            line-height: 13px;
+            background-image: @zp-header-background;
+            border: unset;
+            border-radius: 13px;
+            opacity: 1;
+            &:hover {
+                opacity: 0.75;
+            }
+        }
+    }
+}

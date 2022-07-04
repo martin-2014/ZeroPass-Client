@@ -1,0 +1,9 @@
+{
+    "component.invitation.ignore": "跳过",
+    "component.invitation.reject": "拒绝",
+    "component.invitation.accept": "接受",
+    "component.invitation.title": "邀请",
+    "component.invitation.message": "邀请您加入ZeroPass上的{domainName}({company})。",
+    "component.tag.newTag.placeholder": "这里输入",
+    "component.domain.switch.title": "切换公司"
+}

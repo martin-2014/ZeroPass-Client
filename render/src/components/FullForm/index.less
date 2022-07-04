@@ -1,0 +1,24 @@
+@import '~@/themes.less';
+
+.wrapper {
+    display: flex;
+    padding: 10px;
+}
+.titleContainter {
+    flex: 1;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+.iconContainter {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+.drawer {
+    :global {
+        .ant-drawer-content {
+            border-radius: @zp-border-radius;
+        }
+    }
+}

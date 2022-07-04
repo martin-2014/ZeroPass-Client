@@ -1,0 +1,15 @@
+{
+    "notification.title": "สังเกต",
+    "notification.title.count": "การแจ้งเตือน ({messageCount})",
+    "notification.clear": "ว่างเปล่า",
+    "notification.invitation.received.title": "ได้รับคำเชิญ",
+    "notification.invitation.received.message": "คุณได้รับเชิญให้เข้าร่วมบริษัท {domainName}({companyName})",
+    "notification.invitation.rejected.title": "คำเชิญถูกปฏิเสธ",
+    "notification.invitation.rejected.message": "{userEmail} ปฏิเสธที่จะเข้าร่วมบริษัท {domainName} ({companyName})",
+    "notification.joindomain.pending.title": "รอเข้าบริษัท",
+    "notification.joindomain.pending.message": "{userEmail} กำลังรอเข้าร่วมบริษัท {domainName}({companyName}) โปรดไปที่ [การจัดการบริษัท] -> [ผู้ใช้] เพื่อขออนุมัติ",
+    "notification.joindomain.approved.title": "ยินดีต้อนรับสู่บริษัท",
+    "notification.joindomain.approved.message": "คุณได้รับการอนุมัติให้เข้าร่วมบริษัท {domainName}({companyName}) หลังจากกลับเข้าสู่ระบบ คุณจะสามารถเข้าถึงบริษัทที่เพิ่มเข้ามาได้",
+    "notification.joindomain.rejected.title": "ปฏิเสธที่จะเข้าร่วมบริษัท",
+    "notification.joindomain.rejected.message": "คุณถูกปฏิเสธการเข้าถึงบริษัท {domainName}({companyName})"
+}

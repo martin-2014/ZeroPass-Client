@@ -1,0 +1,16 @@
+{
+    "pages.login.password.required": "비밀번호가 필요합니다!",
+    "pages.login.submit": "로그인",
+    "pages.searchTable.new": "새로운",
+    "pages.searchTable.import": "수입",
+    "pages.searchTable.export": "내보내다",
+    "pages.import.upload.title": "여기에 업로드할 파일을 클릭하거나 드래그하세요.",
+    "pages.import.empty.error": "CSV 파일이 필요합니다",
+    "pages.import.format.error": "CSV 파일 형식이 잘못되었거나 비어 있습니다.",
+    "pages.import.errorList.download": "오류 세부정보 다운로드",
+    "pages.import.hint.line1.before": "다운로드하십시오",
+    "pages.import.hint.line1.middle": "템플릿 가져오기(.csv)",
+    "pages.import.hint.line1.after": "그런 다음 필요에 따라 해당 필드 값을 입력합니다.",
+    "pages.import.hint.line2": "csv 파일만 지원하며 파일 크기는 10M을 초과하지 않으며 매번 가져오는 데이터의 양은 300을 초과하지 않습니다.",
+    "pages.import.inProgress.hint": "데이터를 가져오는 중입니다..."
+}

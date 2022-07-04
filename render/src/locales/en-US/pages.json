@@ -1,0 +1,16 @@
+{
+    "pages.login.password.required": "Please input your password",
+    "pages.login.submit": "Login",
+    "pages.searchTable.new": "New",
+    "pages.searchTable.import": "Import",
+    "pages.searchTable.export": "Export",
+    "pages.import.upload.title": "Click or drag file to this area to upload",
+    "pages.import.empty.error": "The CSV file is required",
+    "pages.import.format.error": "The CSV file format is incorrect or the data is empty",
+    "pages.import.errorList.download": "Download error details",
+    "pages.import.hint.line1.before": "Please download the ",
+    "pages.import.hint.line1.middle": "import template (.csv) ",
+    "pages.import.hint.line1.after": "and fill in the template according to the requirements before uploading.",
+    "pages.import.hint.line2": "Only files with suffixes csv are supported, the file size is limited to 10M, and the number of imported entries each time does not exceed 300.",
+    "pages.import.inProgress.hint": "Data import in progress..."
+}

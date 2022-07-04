@@ -1,0 +1,18 @@
+{
+    "overview.top.appUsed": "使用最多的賬戶密碼",
+    "overview.top.appView": "賬戶密碼使用排行榜",
+    "overview.top.today": "今天",
+    "overview.top.week": "週",
+    "overview.top.month": "月",
+    "overview.top.year": "年",
+    "overview.count.app": "賬戶密碼",
+    "overview.count.user": "用戶",
+    "overview.count.machine": "設備環境",
+    "overview.invite.title": "邀請",
+    "overview.invite.info": "等待同意",
+    "overview.invite.approve": "同意",
+    "overview.invite.reject": "拒絕",
+    "overview.invite.more": "更多...",
+    "overview.password.title": "密碼監控",
+    "overview.password.info": "易受攻擊密碼"
+}
