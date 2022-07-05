@@ -9,31 +9,12 @@ import {
     MailOutlined,
     UpOutlined,
 } from '@ant-design/icons';
-import { Col, Form, Input, Row, FormInstance } from 'antd';
-import React from 'react';
+import { Col, Form, Input, Row } from 'antd';
+import useLogin from 'root@/pages/user/login/useLogin';
 import { FormattedMessage } from 'umi';
 import styles from './index.less';
-import { IntlShape } from 'react-intl';
 
-export interface Props {
-    secretKey: React.MutableRefObject<string>;
-    loading: boolean;
-    showUpload: boolean;
-    setShowUpload: React.Dispatch<React.SetStateAction<boolean>>;
-    form: FormInstance<any>;
-    submited: boolean;
-    intl: IntlShape;
-    searchKey: () => void;
-    login: (values: API.Login) => Promise<boolean>;
-    handleSubmit: (
-        values: API.Login,
-        login: (values: API.Login) => Promise<boolean>,
-    ) => Promise<void>;
-    createFileUpload: () => void;
-    createAcount: () => void;
-}
-
-const getForm = (props: Props) => {
+const getForm = () => {
     const {
         secretKey,
         loading,
@@ -47,7 +28,7 @@ const getForm = (props: Props) => {
         handleSubmit,
         createFileUpload,
         createAcount,
-    } = props;
+    } = useLogin();
 
     const FileValue = () => {
         const onChange = () => {

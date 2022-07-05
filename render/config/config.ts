@@ -20,6 +20,9 @@ export default defineConfig({
         siderWidth: 200,
         ...defaultSettings,
     },
+    alias: {
+        'root@': '/src',
+    },
     locale: {
         // default zh-CN
         default: 'en-US',
