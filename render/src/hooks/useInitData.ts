@@ -1,6 +1,5 @@
 import { localStore } from '@/browserStore/store';
 import { useModel } from 'umi';
-import useTagList from './useTagList';
 
 type TokenItem = {
     UserId: number;
@@ -12,7 +11,6 @@ type TokenItem = {
 
 export default () => {
     const { initialState, setInitialState } = useModel('@@initialState');
-    const { setNewTag } = useTagList();
 
     const tokenParse = (token: string) => {
         const payload = token.split('.')[1];
@@ -36,24 +34,14 @@ export default () => {
     const initDataWhenLogin = async (token: string) => {
         const tokenInfo = tokenParse(token);
 
-        localStore.currentDomainId = tokenInfo.EnterpriseDomainId;
         localStore.personalDomainId = tokenInfo.PersonalDomainId;
         localStore.lastUserId = tokenInfo.UserId;
         return await fetchUserInfo();
     };
 
-    const initDataWhenSwitch = async (token: string) => {
-        const tokenInfo = tokenParse(token);
-
-        localStore.currentDomainId = tokenInfo.EnterpriseDomainId;
-        const info = await fetchUserInfo();
-        setNewTag('workassigned');
-        return info;
-    };
-
     return {
         initDataWhenLogin,
-        initDataWhenSwitch,
         tokenParse,
+        fetchUserInfo,
     };
 };
