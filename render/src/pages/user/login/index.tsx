@@ -1,12 +1,8 @@
 import React from 'react';
-import useLogin from './useLogin';
 import getForm from './LoginForm';
 
 const Login: React.FC = () => {
-    const { ...rest } = useLogin();
-
-    const Form = getForm({ ...rest });
-
+    const Form = getForm();
     return Form;
 };
 
