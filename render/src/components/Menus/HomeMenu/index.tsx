@@ -1,16 +1,12 @@
 import SwitchIcon from '@/components/SwitchIcon';
-import useTagList from '@/hooks/useTagList';
-import { Menu, Typography } from 'antd';
 import classNames from 'classnames';
-import React, { FC, useCallback, useEffect, useState } from 'react';
-import { FormattedMessage, history, useIntl, useModel } from 'umi';
+import React, { FC, useCallback } from 'react';
+import { FormattedMessage, history, useIntl } from 'umi';
 import type { MenuItem } from '../index';
 import styles from './index.less';
 import Tags from './Tags';
 import Tools from './Tools';
-
-const { Text } = Typography;
-const { SubMenu } = Menu;
+import useHomeMenu from '@/components/Menus/HomeMenu/useHomeMenu';
 
 const MenuTools = ({
     style,
@@ -42,25 +38,12 @@ const MenuTools = ({
     return <div style={style}>{Header}</div>;
 };
 const HomeMenu: FC<MenuItem> = (props) => {
-    const [quickFinder, setQuickFinder] = useState(true);
+    const { quickFinder, setQuickFinder, showMenuTools } = useHomeMenu();
     const Intl = useIntl();
-    const { setTag } = useTagList();
-    const { tags: taglist } = useModel('tags');
-    const { initialState } = useModel('@@initialState');
-    const currentUser = initialState?.currentUser;
+
     const quickerfinder = props.children?.find((item) => item.name === 'quickerfinder');
     const tools = props.children?.find((item) => item.name === 'tools');
     const tags = quickerfinder?.children?.find((item) => item.name === 'tags');
-    useEffect(() => {
-        if (currentUser?.isOwner) {
-            setTag('workassigned');
-        } else {
-            setTag('personal');
-            if (currentUser?.domainId) {
-                setTag('workassigned');
-            }
-        }
-    }, []);
 
     const handleClick = (path: string) => {
         history.push(path);
@@ -125,36 +108,11 @@ const HomeMenu: FC<MenuItem> = (props) => {
                 props={props}
                 title={<FormattedMessage id={tools?.locale} />}
                 style={{
-                    display:
-                        quickFinder ||
-                        (!initialState?.currentUser?.isAdmin &&
-                            history.location.pathname.indexOf('workassigned') > -1)
-                            ? 'none'
-                            : '',
+                    display: showMenuTools() ? 'none' : '',
                 }}
             ></MenuTools>
             <QuickFinder style={{ display: quickFinder ? '' : 'none' }}></QuickFinder>
         </div>
     );
-    /* return (
-        <MenuFrame>
-            <div className={`${styles.menuContainer} ${styles.menu}`}>
-                <Menu
-                    expandIcon={getExpanNameIcon}
-                    mode="inline"
-                    defaultOpenKeys={[
-                        '/workassigned',
-                        '/personal',
-                        '/workassigned/tag',
-                        '/personal/tag',
-                    ]}
-                    defaultSelectedKeys={['/workassigned/favourites', '/personal/favourites']}
-                    selectedKeys={[props.location.pathname]}
-                >
-                    {MenuContainer(menuData!, 1)}
-                </Menu>
-            </div>
-        </MenuFrame>
-    ); */
 };
 export default HomeMenu;

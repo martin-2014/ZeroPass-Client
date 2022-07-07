@@ -15,7 +15,7 @@ import styles from './index.less';
 import type { MenuInfo } from 'rc-menu/lib/interface';
 import SimpleModal from '../SimpleModal';
 import About from './About';
-import Settings from './Settings';
+import Settings from '@/components/RightContent/Settings';
 import { sessionStore } from '@/browserStore/store';
 import { localStore } from '@/browserStore/store';
 import UserProfile from '@/pages/user/profile';

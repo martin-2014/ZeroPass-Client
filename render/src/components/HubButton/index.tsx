@@ -105,6 +105,7 @@ const HubButton = (props: Props) => {
                                 fontSize: '14px',
                                 display: loadingVisible ? '' : 'none',
                                 paddingRight: '8px',
+                                margin: '0 2px 0 -8px',
                             }}
                         />
                     }
