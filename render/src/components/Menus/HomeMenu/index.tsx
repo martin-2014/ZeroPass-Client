@@ -108,7 +108,7 @@ const HomeMenu: FC<MenuItem> = (props) => {
                 props={props}
                 title={<FormattedMessage id={tools?.locale} />}
                 style={{
-                    display: showMenuTools() ? 'none' : '',
+                    display: showMenuTools() ? '' : 'none',
                 }}
             ></MenuTools>
             <QuickFinder style={{ display: quickFinder ? '' : 'none' }}></QuickFinder>
