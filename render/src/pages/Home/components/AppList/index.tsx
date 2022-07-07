@@ -64,16 +64,7 @@ export default (props: Props) => {
 
     useEffect(() => {
         hideForm();
-        if (props.route.name === 'tags') {
-            const pathArr = props.location.pathname.split('/');
-            const len = pathArr.length;
-            const id = pathArr[len - 1];
-            if (id && id !== -1) {
-                loadItems(id);
-            }
-        } else {
-            loadItems();
-        }
+        loadItems();
     }, [props.location.pathname]);
 
     const onItemSelected = (item: Item, isEdit = false) => {
@@ -90,7 +81,6 @@ export default (props: Props) => {
     };
 
     const onNewItem = (type: VaultItemType) => {
-        console.log('new', type);
         setNewItem(true);
         setNewItemType(type);
     };
@@ -188,63 +178,48 @@ export default (props: Props) => {
         }
     };
 
-    const getDropDownMenu = (types: VaultItemType[]) => {
-        const result = (
-            <Menu>
-                {types.map((type) => {
-                    const result = isSubMenu(type);
-                    if (result[0]) {
-                        return generateSubMenu(type, result[1]);
-                    } else {
-                        return generateMenuItem(type);
-                    }
-                })}
-            </Menu>
-        );
-        return result;
-    };
+    const dropDownMenu = (
+        <Menu>
+            {addableItemTypes.map((type) => {
+                const result = isSubMenu(type);
+                if (result[0]) {
+                    return generateSubMenu(type, result[1]);
+                } else {
+                    return generateMenuItem(type);
+                }
+            })}
+        </Menu>
+    );
 
-    const renderSingleAddButton = (type: VaultItemType) => {
-        return (
-            <HubButton
-                style={{
-                    marginLeft: '5px',
-                    padding: '4px 0',
-                    width: '80px',
-                }}
-                onClick={() => onNewItem(type)}
-            >
-                {'+ ' + Intl.formatMessage({ id: 'pages.searchTable.new' })}
-            </HubButton>
-        );
-    };
-
-    const renderMultiAddButton = (types: VaultItemType[]) => {
-        return (
-            <Dropdown
-                overlay={() => getDropDownMenu(types)}
-                placement="bottomLeft"
-                trigger={['click']}
-            >
+    const header = (
+        <>
+            {addableItemTypes.length === 1 && (
                 <HubButton
                     style={{
                         marginLeft: '5px',
                         padding: '4px 0',
                         width: '80px',
                     }}
+                    onClick={() => onNewItem(addableItemTypes[0])}
                 >
                     {'+ ' + Intl.formatMessage({ id: 'pages.searchTable.new' })}
                 </HubButton>
-            </Dropdown>
-        );
-    };
-
-    const renderAddButton = () => {
-        if (addableItemTypes.length === 0) return <></>;
-        return addableItemTypes.length === 1
-            ? renderSingleAddButton(addableItemTypes[0])
-            : renderMultiAddButton(addableItemTypes);
-    };
+            )}
+            {addableItemTypes.length > 1 && (
+                <Dropdown overlay={dropDownMenu} placement="bottomLeft" trigger={['click']}>
+                    <HubButton
+                        style={{
+                            marginLeft: '5px',
+                            padding: '4px 0',
+                            width: '80px',
+                        }}
+                    >
+                        {'+ ' + Intl.formatMessage({ id: 'pages.searchTable.new' })}
+                    </HubButton>
+                </Dropdown>
+            )}
+        </>
+    );
 
     const handleListEdit = (edit: boolean, item: Item) => {
         onItemSelected(item, edit);
@@ -255,7 +230,7 @@ export default (props: Props) => {
             onSearch={(e) => {
                 setSearch(e.target.value);
             }}
-            header={renderAddButton()}
+            header={header}
         >
             <div style={{ height: '100%' }}>
                 {items === undefined ? (
@@ -270,78 +245,55 @@ export default (props: Props) => {
                 <>
                     {
                         <TagsContextProvider>
-                            {/* {hasSelected ? <></> : <EmptyForm></EmptyForm>} */}
-                            {newItemType === VaultItemType.Login && newItem ? (
+                            {newItemType === VaultItemType.Login && newItem && (
                                 <NewLoginForm changeNew={setNewItem}></NewLoginForm>
-                            ) : (
-                                <></>
                             )}
-                            {editItemType === VaultItemType.Login ? (
+                            {editItemType === VaultItemType.Login && (
                                 <EditLoginForm
                                     editing={editItem}
                                     changeEditing={setEditItem}
                                 ></EditLoginForm>
-                            ) : (
-                                <></>
                             )}
-                            {newItemType === VaultItemType.SecureNodes && newItem ? (
+                            {newItemType === VaultItemType.SecureNodes && newItem && (
                                 <NewSecureNoteForm changeNew={setNewItem}></NewSecureNoteForm>
-                            ) : (
-                                <></>
                             )}
-                            {editItemType === VaultItemType.SecureNodes ? (
+                            {editItemType === VaultItemType.SecureNodes && (
                                 <EditSecureNoteForm
                                     editing={editItem}
                                     changeEditing={setEditItem}
                                 ></EditSecureNoteForm>
-                            ) : (
-                                <></>
                             )}
-                            {newItemType === VaultItemType.CreditCard && newItem ? (
+                            {newItemType === VaultItemType.CreditCard && newItem && (
                                 <NewCreditCardForm changeNew={setNewItem}></NewCreditCardForm>
-                            ) : (
-                                <></>
                             )}
-                            {editItemType === VaultItemType.CreditCard ? (
+                            {editItemType === VaultItemType.CreditCard && (
                                 <EditCreditCardForm
                                     editing={editItem}
                                     changeEditing={setEditItem}
                                 ></EditCreditCardForm>
-                            ) : (
-                                <></>
                             )}
-                            {newItemType === VaultItemType.PersonalInfo && newItem ? (
+                            {newItemType === VaultItemType.PersonalInfo && newItem && (
                                 <NewPersonalInfoForm changeNew={setNewItem}></NewPersonalInfoForm>
-                            ) : (
-                                <></>
                             )}
-                            {editItemType === VaultItemType.PersonalInfo ? (
+                            {editItemType === VaultItemType.PersonalInfo && (
                                 <EditPersonalInfoForm
                                     editing={editItem}
                                     changeEditing={setEditItem}
                                 ></EditPersonalInfoForm>
-                            ) : (
-                                <></>
                             )}
-                            {newItemType === VaultItemType.MetaMaskMnemonicPhrase && newItem ? (
+                            {newItemType === VaultItemType.MetaMaskMnemonicPhrase && newItem && (
                                 <NewMetaMaskMnemonicPhraseForm
                                     changeNew={setNewItem}
                                 ></NewMetaMaskMnemonicPhraseForm>
-                            ) : (
-                                <></>
                             )}
-                            {editItemType === VaultItemType.MetaMaskMnemonicPhrase ? (
+                            {editItemType === VaultItemType.MetaMaskMnemonicPhrase && (
                                 <EditMetaMaskMnemonicPhraseForm
                                     editing={editItem}
                                     changeEditing={setEditItem}
                                 ></EditMetaMaskMnemonicPhraseForm>
-                            ) : (
-                                <></>
                             )}
-                            {newItemType === VaultItemType.MetaMaskRawData && newItem ? (
+                            {newItemType === VaultItemType.MetaMaskRawData && newItem && (
                                 <NewDataWalletForm changeNew={setNewItem}></NewDataWalletForm>
-                            ) : (
-                                <></>
                             )}
                             {editItemType === VaultItemType.MetaMaskRawData && (
                                 <EditDataWalletForm
@@ -349,18 +301,14 @@ export default (props: Props) => {
                                     changeEditing={setEditItem}
                                 ></EditDataWalletForm>
                             )}
-                            {newItemType === VaultItemType.Addresses && newItem ? (
+                            {newItemType === VaultItemType.Addresses && newItem && (
                                 <NewAddresseseForm changeNew={setNewItem}></NewAddresseseForm>
-                            ) : (
-                                <></>
                             )}
-                            {editItemType === VaultItemType.Addresses ? (
+                            {editItemType === VaultItemType.Addresses && (
                                 <EditAddressesForm
                                     editing={editItem}
                                     changeEditing={setEditItem}
                                 ></EditAddressesForm>
-                            ) : (
-                                <></>
                             )}
                         </TagsContextProvider>
                     }

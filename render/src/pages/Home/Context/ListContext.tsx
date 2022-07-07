@@ -1,5 +1,3 @@
-import { localStore } from '@/browserStore/store';
-import { PersonalVaultItem } from '@/services/api/logins';
 import { onceExecutor, Result } from '@/services/api/requester';
 import { VaultItemType } from '@/services/api/vaultItems';
 import { filterData, getFaviconUrl, IsPersonalItem } from '@/utils/tools';
@@ -15,7 +13,7 @@ import Image from '@/components/Image';
 const executor = onceExecutor();
 
 export type Action = {
-    type: 'create' | 'delete' | 'update' | 'init' | 'search' | 'changeAlias' | 'select';
+    type: 'create' | 'update' | 'init' | 'search' | 'changeAlias' | 'select';
     args?: any;
 };
 
@@ -26,7 +24,7 @@ export type ListState = {
 };
 
 export const reducer = (state: ListState, action: Action): ListState => {
-    const { items, selectedId } = state;
+    const { items } = state;
     const { type, args } = action;
 
     const updateItem = (value: any) => {
@@ -35,14 +33,6 @@ export const reducer = (state: ListState, action: Action): ListState => {
             items: sortItems(
                 items!.map((item) => (item.id == value.id ? { ...item, ...value } : item)),
             ),
-        };
-    };
-
-    const deleteItem = (id: number): ListState => {
-        return {
-            ...state,
-            items: items!.filter((item) => item.id !== id),
-            selectedId: id === selectedId ? -1 : selectedId,
         };
     };
 
@@ -61,8 +51,6 @@ export const reducer = (state: ListState, action: Action): ListState => {
             return updateItem(args);
         case 'create':
             return { ...state, items: sortItems([...(items || []), args]) };
-        case 'delete':
-            return deleteItem(args as number);
         case 'search':
             return { ...state, search: args };
         case 'select':
@@ -76,7 +64,6 @@ export const reducer = (state: ListState, action: Action): ListState => {
     }
 };
 
-type ValutItemGetRequester = () => Promise<Result<PersonalVaultItem[]>>;
 const size = 24;
 export const itemTypeIconMap = new Map<VaultItemType, JSX.Element>([
     [VaultItemType.SecureNodes, IconMap(VaultItemType.SecureNodes, size)],
@@ -188,12 +175,7 @@ export const ListContexProvider = (
             const payload = { id: id, lastUsed: getUTCNow() };
             const res = await requesters.personal.patch(payload);
             if (!res.fail && !isUnmount.current) {
-                dispatch({
-                    type: 'update',
-                    args: {
-                        ...payload,
-                    },
-                });
+                load();
             }
         }
     };
@@ -209,7 +191,7 @@ export const ListContexProvider = (
         }
     };
 
-    const load = async (requester: ValutItemGetRequester) => {
+    const load = async () => {
         const transformItem = (item: VaultItem) => {
             const icon = getIconUri(item);
             return {
@@ -226,7 +208,7 @@ export const ListContexProvider = (
         };
 
         const items: Item[] = [];
-        const res = await executor(requester);
+        const res = await executor(() => requesters.load());
         if (res.skip || res.fail || isUnmount.current) {
             return;
         }
@@ -241,31 +223,8 @@ export const ListContexProvider = (
 
     const createPersonal = async (payload: any) => {
         const res = await requesters.personal.create(payload);
-        const item = {
-            ...payload,
-            domainId: localStore.personalDomainId,
-            id: res.payload.id,
-            key: res.payload.id?.toString(),
-            title: payload.name,
-            isDomainItem: false,
-            assignable: false,
-            star: false,
-            fav: false,
-            avatar: false,
-            tags: res.payload.tags,
-        };
         if (!res.fail) {
-            const icon = getIconUri(item);
-            dispatch({
-                type: 'create',
-                args: {
-                    ...item,
-                    lastModified: new Date().toISOString().substring(0, 19),
-                    lastUsed: getUTCNow(),
-                    description: getDescription(payload),
-                    icon,
-                },
-            });
+            load();
             onListChange?.(listState.items!);
         }
         return res;
@@ -274,7 +233,7 @@ export const ListContexProvider = (
     const deletePersonal = async (payload: any) => {
         const res = await requesters.personal.delete(payload);
         if (!res.fail && !isUnmount.current) {
-            dispatch({ type: 'delete', args: payload });
+            load();
             onListChange?.(listState.items || []);
         }
         return res;
@@ -283,16 +242,7 @@ export const ListContexProvider = (
     const updatePersonal = async (payload: any) => {
         const res = await requesters.personal.update(payload);
         if (!res.fail && !isUnmount.current) {
-            dispatch({
-                type: 'update',
-                args: {
-                    ...payload,
-                    title: payload.name,
-                    icon: getIconUri(payload),
-                    lastModified: new Date().toISOString().substring(0, 19),
-                    tags: res.payload.tags,
-                },
-            });
+            load();
             onListChange?.(listState.items || []);
         }
         return res;
@@ -301,7 +251,7 @@ export const ListContexProvider = (
     const favouritePersonal = async (id: number) => {
         const res = await requesters.personal.favourite(id);
         if (!res.fail && !isUnmount.current) {
-            dispatch({ type: 'update', args: { id, fav: true } });
+            load();
             onListChange?.(listState.items || []);
         }
         return res;
@@ -310,7 +260,7 @@ export const ListContexProvider = (
     const unfavouritePersonal = async (id: number) => {
         const res = await requesters.personal.unfavourite(id);
         if (!res.fail && !isUnmount.current) {
-            dispatch({ type: 'update', args: { id, fav: false } });
+            load();
             onListChange?.(listState.items || []);
         }
         return res;
@@ -359,7 +309,7 @@ export const ListContexProvider = (
                 selectedItem: listState.items?.find((item) => item.id == listState.selectedId),
                 setSelectedId,
                 setSearch,
-                loadItems: (args: any) => load(() => requesters.load(args)),
+                loadItems: load,
                 personal: {
                     create: createPersonal,
                     update: updatePersonal,

@@ -34,7 +34,7 @@ const isWalletType = (item: Item) => {
 };
 
 const MoreMenu = (props: Props) => {
-    const { personal, work } = useList();
+    const { personal, work, selectedId, setSelectedId } = useList();
     const { setNewTag } = useTagList();
     const { initialState } = useModel('@@initialState');
     const [walletDetailVisible, setWalletDetailVisible] = useState(false);
@@ -142,6 +142,9 @@ const MoreMenu = (props: Props) => {
             }
             const res = await personal.delete(item.id);
             if (!res.fail) {
+                if (selectedId === item.id) {
+                    setSelectedId(-1);
+                }
                 setNewTag('personal');
             }
         };

@@ -16,7 +16,7 @@ import {
 import { VaultItem } from './datatypes';
 
 export type ItemRequesters = {
-    load: (payload: any) => Promise<Result<VaultItem[]>>;
+    load: () => Promise<Result<VaultItem[]>>;
     personal: {
         create: (payload: any) => Promise<Result<any>>;
         update: (payload: any) => Promise<Result<any>>;
