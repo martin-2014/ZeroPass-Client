@@ -88,15 +88,6 @@ class LocalStore {
         localStorage.setItem('isUpdateAutomatically', valueString);
     }
 
-    get theme() {
-        const value = localStorage.getItem('theme');
-        return value ? value : 'dark';
-    }
-
-    set theme(value: string) {
-        localStorage.setItem('theme', value);
-    }
-
     get lock() {
         const value = localStorage.getItem('lock');
         return value ? +value : 0;
