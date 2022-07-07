@@ -127,5 +127,8 @@
     },
     "gitHooks": {
         "commit-msg": "fabric verify-commit"
+    },
+    "imports": {
+        "#@/*": "./dist/src/*.js"
     }
 }

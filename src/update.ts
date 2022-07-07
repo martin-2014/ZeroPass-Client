@@ -11,6 +11,7 @@ import { dialog, ipcMain, BrowserWindow, app } from "electron";
 import { autoUpdater } from "electron-updater";
 import log from "electron-log";
 import { version } from "uuid";
+//@ts-ignore
 import updateUrl from "../render/src/.hub/node_config";
 
 function update() {

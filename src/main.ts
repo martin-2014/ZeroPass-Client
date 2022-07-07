@@ -15,11 +15,12 @@ import logger from "electron-log";
 import update from "./update";
 import i18n from "./i18n";
 import settings from "./settings";
+//@ts-ignore
 import { devTools } from "../render/src/.hub/dev_tools";
 import ipcRequester from "./IpcRequester";
 import sserver, { getFreePort } from "./http/sserver";
 import pluginStore from "./http/pluginStore";
-import { storeItemList } from "./http/pluginRequestHandler";
+import { storeItemList } from "#@/http/pluginRequestHandlerProxy";
 import { webRequestRouter } from "./logic";
 import SafeCache from "./safe-cache";
 import detectQrCode from "./qrcode";

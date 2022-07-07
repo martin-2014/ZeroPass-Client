@@ -1,25 +1,26 @@
 import { TCryptoService } from '@/secretKey/cryptoService/cryptoService';
-import { IsPersonalItem, matchLogin } from '@/utils/tools';
-import { history, useModel } from 'umi';
+import { freePersonalDb, lockPersonalDb, updatePersonalDbLock } from '@/services/api/locks';
+import { LoginDetail } from '@/services/api/logins';
+import {
+    deletePasswordHistory,
+    deletePasswordHistoryAll,
+    getPasswordHistoryAll,
+    PasswordHistoryItem,
+    postPasswordHistory,
+} from '@/services/api/password';
+import { requester } from '@/services/api/requester';
+import { currentUser } from '@/services/api/user';
 import {
     createPersonalItem,
-    getAllItems as getAllPersonalItems,
+    getAllItems,
     getPersonalLoginDetail,
     updatePersonalItem,
     VaultItemType,
 } from '@/services/api/vaultItems';
-import {
-    getPasswordHistoryAll,
-    postPasswordHistory,
-    deletePasswordHistoryAll,
-    deletePasswordHistory,
-    PasswordHistoryItem,
-} from '@/services/api/password';
-import { getWorkLogins, LoginDetail } from '@/services/api/logins';
+import { IsPersonalItem } from '@/utils/tools';
 import { cloneDeep } from 'lodash';
-import { freePersonalDb, lockPersonalDb, updatePersonalDbLock } from '@/services/api/locks';
-import { requester } from '@/services/api/requester';
-import { currentUser } from '@/services/api/user';
+import { history } from 'umi';
+import { getPersonalAllItems } from '@/ipc/ipcHandlerProxy';
 
 const decrypt = async (data: Message.DecryptItem) => {
     const cryptoService = new TCryptoService();
@@ -29,10 +30,6 @@ const decrypt = async (data: Message.DecryptItem) => {
 
 const logout = () => {
     history.push('/user/logout');
-};
-
-const getAllAppList = () => {
-    return Promise.all([getAllPersonalItems(), getWorkLogins()]);
 };
 
 const savePassword = async (msg: Message.ExtensionsMessage) => {
@@ -116,7 +113,7 @@ const ipcController: { [key in Message.IpcMethod]: (data: any) => any } = {
         logout();
     },
     getList: async (data: any) => {
-        return await getAllAppList();
+        return await getPersonalAllItems();
     },
     savePassword: async function (data: any) {
         return await savePassword(data);
@@ -178,7 +175,7 @@ const ipcRequester = {
 
 export const syncItemListToPlugin = async () => {
     if (electron) {
-        const res = await getAllAppList();
+        const res = await getPersonalAllItems();
         electron.sendAllAppList(res);
     }
 };

@@ -1,9 +1,9 @@
-import { getAllItems, VaultItemType } from '@/services/api/vaultItems';
+import { getAllItems, VaultItemType } from '../../../../services/api/vaultItems';
 import { FormattedMessage, useIntl } from 'umi';
 import AppList from '../../components/AppList';
 import { ListContexProvider } from '../../Context/ListContext';
 import { itemRequesters } from '../../requesters';
-import { IconMap } from '@/components/MenuIcon';
+import { IconMap } from '../../../../components/MenuIcon';
 
 const requesters = {
     ...itemRequesters,
