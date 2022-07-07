@@ -5,7 +5,7 @@ import styles from './index.less';
 import FormItem from '@/components/Form/FormItem';
 import FormInput from '@/components/Form/FormInput';
 import FormGroup from '@/components/Form/FormGroup';
-import useSettings from 'root@/components/RightContent/Settings/useSettings';
+import useSettings from '@/components/RightContent/Settings/useSettings';
 
 const { Option } = Select;
 
