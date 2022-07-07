@@ -60,7 +60,6 @@ export const CSVToArray = (strData: string, strDelimiter: any = undefined) => {
         // it to the data array.
         arrData[arrData.length - 1].push(strMatchedValue);
     }
-
     // Return the parsed data.
     return arrData;
 };
