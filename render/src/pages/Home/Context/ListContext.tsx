@@ -1,14 +1,14 @@
-import { onceExecutor, Result } from '@/services/api/requester';
-import { VaultItemType } from '@/services/api/vaultItems';
-import { filterData, getFaviconUrl, IsPersonalItem } from '@/utils/tools';
+import { onceExecutor, Result } from '../../../services/api/requester';
+import { VaultItemType } from '../../..//services/api/vaultItems';
+import { filterData, getFaviconUrl, IsPersonalItem } from '../../..//utils/tools';
 import { createContext, PropsWithChildren, useReducer, useEffect, useRef } from 'react';
 import { Item, VaultItem } from '../datatypes';
 import { itemRequesters, ItemRequesters } from '../requesters';
-import { syncItemListToPlugin } from '@/ipc/ipcHandler';
+import { syncItemListToPlugin } from '../../..//ipc/ipcHandler';
 import { getImgUriByType } from '../tools';
 import { useIntl } from 'umi';
 import IconMap from '../components/IconMap';
-import Image from '@/components/Image';
+import Image from '../../..//components/Image';
 
 const executor = onceExecutor();
 

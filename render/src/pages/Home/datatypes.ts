@@ -1,5 +1,5 @@
-import { Item as ListItem } from '@/components/HubList';
-import { VaultItemView } from '@/services/api/vaultItems';
+import { Item as ListItem } from '../../components/HubList';
+import { VaultItemView } from '../../services/api/vaultItems';
 
 export type VaultItem = VaultItemView<any> & { isDomainItem?: boolean; assignable?: boolean } & {
     fav?: boolean;

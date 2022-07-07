@@ -1,5 +1,5 @@
-import AppItemToolBar from '@/components/AppItemToolBar';
-import HubList, { ListProps, Item as HubItem } from '@/components/HubList';
+import AppItemToolBar from '../../../../components/AppItemToolBar';
+import HubList, { ListProps, Item as HubItem } from '../../../../components/HubList';
 import { ReactNode } from 'react';
 import { useList } from '../../Context/hooks';
 import { Item as VaultItem } from '../../datatypes';

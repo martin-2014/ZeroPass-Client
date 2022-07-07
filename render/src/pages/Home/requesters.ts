@@ -1,4 +1,4 @@
-import { Result } from '@/services/api/requester';
+import { Result } from '../../services/api/requester';
 import {
     createPersonalItem,
     deletePersonalItem,
@@ -12,7 +12,7 @@ import {
     updateWorkItemAlias,
     updateWorkItemUsing,
     deletePersonalLogin,
-} from '@/services/api/vaultItems';
+} from '../../services/api/vaultItems';
 import { VaultItem } from './datatypes';
 
 export type ItemRequesters = {

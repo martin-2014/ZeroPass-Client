@@ -1,6 +1,7 @@
 import { RequestHandler } from "express";
 import ipcRequester from "../IpcRequester";
 import pluginStore from "./pluginStore";
+import { getAllItems } from "../http/pluginRequestHandlerProxy";
 
 export enum VaultItemType {
     Login = 0,
@@ -32,13 +33,6 @@ const matchLogin = (old: IMatchLogin, nnew: IMatchLogin) => {
     );
 };
 
-const formatList = (data: any[]) => {
-    return data.map((item) => ({
-        ...item,
-        alias: item.alias || item.name,
-    }));
-};
-
 const returnFillPasswordFromApp = () => {
     if (!pluginStore.openDetail) {
         const message: Message.ExtensionsMessage = {
@@ -55,27 +49,6 @@ const returnFillPasswordFromApp = () => {
         pluginStore.openDetail = null;
         return message;
     }
-};
-
-export const storeItemList = (list: any) => {
-    const [personal, work] = list;
-    pluginStore.personalList = !personal.fail
-        ? formatList(personal.payload)
-        : [];
-    pluginStore.workList = !work.fail ? formatList(work.payload) : [];
-    const message: Message.ExtensionsMessage = {
-        type: "ReturnListFromApp",
-        message: [...pluginStore.workList, ...pluginStore.personalList],
-    };
-    return message;
-};
-
-const getAllItems = async () => {
-    const [personal, work] = await ipcRequester.send("getList");
-    if (personal.fail || work.fail) {
-        return;
-    }
-    return storeItemList([personal, work]);
 };
 
 const returnDecryptFillPasswordFromApp = async (

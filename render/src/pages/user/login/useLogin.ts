@@ -1,6 +1,6 @@
 import { localStore, secretKeyStore, sessionStore } from '@/browserStore/store';
 import useInitData from '@/hooks/useInitData';
-import ipcHandler, { syncItemListToPlugin } from '@/ipc/ipcHandler';
+import ipcHandler, { syncItemListToPlugin } from '../../..//ipc/ipcHandler';
 import { KeyStore, setKeyStore } from '@/models/keyStore';
 import { TCryptoService } from '@/secretKey/cryptoService/cryptoService';
 import { TEncryptionKey } from '@/secretKey/secretKey';

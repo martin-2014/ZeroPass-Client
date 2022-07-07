@@ -10,7 +10,7 @@ import {
     UpOutlined,
 } from '@ant-design/icons';
 import { Col, Form, Input, Row } from 'antd';
-import useLogin from 'root@/pages/user/login/useLogin';
+import useLogin from '@/pages/user/login/useLogin';
 import { FormattedMessage } from 'umi';
 import styles from './index.less';
 

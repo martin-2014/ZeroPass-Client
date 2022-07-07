@@ -1,7 +1,7 @@
-import BaseContentLayout from '@/components/BaseContentLayout';
-import HubButton from '@/components/HubButton';
-import List from '@/pages/Home/components/List';
-import { VaultItemType } from '@/services/api/vaultItems';
+import BaseContentLayout from '../../../../components/BaseContentLayout';
+import HubButton from '../../../../components/HubButton';
+import List from '../../../../pages/Home/components/List';
+import { VaultItemType } from '../../../../services/api/vaultItems';
 import { Dropdown, Menu, Space } from 'antd';
 import { ReactNode, useEffect, useState } from 'react';
 import { FormattedMessage, useIntl } from 'umi';
