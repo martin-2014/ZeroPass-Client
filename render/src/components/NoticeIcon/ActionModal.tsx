@@ -5,7 +5,7 @@ import HubButton from '../HubButton';
 import SimpleModal from '../SimpleModal';
 interface NotificationActionButton {
     type?: ButtonType;
-    text?: JSX.Element;
+    text?: JSX.Element | string;
     style?: {};
     showLoading?: boolean;
 }
