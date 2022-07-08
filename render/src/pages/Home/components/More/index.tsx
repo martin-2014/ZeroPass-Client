@@ -145,7 +145,7 @@ const MoreMenu = (props: Props) => {
                 if (selectedId === item.id) {
                     setSelectedId(-1);
                 }
-                setNewTag('personal');
+                setNewTag();
             }
         };
         const label = (

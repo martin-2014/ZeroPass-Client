@@ -6,7 +6,7 @@ export default () => {
     const [quickFinder, setQuickFinder] = useState(true);
 
     useEffect(() => {
-        setTag('personal');
+        setTag();
     }, []);
 
     const showMenuTools = () => {

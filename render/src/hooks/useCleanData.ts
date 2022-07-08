@@ -1,20 +1,19 @@
 import { sessionStore } from '@/browserStore/store';
 import { useModel } from 'umi';
-import useTagList from './useTagList';
+import useTagList from '@/hooks/useTagList';
 import { TCryptoService } from '@/secretKey/cryptoService/cryptoService';
 
 export default () => {
     const { setInitialState } = useModel('@@initialState');
     const { setTags } = useModel('tags');
-    const { clearPersonalTagMenuCache, clearWorkAssignedTagMenuCache } = useTagList();
+    const { clearTagMenuCache } = useTagList();
 
     const cleanDataWhenLogout = async () => {
         setInitialState((s) => ({ ...s!, currentUser: undefined }));
         sessionStore.token = '';
         var cryptoService = new TCryptoService();
         cryptoService.logout();
-        clearPersonalTagMenuCache();
-        clearWorkAssignedTagMenuCache();
+        clearTagMenuCache();
         setTags(undefined);
         if (window.freshToken) {
             clearTimeout(window.freshToken);
@@ -40,7 +39,7 @@ export default () => {
 
     const cleanDataWhenSwitch = async () => {
         setInitialState((s) => ({ ...s!, currentUser: undefined }));
-        clearWorkAssignedTagMenuCache();
+        clearTagMenuCache();
         setTags(undefined);
     };
     return {
