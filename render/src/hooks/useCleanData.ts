@@ -5,12 +5,10 @@ import { TCryptoService } from '@/secretKey/cryptoService/cryptoService';
 
 export default () => {
     const { setInitialState } = useModel('@@initialState');
-    const { setSuperStatus } = useModel('superBrowser');
     const { setTags } = useModel('tags');
     const { clearPersonalTagMenuCache, clearWorkAssignedTagMenuCache } = useTagList();
 
     const cleanDataWhenLogout = async () => {
-        setSuperStatus({});
         setInitialState((s) => ({ ...s!, currentUser: undefined }));
         sessionStore.token = '';
         var cryptoService = new TCryptoService();

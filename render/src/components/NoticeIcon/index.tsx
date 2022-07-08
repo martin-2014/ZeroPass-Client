@@ -118,20 +118,15 @@ const NoticeIconView = () => {
         return notifications.reduce((pre, cur) => (cur.read === true ? pre : pre + 1), 0);
     };
 
-    const startLock = (interval: number) => {
-        if (!LockInterval) {
-            LockInterval = setInterval(() => {
-                if (!showLock) {
-                    if (Timing >= interval) {
-                        setShowLock(true);
-                        updateExtensionUserProfile(true);
-                        Timing = 0;
-                        return;
-                    }
-                    Timing += 1;
-                }
-            }, 1000);
+    const startLock = () => {
+        if (Timing >= lock) {
+            setShowLock(true);
+            updateExtensionUserProfile(true);
+            Timing = 0;
+            return;
         }
+        Timing += 1;
+        LockInterval = setTimeout(startLock, 1000);
     };
 
     const resetTiming = () => {
@@ -141,6 +136,7 @@ const NoticeIconView = () => {
     const restartTiming = () => {
         setShowLock(false);
         updateExtensionUserProfile(false);
+        startLock();
         Timing = 0;
     };
 
@@ -173,7 +169,7 @@ const NoticeIconView = () => {
         }
 
         if (lock !== 0) {
-            startLock(lock);
+            startLock();
         }
     }, [lock]);
 
