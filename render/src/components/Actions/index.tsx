@@ -1,12 +1,11 @@
 import { getManagerAppOpen, getWorkAppOpen, OpenDetail } from '@/services/api/logins';
 import { getPersonalLoginDetail } from '@/services/api/vaultItems';
-import { AppItem, BrowserEvent, listAllBrowserStatusSync, openBrowser } from '@/utils/appBrowser';
-import { EditOutlined, LoadingOutlined, MinusCircleOutlined } from '@ant-design/icons';
+import { AppItem, BrowserEvent, openBrowser } from '@/utils/appBrowser';
+import { EditOutlined } from '@ant-design/icons';
 import Popconfirm from '../Popconfirm';
-import React, { memo, useEffect, useImperativeHandle } from 'react';
-import { FormattedMessage, useIntl, useModel } from 'umi';
-import { Share, OpenOne } from '@icon-park/react';
-import message from '@/utils/message';
+import React, { useImperativeHandle } from 'react';
+import { FormattedMessage, useIntl } from 'umi';
+import { Share } from '@icon-park/react';
 import { Tooltip } from 'antd';
 import { Delete as DeleteIcon } from '@/Icons';
 
@@ -66,7 +65,7 @@ enum BrowserStatus {
     Closed = 4,
 }
 
-interface AppPropsItem extends PropsItem {
+export interface AppPropsItem extends PropsItem {
     type: 'manager' | 'workassign' | 'personal';
     appId: number | string;
     setProgress?: (progress: number) => void;
@@ -78,7 +77,7 @@ interface AppPropsItem extends PropsItem {
 
 export type StatusItem = 'closed' | 'opening' | 'opened' | 'fail';
 
-const getOpenInfo = async (type: AppPropsItem['type'], appId: number | string) => {
+export const getOpenInfo = async (type: AppPropsItem['type'], appId: number | string) => {
     let res: { payload?: OpenDetail; fail: boolean } = { fail: true };
     if (type == 'manager') {
         res = await getManagerAppOpen(appId);
@@ -105,144 +104,8 @@ const getOpenInfo = async (type: AppPropsItem['type'], appId: number | string) =
 
 class AppBrowserEvent extends BrowserEvent {}
 
-export const openSuper = React.forwardRef((props: AppPropsItem, ref: any) => {
-    const { superStatus, setSuperStatus } = useModel('superBrowser');
-    const Intl = useIntl();
-    const key = props.appId.toString();
-
-    const setStatus = (status: number) => {
-        superStatus[key] = status;
-        setSuperStatus({ ...superStatus });
-    };
-
-    const handleClick = async (e?: Event) => {
-        if (e) {
-            e.stopPropagation();
-            setStatus(1);
-        }
-        const res = await getOpenInfo(props.type, props.appId);
-        if (!res.fail && res.payload) {
-            var item: AppItem = new AppItem(res.payload);
-            item.domainId = -1;
-            const eventHandle = new AppBrowserEvent();
-            const containerId = item.containerBrief?.containerId;
-            if (containerId != undefined) {
-                eventHandle.onBeforeStarting = () => {};
-                eventHandle.onProgress = (progress: number) => {};
-                eventHandle.onStartedCompleted = (successful: boolean) => {
-                    if (!successful) {
-                        message.errorIntl('common.open.fail');
-                        setStatus(3);
-                    } else {
-                        setStatus(0);
-                    }
-                };
-                eventHandle.onClose = () => {
-                    setStatus(4);
-                };
-            }
-            openBrowser(item, eventHandle);
-        } else {
-        }
-    };
-
-    useImperativeHandle(ref, () => ({
-        onClick: () => {
-            setStatus(1);
-            handleClick();
-        },
-    }));
-
-    const getRunningContainer = () => {
-        try {
-            let status = -1;
-            const ret = listAllBrowserStatusSync();
-            for (let r of ret) {
-                if (r.ContainerID == props.containerId) {
-                    status = r.Status;
-                    if ([0, 1, 2].includes(status)) {
-                        setStatus(status);
-                        handleClick();
-                    }
-                }
-            }
-        } catch (e) {
-            console.log(e);
-        }
-    };
-
-    useEffect(() => {
-        getRunningContainer();
-    }, []);
-
-    if (superStatus[key] == 1 || superStatus[key] == 2) {
-        return (
-            <LoadingOutlined
-                onClick={(e) => e.stopPropagation()}
-                style={
-                    props.noTips
-                        ? {}
-                        : {
-                              fontSize: 16,
-                              opacity: 0.5,
-                          }
-                }
-                spin
-            />
-        );
-    } else if (superStatus[key] == 0) {
-        return props.noTips ? (
-            <MinusCircleOutlined
-                onClick={(e) => e.stopPropagation()}
-                style={
-                    props.noTips
-                        ? {}
-                        : {
-                              fontSize: 16,
-                              opacity: 0.5,
-                          }
-                }
-            />
-        ) : (
-            <Tooltip title={Intl.formatMessage({ id: 'vault.action.running' })}>
-                <MinusCircleOutlined
-                    onClick={(e) => e.stopPropagation()}
-                    style={
-                        props.noTips
-                            ? {}
-                            : {
-                                  fontSize: 16,
-                                  opacity: 0.5,
-                              }
-                    }
-                />
-            </Tooltip>
-        );
-    } else {
-        return props.noTips ? (
-            <OpenOne
-                theme="outline"
-                onClick={(e) => {
-                    handleClick(e);
-                }}
-                className={props.noTips ? '' : 'zp-icon'}
-            />
-        ) : (
-            <Tooltip title={Intl.formatMessage({ id: 'common.menu.open' })}>
-                <OpenOne
-                    theme="outline"
-                    onClick={(e) => {
-                        handleClick(e);
-                    }}
-                    className={props.noTips ? '' : 'zp-icon'}
-                />
-            </Tooltip>
-        );
-    }
-});
-
-export const OpenSuperBrowser = memo(openSuper, (pre, next) => {
-    return pre.appId === next.appId;
+export const OpenSuperBrowser = React.forwardRef((props: AppPropsItem, ref: any) => {
+    return <></>;
 });
 
 type DefaultPropsItem = {
