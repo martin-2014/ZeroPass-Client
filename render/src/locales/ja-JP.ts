@@ -5,18 +5,13 @@ import login from './ja-JP/login.json';
 import activate from './ja-JP/activate.json';
 import register from './ja-JP/register.json';
 import limit from './ja-JP/limit.json';
-import domain from './ja-JP/domain.json';
 import common from './ja-JP/common.json';
 import multiselect from './ja-JP/multiselect.json';
 import authorization from './ja-JP/authorization.json';
-import clients from './ja-JP/clients.json';
 import myapps from './ja-JP/myapps.json';
 import overview from './ja-JP/overview.json';
-import userList from './ja-JP/userList.json';
-import group from './ja-JP/group.json';
 import app from './ja-JP/app.json';
 import userProfile from './ja-JP/userProfile.json';
-import reports from './ja-JP/reports.json';
 import about from './ja-JP/about.json';
 import errors from './ja-JP/errors.json';
 import closeOption from './ja-JP/closeOption.json';
@@ -36,18 +31,13 @@ export default {
     ...activate,
     ...register,
     ...limit,
-    ...domain,
     ...common,
     ...multiselect,
     ...authorization,
-    ...clients,
     ...myapps,
     ...overview,
-    ...userList,
-    ...group,
     ...app,
     ...userProfile,
-    ...reports,
     ...about,
     ...errors,
     ...closeOption,

@@ -1,9 +1,0 @@
-{
-    "groups.groups": "Équipe",
-    "groups.group": "Équipe",
-    "groups.groupName": "Nom de l'équipe",
-    "groups.editGroup": "Modifier l'équipe",
-    "groups.groupMembers": "Membres de l'équipe",
-    "groups.requireName": "Veuillez saisir le nom de votre équipe",
-    "groups.description": "La description"
-}
