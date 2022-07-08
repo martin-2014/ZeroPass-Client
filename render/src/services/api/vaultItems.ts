@@ -177,10 +177,6 @@ export function getPersonalItemsByTag(tag: string) {
     return localRequester<VaultItem[]>('getVaultItemsByTag', { tag: tag });
 }
 
-export function getWorkItemsByTagId(id: number) {
-    return requester.get<VaultItem[]>(`/api/me/items/work/tagged/${id}`);
-}
-
 export function deletePersonalLogin(id: number) {
     return localRequester('deleteVaultItem', { id: id });
 }
