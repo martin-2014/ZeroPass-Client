@@ -1,0 +1,11 @@
+{
+    "dataStorage.message.backup.title": "Sichern Sie Daten vom lokalen Speicher",
+    "dataStorage.button.backup": "Sicherung",
+    "dataStorage.message.restore.title": "Daten wiederherstellen",
+    "dataStorage.message.restore.tips": "Bitte führen Sie während des Wiederherstellungsvorgangs keine anderen Vorgänge in der App durch!",
+    "dataStorage.radio.restore.delete": "Vorhandene Daten löschen",
+    "dataStorage.radio.restore.merge": "Mit bestehenden Daten zusammenführen",
+    "dataStorage.button.restore": "Wiederherstellen",
+    "dataStorage.message.backup.succefully": "Sicherung erfolgreich",
+    "dataStorage.message.restore.succefully": "Erfolgreich wiederherstellen"
+}

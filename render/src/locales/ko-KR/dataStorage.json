@@ -1,0 +1,11 @@
+{
+    "dataStorage.message.backup.title": "로컬 데이터 백업",
+    "dataStorage.button.backup": "지원",
+    "dataStorage.message.restore.title": "데이터 복원",
+    "dataStorage.message.restore.tips": "데이터 복원 중에는 다른 작업을 수행하지 마십시오!",
+    "dataStorage.radio.restore.delete": "기존 데이터 삭제",
+    "dataStorage.radio.restore.merge": "기존 데이터 병합",
+    "dataStorage.button.restore": "절감",
+    "dataStorage.message.backup.succefully": "백업 성공",
+    "dataStorage.message.restore.succefully": "복원 성공"
+}

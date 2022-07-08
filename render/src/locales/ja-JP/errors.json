@@ -45,5 +45,6 @@
     "err_data_sync_download_failed": "データの同期、ファイルのダウンロードに失敗しました",
     "err_data_sync_merge_failed": "データの同期、マージに失敗しました",
     "err_data_sync_upload_failed": "データの同期、ファイルのアップロードに失敗しました",
-    "err_data_sync_timeout": "同期データタイムアウト"
+    "err_data_sync_timeout": "同期データタイムアウト",
+    "err_import_data_user_incorrect": "データファイルは現在のユーザーのものではありません"
 }

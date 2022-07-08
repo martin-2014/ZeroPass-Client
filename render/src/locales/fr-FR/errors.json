@@ -45,5 +45,6 @@
     "err_data_sync_download_failed": "La synchronisation des fichiers de téléchargement des données a échoué",
     "err_data_sync_merge_failed": "Échec de la fusion des données de synchronisation",
     "err_data_sync_upload_failed": "La synchronisation des fichiers de téléchargement de données a échoué",
-    "err_data_sync_timeout": "Délai d'expiration des données de synchronisation"
+    "err_data_sync_timeout": "Délai d'expiration des données de synchronisation",
+    "err_import_data_user_incorrect": "Le fichier de données n'appartient pas à l'utilisateur actuel"
 }

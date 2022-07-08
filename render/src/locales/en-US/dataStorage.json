@@ -1,0 +1,11 @@
+{
+    "dataStorage.message.backup.title": "Backup data from local storage",
+    "dataStorage.button.backup": "Backup",
+    "dataStorage.message.restore.title": "Restore Data",
+    "dataStorage.message.restore.tips": "Please don't do any other operations in the App during the process of restoring!",
+    "dataStorage.radio.restore.delete": "Delete existing data",
+    "dataStorage.radio.restore.merge": "Merge with existing data",
+    "dataStorage.button.restore": "Restore",
+    "dataStorage.message.backup.succefully": "Backup succefully",
+    "dataStorage.message.restore.succefully": "Restore succefully"
+}

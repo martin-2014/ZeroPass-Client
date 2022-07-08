@@ -27,6 +27,7 @@ import tip from './vi-VN/tip.json';
 import password from './vi-VN/password.json';
 import wallet from './vi-VN/wallet.json';
 import sync from './vi-VN/sync.json';
+import dataStorage from './vi-VN/dataStorage.json';
 
 export default {
     ...menu,
@@ -58,4 +59,5 @@ export default {
     ...password,
     ...wallet,
     ...sync,
+    ...dataStorage,
 };

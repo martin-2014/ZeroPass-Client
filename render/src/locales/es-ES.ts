@@ -27,6 +27,7 @@ import tip from './es-ES/tip.json';
 import password from './es-ES/password.json';
 import wallet from './es-ES/wallet.json';
 import sync from './es-ES/sync.json';
+import dataStorage from './es-ES/dataStorage.json';
 
 export default {
     ...menu,
@@ -58,4 +59,5 @@ export default {
     ...password,
     ...wallet,
     ...sync,
+    ...dataStorage,
 };

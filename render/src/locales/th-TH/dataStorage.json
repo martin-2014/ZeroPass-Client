@@ -1,0 +1,11 @@
+{
+    "dataStorage.message.backup.title": "สำรองข้อมูลในเครื่อง",
+    "dataStorage.button.backup": "สำรอง",
+    "dataStorage.message.restore.title": "กู้คืนข้อมูล",
+    "dataStorage.message.restore.tips": "ในระหว่างการกู้คืนข้อมูล โปรดอย่าดำเนินการอื่นใด!",
+    "dataStorage.radio.restore.delete": "ลบข้อมูลที่มีอยู่",
+    "dataStorage.radio.restore.merge": "รวมข้อมูลที่มีอยู่",
+    "dataStorage.button.restore": "การลดน้อยลง",
+    "dataStorage.message.backup.succefully": "สำรองข้อมูลสำเร็จ",
+    "dataStorage.message.restore.succefully": "ฟื้นฟูสำเร็จ"
+}

@@ -1,0 +1,11 @@
+{
+    "dataStorage.message.backup.title": "ローカルデータのバックアップ",
+    "dataStorage.button.backup": "バックアップ",
+    "dataStorage.message.restore.title": "データを復元する",
+    "dataStorage.message.restore.tips": "データの復元中は、他の操作を行わないでください。",
+    "dataStorage.radio.restore.delete": "既存のデータを削除する",
+    "dataStorage.radio.restore.merge": "既存のデータをマージする",
+    "dataStorage.button.restore": "割引",
+    "dataStorage.message.backup.succefully": "バックアップが成功しました",
+    "dataStorage.message.restore.succefully": "復元に成功しました"
+}

@@ -27,6 +27,7 @@ import tip from './zh-TW/tip.json';
 import password from './zh-TW/password.json';
 import wallet from './zh-TW/wallet.json';
 import sync from './zh-TW/sync.json';
+import dataStorage from './zh-TW/dataStorage.json';
 
 export default {
     ...menu,
@@ -58,4 +59,5 @@ export default {
     ...password,
     ...wallet,
     ...sync,
+    ...dataStorage,
 };

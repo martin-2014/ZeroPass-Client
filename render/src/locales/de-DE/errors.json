@@ -45,5 +45,6 @@
     "err_data_sync_download_failed": "Daten-Download-Dateien synchronisieren fehlgeschlagen",
     "err_data_sync_merge_failed": "Zusammenführung der Synchronisierungsdaten fehlgeschlagen",
     "err_data_sync_upload_failed": "Synchronisierung von Daten-Upload-Dateien fehlgeschlagen",
-    "err_data_sync_timeout": "Timeout für Synchronisierungsdaten"
+    "err_data_sync_timeout": "Timeout für Synchronisierungsdaten",
+    "err_import_data_user_incorrect": "Die Datendatei gehört nicht dem aktuellen Benutzer"
 }

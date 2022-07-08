@@ -82,6 +82,7 @@ declare namespace API {
         zpUserId: string;
         photo?: string;
         setting?: UserSetting;
+        personalDomain: domain;
     };
 
     type Login = {

@@ -46,5 +46,6 @@
     "err_data_sync_download_failed": "Sync data download files failed",
     "err_data_sync_merge_failed": "Sync data merge failed",
     "err_data_sync_upload_failed": "Sync data upload files failed",
-    "err_data_sync_timeout": "Sync data timeout"
+    "err_data_sync_timeout": "Sync data timeout",
+    "err_import_data_user_incorrect": "The data file is not owned by current user"
 }

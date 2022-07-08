@@ -9,6 +9,10 @@ import {
 import { PasswordHistoryRepository } from "./PasswordHistoryRepository";
 import { AppConfigRepository } from "./AppConfigRepository";
 import { merge } from "./merge";
+import path from "path";
+import { copy, createDirs, sevenZip, exists } from "../../logic/io";
+import fsPromise from "fs/promises";
+import { dataStoreUtils } from "./common";
 
 class LevelDb implements ILocalDb {
     private db: Level;
@@ -36,11 +40,11 @@ class LevelDb implements ILocalDb {
         }, 50);
     };
 
-    async switch(path: string): Promise<void> {
+    async switch(dbPath: string): Promise<void> {
         if (this.db !== undefined) {
             await this.close();
         }
-        this.db = new Level(path, { valueEncoding: "json" });
+        this.db = new Level(dbPath, { valueEncoding: "json" });
         return new Promise<void>(this.checkDbOpened);
     }
 
@@ -74,23 +78,93 @@ class LevelDb implements ILocalDb {
         }
     }
 
-    async merge(path: string): Promise<void> {
+    async merge(dbPath: string): Promise<void> {
         const remoteRepos = new LevelDb();
         try {
-            await remoteRepos.switch(path);
+            await remoteRepos.switch(dbPath);
             await merge.mergeRepos(this, remoteRepos);
         } finally {
             await remoteRepos.close();
         }
     }
 
-    async export(path: string): Promise<void> {
-        const exRepos = new LevelDb();
+    async export(
+        exportPath: string,
+        filePath: string,
+        userId: number,
+        domainId: number
+    ): Promise<void> {
+        const exRepos: ILocalDb = new LevelDb();
+        const dbPath = dataStoreUtils.dbPath(exportPath);
+        const dbFilePath = dataStoreUtils.dbFile(exportPath);
+        const exportWalletPath = dataStoreUtils.walletPath(exportPath);
+        const localWalletPath = dataStoreUtils.walletPath(
+            path.join(this.dbLocation, "..")
+        );
+        const packagePath = dataStoreUtils.packagePath(exportPath);
+        const packageFile = dataStoreUtils.packageFile(exportPath);
+        const infoPath = dataStoreUtils.userInfo(exportPath);
         try {
-            await exRepos.switch(path);
-            await merge.exportRepos(this, exRepos);
+            try {
+                await exRepos.switch(dbPath);
+                await merge.exportRepos(this, exRepos);
+                await merge.exportWallet(localWalletPath, exportWalletPath);
+                await exRepos.close();
+            } finally {
+                await exRepos.close();
+            }
+            await fsPromise.writeFile(
+                infoPath,
+                JSON.stringify({ userId: userId, domainId: domainId })
+            );
+            await createDirs(packagePath);
+            await sevenZip.compress(`${dbPath}/*`, dbFilePath);
+            await sevenZip.compress(dbFilePath, packageFile);
+            await sevenZip.compress(exportWalletPath, packageFile);
+            await sevenZip.compress(infoPath, packageFile);
+            await copy(packageFile, filePath);
         } finally {
-            await exRepos.close();
+            await fsPromise.rm(exportPath, { recursive: true });
+        }
+    }
+
+    async import(
+        importPath: string,
+        filePath: string,
+        userId: number,
+        domainId: number,
+        overwrite: boolean
+    ): Promise<string> {
+        const imRepos: ILocalDb = new LevelDb();
+        const dbPath = dataStoreUtils.dbPath(importPath);
+        const dbFile = dataStoreUtils.dbFile(importPath);
+        const localWalletPath = dataStoreUtils.walletPath(
+            path.join(this.dbLocation, "..")
+        );
+        const remoteWalletPath = dataStoreUtils.walletPath(importPath);
+        const infoPath = dataStoreUtils.userInfo(importPath);
+        try {
+            // await createDirs(importPath);
+            await createDirs(dbPath);
+            await sevenZip.extract(filePath, importPath);
+
+            if (!(await exists(infoPath))) {
+                return "err_import_data_user_incorrect";
+            }
+            const info = JSON.parse(
+                (await fsPromise.readFile(infoPath)).toString()
+            );
+            if (info.userId !== userId || info.domainId !== domainId) {
+                return "err_import_data_user_incorrect";
+            }
+
+            await sevenZip.extract(dbFile, dbPath);
+            await imRepos.switch(dbPath);
+            await merge.importRepos(imRepos, this, overwrite);
+            await merge.importWallet(remoteWalletPath, localWalletPath);
+        } finally {
+            await imRepos.close();
+            await fsPromise.rm(importPath, { recursive: true });
         }
     }
 

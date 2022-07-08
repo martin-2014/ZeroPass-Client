@@ -66,6 +66,12 @@ export default [
                                 path: 'passwordHealth',
                                 component: './Tools/PasswordHealth',
                             },
+                            {
+                                name: 'dataStorage',
+                                icon: 'DataStorage|icon',
+                                path: 'datastorage',
+                                component: './Tools/DataStorage',
+                            },
                         ],
                     },
                     {
