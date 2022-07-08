@@ -105,7 +105,7 @@ const FormContent = React.forwardRef((props: Props, ref: any) => {
         changeLoadingState?.(false);
         if (!response.fail) {
             message.successIntl('common.save.success', 3);
-            setNewTag('personal');
+            setNewTag();
             onUpdate?.({ ...detail, walletPassword: data.walletPassword }, tags);
             if (backupChanged && originalBackup && electron) {
                 electron.deleteMetaMaskWalletBackup({

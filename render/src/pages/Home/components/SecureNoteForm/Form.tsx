@@ -57,7 +57,7 @@ const FormContent = React.forwardRef((props: Props, ref: any) => {
         if (!response.fail) {
             message.successIntl('common.save.success', 3);
             onUpdate?.(detail, tags);
-            setNewTag('personal');
+            setNewTag();
         } else {
             errHandlers.default(response);
         }

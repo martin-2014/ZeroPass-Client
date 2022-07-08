@@ -14,7 +14,7 @@ const requesters = {
 export default (props: any) => {
     const { setNewTag } = useTagList();
     useEffect(() => {
-        setNewTag('workassigned');
+        setNewTag();
     }, []);
     return (
         <ListContexProvider requesters={requesters} containsWork={true}>

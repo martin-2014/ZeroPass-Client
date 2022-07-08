@@ -6,7 +6,6 @@ export type Tag = {
 };
 
 export type Tags = {
-    workassigned?: Tag[];
     personal?: Tag[];
 };
 

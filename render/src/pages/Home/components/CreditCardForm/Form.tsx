@@ -100,7 +100,7 @@ const FormContent = React.forwardRef((props: props, ref: any) => {
         const headerImg = getImgUriByType(type);
         if (!res.fail) {
             message.successIntl('common.save.success');
-            setNewTag('personal');
+            setNewTag();
             onUpdate?.(formData, tags, headerImg);
         } else {
             errHandlers.default(res);

@@ -25,8 +25,3 @@ export function getPersonalEntryTag() {
 export function getPersonalVisibleEntryTag() {
     return requester.get<TagResultItem[]>(`${ME_PERSONAL_URI}/visible`);
 }
-
-const ME_WORK_URI = '/api/me/tags/work';
-export function getWorkVisibleEntryTag() {
-    return requester.get<TagResultItem[]>(`${ME_WORK_URI}/visible`);
-}
