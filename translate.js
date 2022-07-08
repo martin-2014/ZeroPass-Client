@@ -89,12 +89,7 @@ function updateEntrance(
 }
 
 async function translateRender(language) {
-    const rootFolder = path.join(
-        __dirname,
-        "hubStudioRender",
-        "src",
-        "locales"
-    );
+    const rootFolder = path.join(__dirname, "render", "src", "locales");
     const source = languages[languages[language].source];
     const target = languages[language];
 

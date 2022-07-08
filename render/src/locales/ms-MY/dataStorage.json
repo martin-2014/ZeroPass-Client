@@ -1,0 +1,11 @@
+{
+    "dataStorage.message.backup.title": "Sandarkan data setempat",
+    "dataStorage.button.backup": "sandaran",
+    "dataStorage.message.restore.title": "memulihkan data",
+    "dataStorage.message.restore.tips": "Semasa pemulihan data, sila jangan lakukan operasi lain!",
+    "dataStorage.radio.restore.delete": "memadam data sedia ada",
+    "dataStorage.radio.restore.merge": "Gabungkan data sedia ada",
+    "dataStorage.button.restore": "pengurangan",
+    "dataStorage.message.backup.succefully": "Sandaran berjaya",
+    "dataStorage.message.restore.succefully": "Pemulihan berjaya"
+}

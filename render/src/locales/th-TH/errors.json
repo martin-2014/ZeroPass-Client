@@ -45,5 +45,6 @@
     "err_data_sync_download_failed": "ซิงค์ข้อมูล ดาวน์โหลดไฟล์ไม่สำเร็จ",
     "err_data_sync_merge_failed": "ซิงค์ข้อมูล ผสานล้มเหลว",
     "err_data_sync_upload_failed": "ซิงค์ข้อมูล อัพโหลดไฟล์ไม่สำเร็จ",
-    "err_data_sync_timeout": "ซิงค์ข้อมูลหมดเวลา"
+    "err_data_sync_timeout": "ซิงค์ข้อมูลหมดเวลา",
+    "err_import_data_user_incorrect": "ไฟล์ข้อมูลไม่ได้เป็นของผู้ใช้ปัจจุบัน"
 }

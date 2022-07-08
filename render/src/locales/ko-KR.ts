@@ -22,6 +22,7 @@ import tip from './ko-KR/tip.json';
 import password from './ko-KR/password.json';
 import wallet from './ko-KR/wallet.json';
 import sync from './ko-KR/sync.json';
+import dataStorage from './ko-KR/dataStorage.json';
 
 export default {
     ...menu,
@@ -48,4 +49,5 @@ export default {
     ...password,
     ...wallet,
     ...sync,
+    ...dataStorage,
 };

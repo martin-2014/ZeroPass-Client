@@ -22,6 +22,7 @@ import tip from './zh-CN/tip.json';
 import password from './zh-CN/password.json';
 import wallet from './zh-CN/wallet.json';
 import sync from './zh-CN/sync.json';
+import dataStorage from './zh-CN/dataStorage.json';
 
 export default {
     ...menu,
@@ -48,4 +49,5 @@ export default {
     ...password,
     ...wallet,
     ...sync,
+    ...dataStorage,
 };

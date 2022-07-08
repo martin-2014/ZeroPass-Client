@@ -181,7 +181,8 @@ declare namespace Message {
         | "getPwdHistories"
         | "exportData"
         | "mergeData"
-        | "getMergeStatus";
+        | "getMergeStatus"
+        | "importData";
 
     type MergeDataErrorType = "error" | "timeout";
 
@@ -243,6 +244,17 @@ declare namespace Message {
         lastError: string;
         lastMessage: string;
         errorId: string;
+    }
+
+    interface ExportParams {
+        userId: number;
+        domainId: number;
+    }
+
+    interface ImportParams {
+        userId: number;
+        domainId: number;
+        overwrite: boolean;
     }
 }
 

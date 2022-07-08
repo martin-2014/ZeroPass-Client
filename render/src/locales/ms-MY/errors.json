@@ -45,5 +45,6 @@
     "err_data_sync_download_failed": "Segerakkan data, muat turun fail gagal",
     "err_data_sync_merge_failed": "Segerakkan data, penggabungan gagal",
     "err_data_sync_upload_failed": "Segerakkan data, muat naik fail gagal",
-    "err_data_sync_timeout": "penyegerakan tamat masa data"
+    "err_data_sync_timeout": "penyegerakan tamat masa data",
+    "err_import_data_user_incorrect": "Fail data bukan milik pengguna semasa"
 }

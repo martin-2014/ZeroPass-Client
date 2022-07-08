@@ -22,6 +22,7 @@ import tip from './ms-MY/tip.json';
 import password from './ms-MY/password.json';
 import wallet from './ms-MY/wallet.json';
 import sync from './ms-MY/sync.json';
+import dataStorage from './ms-MY/dataStorage.json';
 
 export default {
     ...menu,
@@ -48,4 +49,5 @@ export default {
     ...password,
     ...wallet,
     ...sync,
+    ...dataStorage,
 };

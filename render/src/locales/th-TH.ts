@@ -22,6 +22,7 @@ import tip from './th-TH/tip.json';
 import password from './th-TH/password.json';
 import wallet from './th-TH/wallet.json';
 import sync from './th-TH/sync.json';
+import dataStorage from './th-TH/dataStorage.json';
 
 export default {
     ...menu,
@@ -48,4 +49,5 @@ export default {
     ...password,
     ...wallet,
     ...sync,
+    ...dataStorage,
 };

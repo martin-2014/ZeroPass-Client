@@ -1,0 +1,11 @@
+{
+    "dataStorage.message.backup.title": "Copia de seguridad de datos del almacenamiento local",
+    "dataStorage.button.backup": "Respaldo",
+    "dataStorage.message.restore.title": "Restaurar datos",
+    "dataStorage.message.restore.tips": "¡No realice ninguna otra operación en la aplicación durante el proceso de restauración!",
+    "dataStorage.radio.restore.delete": "Eliminar datos existentes",
+    "dataStorage.radio.restore.merge": "Combinar con datos existentes",
+    "dataStorage.button.restore": "Restaurar",
+    "dataStorage.message.backup.succefully": "Copia de seguridad con éxito",
+    "dataStorage.message.restore.succefully": "Restaurar con éxito"
+}

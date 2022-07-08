@@ -1,0 +1,11 @@
+{
+    "dataStorage.message.backup.title": "Sao lưu dữ liệu cục bộ",
+    "dataStorage.button.backup": "sao lưu",
+    "dataStorage.message.restore.title": "khôi phục dữ liệu",
+    "dataStorage.message.restore.tips": "Trong quá trình khôi phục dữ liệu, vui lòng không thực hiện các thao tác khác!",
+    "dataStorage.radio.restore.delete": "xóa dữ liệu hiện có",
+    "dataStorage.radio.restore.merge": "Hợp nhất dữ liệu hiện có",
+    "dataStorage.button.restore": "sự giảm bớt",
+    "dataStorage.message.backup.succefully": "Sao lưu thành công",
+    "dataStorage.message.restore.succefully": "Khôi phục thành công"
+}

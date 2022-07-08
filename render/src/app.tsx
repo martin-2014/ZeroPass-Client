@@ -101,6 +101,7 @@ export async function getInitialState(): Promise<{
                         ...data,
                         photo: domain.logo,
                         setting: domain.setting,
+                        personalDomain: domain,
                     };
                     break;
                 }

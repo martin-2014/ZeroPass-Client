@@ -1,0 +1,11 @@
+{
+    "dataStorage.message.backup.title": "备份本地数据",
+    "dataStorage.button.backup": "备份",
+    "dataStorage.message.restore.title": "还原数据",
+    "dataStorage.message.restore.tips": "再还原数据期间，请不要进行其他操作！",
+    "dataStorage.radio.restore.delete": "删除现有数据",
+    "dataStorage.radio.restore.merge": "合并现有数据",
+    "dataStorage.button.restore": "还原",
+    "dataStorage.message.backup.succefully": "备份成功",
+    "dataStorage.message.restore.succefully": "还原成功"
+}

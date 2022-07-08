@@ -7,6 +7,8 @@ import repos from "./level";
 import fsPromise from "fs/promises";
 import { cleanDir, copy, createDirs, exists } from "../../logic/io";
 import path from "path";
+import { entities } from "..";
+import { defaultMaxListeners } from "ws";
 
 type MetaMaskRawDataDetail = {
     title: string;
@@ -101,13 +103,10 @@ const mergeUpdateEntity = async (
         if (entity2 === undefined) {
             continue;
         }
-        logger.debug("merge entity: ", entity1.updateTime, entity2.updateTime);
         const ad = customMerge(entity1, entity2);
         if (entity1.updateTime > entity2.updateTime) {
-            logger.debug("merge d1d2", { ...entity1, ...ad });
             d1d2Updates.push({ ...entity1, ...ad });
         } else if (entity2.updateTime > entity1.updateTime) {
-            logger.debug("merge d2d1", { ...entity2, ...ad });
             d2d1Updates.push({ ...entity2, ...ad });
         } else if (Object.keys(ad).length > 0) {
             d1d2Updates.push({ ...entity2, ...ad });
@@ -115,13 +114,68 @@ const mergeUpdateEntity = async (
         }
     }
     if (d1d2Updates.length > 0) {
-        logger.debug(`merge update count ${d1d2Updates.length}`);
         await data2.batchSave(d1d2Updates);
     }
     if (d2d1Updates.length > 0) {
-        logger.debug(`merge update count ${d2d1Updates.length}`);
         await data1.batchSave(d2d1Updates);
     }
+};
+
+const importData = async (
+    src: IBaseRepository<RecordEntity>,
+    dst: IBaseRepository<RecordEntity>,
+    overwrite: boolean
+) => {
+    const updatedIds: string[] = [];
+    await dst.batchOperation(async (entities) => {
+        const srcEntList = await src.getMany(entities.map((e) => e.id));
+        const newList = await entities.map((dstEnt) => {
+            const srcEnt = srcEntList.find((e) => e.id === dstEnt.id);
+            if (srcEnt === undefined) {
+                if (overwrite) {
+                    dstEnt.isDeleted = true;
+                }
+                return dstEnt;
+            } else {
+                return srcEnt;
+            }
+        });
+        if (newList.length > 0) {
+            updatedIds.push(...newList.map((e) => e.id));
+            await dst.batchSave(newList);
+        }
+    });
+    await src.batchOperation(async (entities) => {
+        const newList = entities.filter((e) => !updatedIds.includes(e.id));
+        if (newList.length > 0) {
+            await dst.batchSave(newList);
+        }
+    });
+};
+
+const importWallet = async (srcPath: string, dstPath: string) => {
+    const entities = await repos.vaultItems.getItemsByType([
+        VaultItemType.MetaMaskRawData,
+    ]);
+    const existedFiles: string[] = (await exists(dstPath))
+        ? (await fsPromise.readdir(dstPath)).map((f) => path.join(dstPath, f))
+        : [];
+    const validFiles: string[] = [];
+    for (const entity of entities) {
+        const detail = entity.detail as unknown as MetaMaskRawDataDetail;
+        const srcFile = path.join(srcPath, detail.dataFile);
+        const dstFile = path.join(dstPath, detail.dataFile);
+        await createDirs(dstPath);
+        if (await exists(srcFile)) {
+            await copy(srcFile, dstFile);
+        }
+        validFiles.push(dstFile);
+    }
+    const delFiles = existedFiles.filter((f) => validFiles.indexOf(f) < 0);
+    // logger.debug("del files", delFiles);
+    delFiles.forEach(async (f) => {
+        await fsPromise.rm(f);
+    });
 };
 
 const exportData = async (
@@ -213,6 +267,24 @@ const merge: IMerge = {
             }
         }
         return result;
+    },
+    exportWallet: async (localPath: string, exportPath: string) => {
+        await createDirs(exportPath);
+        await copy(localPath, exportPath);
+    },
+    importRepos: async (src: ILocalDb, dst: ILocalDb, overwrite: boolean) => {
+        const dstVaultItems =
+            dst.vaultItems as unknown as VaultItemRepositoryLevel;
+        const srcVaultItems =
+            src.vaultItems as unknown as VaultItemRepositoryLevel;
+        await importData(srcVaultItems, dstVaultItems, overwrite);
+
+        const dstPasswords = dst.passwordHistories as PasswordHistoryRepository;
+        const srcPasswords = src.passwordHistories as PasswordHistoryRepository;
+        await importData(srcPasswords, dstPasswords, overwrite);
+    },
+    importWallet: async (srcPath: string, dstPath: string) => {
+        await importWallet(srcPath, dstPath);
     },
 };
 

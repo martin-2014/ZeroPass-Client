@@ -26,6 +26,7 @@ import SafeCache from "./safe-cache";
 import detectQrCode from "./qrcode";
 import dataWallet from "./logic/metaMaskWallet";
 import { machineId } from "node-machine-id";
+import { setMainWindow } from "./utils";
 
 let tray;
 let isQuiting;
@@ -105,6 +106,7 @@ function createWindow() {
             devTools: Open_DevTools,
         },
     });
+    setMainWindow(mainWindow);
 
     mainWindow.on("ready-to-show", async () => {
         const locale = await settings.getLocale();

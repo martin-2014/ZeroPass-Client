@@ -8,7 +8,7 @@ import {
 } from "./models/converter";
 import { v4 as uuid } from "uuid";
 import logger from "electron-log";
-import { app } from "electron";
+import { app, dialog } from "electron";
 import {
     ipfsServer,
     ShareFolderSyncWorkflow,
@@ -17,7 +17,7 @@ import {
 import path from "path";
 import { ISyncWorkFlow } from "./synchronization/definition";
 import { IpfsSyncWorkflow } from "./synchronization/ipfsSync";
-import { promiseDelay } from "../utils";
+import { dateToYYYYMMDDHHMMSS, getMainWindow, promiseDelay } from "../utils";
 
 const propsCopy = (src: any, dst: any) => {
     Object.keys(src).forEach((k) => {
@@ -232,9 +232,59 @@ const webRequestController: {
     exportData: async (
         params: ParamsType
     ): Promise<Message.WebResponseData> => {
-        const path = `${app.getPath("temp")}/zeropass/exports/${createId()}`;
-        await repos.export(path);
-        return succRes(path);
+        const info = params as Message.ExportParams;
+        const exportPath = path.join(
+            app.getPath("temp"),
+            "zeropass",
+            "exports",
+            createId()
+        );
+        const saveRes = await dialog.showSaveDialog(getMainWindow(), {
+            properties: ["showOverwriteConfirmation"],
+            filters: [{ name: "Zero Password Data", extensions: ["zpd"] }],
+            defaultPath: `Backup${dateToYYYYMMDDHHMMSS(new Date())}.zpd`,
+        });
+        if (!saveRes.canceled) {
+            await repos.export(
+                exportPath,
+                saveRes.filePath,
+                info.userId,
+                info.domainId
+            );
+        } else {
+            return errRes("err_opt_cancel");
+        }
+        return succRes();
+    },
+    importData: async (
+        params: ParamsType
+    ): Promise<Message.WebResponseData> => {
+        const info = params as Message.ImportParams;
+        const importPath = path.join(
+            app.getPath("temp"),
+            "zeropass",
+            "imports",
+            createId()
+        );
+        const openRes = await dialog.showOpenDialog(getMainWindow(), {
+            properties: ["openFile"],
+            filters: [{ name: "Zero Password Data", extensions: ["zpd"] }],
+        });
+        if (!openRes.canceled) {
+            const err = await repos.import(
+                importPath,
+                openRes.filePaths[0],
+                info.userId,
+                info.domainId,
+                info.overwrite
+            );
+            if (err) {
+                return errRes(err);
+            }
+        } else {
+            return errRes("err_opt_cancel");
+        }
+        return succRes();
     },
 
     mergeData: async (params: ParamsType): Promise<Message.WebResponseData> => {
