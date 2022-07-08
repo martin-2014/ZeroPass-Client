@@ -5,18 +5,13 @@ import login from './vi-VN/login.json';
 import activate from './vi-VN/activate.json';
 import register from './vi-VN/register.json';
 import limit from './vi-VN/limit.json';
-import domain from './vi-VN/domain.json';
 import common from './vi-VN/common.json';
 import multiselect from './vi-VN/multiselect.json';
 import authorization from './vi-VN/authorization.json';
-import clients from './vi-VN/clients.json';
 import myapps from './vi-VN/myapps.json';
 import overview from './vi-VN/overview.json';
-import userList from './vi-VN/userList.json';
-import group from './vi-VN/group.json';
 import app from './vi-VN/app.json';
 import userProfile from './vi-VN/userProfile.json';
-import reports from './vi-VN/reports.json';
 import about from './vi-VN/about.json';
 import errors from './vi-VN/errors.json';
 import closeOption from './vi-VN/closeOption.json';
@@ -36,18 +31,13 @@ export default {
     ...activate,
     ...register,
     ...limit,
-    ...domain,
     ...common,
     ...multiselect,
     ...authorization,
-    ...clients,
     ...myapps,
     ...overview,
-    ...userList,
-    ...group,
     ...app,
     ...userProfile,
-    ...reports,
     ...about,
     ...errors,
     ...closeOption,

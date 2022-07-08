@@ -5,18 +5,13 @@ import login from './zh-CN/login.json';
 import activate from './zh-CN/activate.json';
 import register from './zh-CN/register.json';
 import limit from './zh-CN/limit.json';
-import domain from './zh-CN/domain.json';
 import common from './zh-CN/common.json';
 import multiselect from './zh-CN/multiselect.json';
 import authorization from './zh-CN/authorization.json';
-import clients from './zh-CN/clients.json';
 import myapps from './zh-CN/myapps.json';
 import overview from './zh-CN/overview.json';
-import userList from './zh-CN/userList.json';
-import group from './zh-CN/group.json';
 import app from './zh-CN/app.json';
 import userProfile from './zh-CN/userProfile.json';
-import reports from './zh-CN/reports.json';
 import about from './zh-CN/about.json';
 import errors from './zh-CN/errors.json';
 import closeOption from './zh-CN/closeOption.json';
@@ -36,18 +31,13 @@ export default {
     ...activate,
     ...register,
     ...limit,
-    ...domain,
     ...common,
     ...multiselect,
     ...authorization,
-    ...clients,
     ...myapps,
     ...overview,
-    ...userList,
-    ...group,
     ...app,
     ...userProfile,
-    ...reports,
     ...about,
     ...errors,
     ...closeOption,
