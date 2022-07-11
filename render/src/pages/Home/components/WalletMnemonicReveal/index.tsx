@@ -9,7 +9,7 @@ import message from '@/utils/message';
 import { Form, Input, Space } from 'antd';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { FormattedMessage, useModel } from 'umi';
-import { Item } from '../../datatypes';
+import { Item } from '@/pages/Home/datatypes';
 import styles from './index.less';
 
 export default (props: { onClose: () => void; item: Item }) => {

@@ -5,9 +5,9 @@ import { FormattedMessage, useIntl } from 'umi';
 import { cloneDeep } from 'lodash';
 import type { BaseSelectRef } from 'rc-select';
 import styles from './index.less';
-import HubButton from '../../../../components/HubButton';
-import { TagOption } from '../../datatypes';
-import { useTag } from '../../Context/hooks';
+import HubButton from '@/components/HubButton';
+import { TagOption } from '@/pages/Home/datatypes';
+import { useTag } from '@/pages/Home/Context/hooks';
 
 const { Text } = Typography;
 

@@ -1,13 +1,13 @@
-import BaseContentLayout from '../../../../components/BaseContentLayout';
-import HubButton from '../../../../components/HubButton';
-import List from '../../../../pages/Home/components/List';
-import { VaultItemType } from '../../../../services/api/vaultItems';
+import BaseContentLayout from '@/components/BaseContentLayout';
+import HubButton from '@/components/HubButton';
+import List from '@/pages/Home/components/List';
+import { VaultItemType } from '@/services/api/vaultItems';
 import { Dropdown, Menu, Space } from 'antd';
 import { ReactNode, useEffect, useState } from 'react';
 import { FormattedMessage, useIntl } from 'umi';
-import { useList } from '../../Context/hooks';
-import { TagsContextProvider } from '../../Context/TagsContext';
-import { Item } from '../../datatypes';
+import { useList } from '@/pages/Home/Context/hooks';
+import { TagsContextProvider } from '@/pages/Home/Context/TagsContext';
+import { Item } from '@/pages/Home/datatypes';
 import {
     EditForm as EditAddressesForm,
     NewForm as NewAddresseseForm,
@@ -26,7 +26,7 @@ import {
     NewForm as NewPersonalInfoForm,
 } from '../PersonalInfoForm';
 import { EditForm as EditSecureNoteForm, NewForm as NewSecureNoteForm } from '../SecureNoteForm';
-import { EditForm as EditLoginForm, NewForm as NewLoginForm } from '../WorkForm';
+import { NewForm as NewLoginForm, EditProps } from '../PersonalForm';
 import styles from './index.less';
 import IconMap from '../IconMap';
 import type { Icon } from '@icon-park/react/es/runtime';
@@ -44,6 +44,7 @@ type Props = {
     onChange?: (data: Item[]) => void;
     filter?: (items: Item[], search: string) => Item[];
     subMemus?: SubMenu[];
+    EditForm?: (props: EditProps) => JSX.Element;
     canImport?: boolean;
     canExport?: boolean;
 };
@@ -54,6 +55,7 @@ type SubMenu = {
     title: string;
     include: VaultItemType[];
 };
+
 const size = 16;
 
 export default (props: Props) => {
@@ -62,7 +64,7 @@ export default (props: Props) => {
     const [newItemType, setNewItemType] = useState<VaultItemType>();
     const [editItem, setEditItem] = useState(false);
     const [editItemType, setEditItemType] = useState<VaultItemType>();
-    const { addableItemTypes = [], subMemus } = props;
+    const { addableItemTypes = [], subMemus, EditForm } = props;
     const { setSelectedId, items, loadItems, setSearch, selectedId } = useList();
     const [importVisible, setImportVisible] = useState(false);
 
@@ -293,7 +295,11 @@ export default (props: Props) => {
                             }}
                         ></div>
                     ) : (
-                        <List onSelected={onItemSelected} changeEdit={handleListEdit} />
+                        <List
+                            items={items}
+                            onSelected={onItemSelected}
+                            changeEdit={handleListEdit}
+                        />
                     )}
                     <>
                         {
@@ -301,11 +307,11 @@ export default (props: Props) => {
                                 {newItemType === VaultItemType.Login && newItem && (
                                     <NewLoginForm changeNew={setNewItem}></NewLoginForm>
                                 )}
-                                {editItemType === VaultItemType.Login && (
-                                    <EditLoginForm
+                                {editItemType === VaultItemType.Login && EditForm && (
+                                    <EditForm
                                         editing={editItem}
                                         changeEditing={setEditItem}
-                                    ></EditLoginForm>
+                                    ></EditForm>
                                 )}
                                 {newItemType === VaultItemType.SecureNodes && newItem && (
                                     <NewSecureNoteForm changeNew={setNewItem}></NewSecureNoteForm>

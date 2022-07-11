@@ -9,7 +9,7 @@ import CardTypes from 'creditcards-types';
 import Card from 'creditcards/card';
 import React, { useRef } from 'react';
 import { FormattedMessage, useIntl } from 'umi';
-import { useList } from '../../Context/hooks';
+import { useList } from '@/pages/Home/Context/hooks';
 import { formatNumber, getDescription, getImgUriByType, getRawNumber } from '../../tools';
 import FormInput, { FormatResult } from '@/components/Form/FormInput';
 import FormItem from '@/components/Form/FormItem';

@@ -26,6 +26,7 @@ export type Props = {
     updateTime?: string;
     status?: RightFormStatus;
     loading?: boolean;
+    btnLoading?: boolean;
     disabledSave?: boolean;
     footer?: JSX.Element;
     createTitle?: JSX.Element | string;
@@ -122,7 +123,7 @@ const RightForm = (props: Props) => {
                                     disable={props.disabledSave}
                                     className={styles.button}
                                     onClick={props.onSave}
-                                    loadingVisible={props.loading}
+                                    loadingVisible={props.loading || props.btnLoading}
                                 >
                                     {Intl.formatMessage({ id: 'common.save' })}
                                 </HubButton>
