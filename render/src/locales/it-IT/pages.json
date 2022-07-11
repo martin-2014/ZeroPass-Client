@@ -12,5 +12,9 @@
     "pages.import.hint.line1.middle": "modello di importazione (.csv)",
     "pages.import.hint.line1.after": "e compila il modello secondo i requisiti prima di caricare.",
     "pages.import.hint.line2": "Sono supportati solo i file con suffisso csv, la dimensione del file è limitata a 10 M e il numero di voci importate ogni volta non supera 300.",
-    "pages.import.inProgress.hint": "Importazione dati in corso..."
+    "pages.import.inProgress.hint": "Importazione dati in corso...",
+    "pages.importLogin.title": "Importa accessi/password da file CSV",
+    "pages.importLogin.hint.line1.before": "Si prega di scaricare il",
+    "pages.importLogin.hint.line1.middle": "modello di importazione (.csv)",
+    "pages.importLogin.hint.line1.after": "per preparare i dati per l'importazione. Puoi anche importare i tuoi accessi/password salvati nei browser Chrome o Edge. Ad esempio, in Chrome, vai su <chrome://settings/passwords>, puoi esportare tutti i tuoi record di accesso/password in un file CSV e questo file CSV può essere importato qui."
 }

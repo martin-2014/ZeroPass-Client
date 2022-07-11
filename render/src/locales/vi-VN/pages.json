@@ -12,5 +12,9 @@
     "pages.import.hint.line1.middle": "Nhập mẫu (.csv)",
     "pages.import.hint.line1.after": "Sau đó điền các giá trị trường tương ứng theo yêu cầu.",
     "pages.import.hint.line2": "Chỉ các tệp csv được hỗ trợ, kích thước tệp không vượt quá 10M và lượng dữ liệu được nhập mỗi lần không vượt quá 300.",
-    "pages.import.inProgress.hint": "Dữ liệu đang nhập ..."
+    "pages.import.inProgress.hint": "Dữ liệu đang nhập ...",
+    "pages.importLogin.title": "Nhập mật khẩu tài khoản",
+    "pages.importLogin.hint.line1.before": "Vui lòng tải xuống",
+    "pages.importLogin.hint.line1.middle": "Nhập mẫu (.csv)",
+    "pages.importLogin.hint.line1.after": "để nhập dữ liệu. Bạn cũng có thể nhập mật khẩu tài khoản từ trình duyệt Chrome hoặc Edge. Ví dụ: mở trình duyệt Chrome, nhập địa chỉ chrome: // settings / password để vào cài đặt tự động điền, bạn có thể xuất mật khẩu tài khoản sang tệp csv rồi nhập vào đây."
 }

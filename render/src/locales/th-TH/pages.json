@@ -12,5 +12,9 @@
     "pages.import.hint.line1.middle": "นำเข้าเทมเพลต (.csv)",
     "pages.import.hint.line1.after": "จากนั้นกรอกค่าฟิลด์ที่เกี่ยวข้องตามต้องการ",
     "pages.import.hint.line2": "รองรับเฉพาะไฟล์ csv ขนาดไฟล์ไม่เกิน 10M และจำนวนข้อมูลที่นำเข้าในแต่ละครั้งไม่เกิน 300",
-    "pages.import.inProgress.hint": "กำลังนำเข้าข้อมูล..."
+    "pages.import.inProgress.hint": "กำลังนำเข้าข้อมูล...",
+    "pages.importLogin.title": "นำเข้ารหัสผ่านบัญชี",
+    "pages.importLogin.hint.line1.before": "กรุณาดาวน์โหลด",
+    "pages.importLogin.hint.line1.middle": "นำเข้าเทมเพลต (.csv)",
+    "pages.importLogin.hint.line1.after": "เพื่อนำเข้าข้อมูล คุณยังสามารถนำเข้ารหัสผ่านของบัญชีจากเบราว์เซอร์ Chrome หรือ Edge ตัวอย่างเช่น เปิดเบราว์เซอร์ Chrome ป้อนที่อยู่ chrome://settings/passwords เพื่อป้อนการตั้งค่าป้อนอัตโนมัติ คุณสามารถส่งออกรหัสผ่านบัญชีเป็นไฟล์ csv แล้วนำเข้าที่นี่"
 }

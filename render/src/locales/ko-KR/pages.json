@@ -12,5 +12,9 @@
     "pages.import.hint.line1.middle": "템플릿 가져오기(.csv)",
     "pages.import.hint.line1.after": "그런 다음 필요에 따라 해당 필드 값을 입력합니다.",
     "pages.import.hint.line2": "csv 파일만 지원하며 파일 크기는 10M을 초과하지 않으며 매번 가져오는 데이터의 양은 300을 초과하지 않습니다.",
-    "pages.import.inProgress.hint": "데이터를 가져오는 중입니다..."
+    "pages.import.inProgress.hint": "데이터를 가져오는 중입니다...",
+    "pages.importLogin.title": "계정 비밀번호 가져오기",
+    "pages.importLogin.hint.line1.before": "다운로드하십시오",
+    "pages.importLogin.hint.line1.middle": "템플릿 가져오기(.csv)",
+    "pages.importLogin.hint.line1.after": "Chrome 또는 Edge 브라우저에서 계정 비밀번호를 가져올 수도 있습니다. 예를 들어 Chrome 브라우저를 열고 chrome://settings/passwords 주소를 입력하여 자동 완성 설정을 입력하고 계정 비밀번호를 csv 파일로 내보낸 다음 여기에서 가져올 수 있습니다."
 }

@@ -5,6 +5,7 @@ export interface IVaultItemRepository {
     findById: (id: string) => Promise<VaultItemEntity>;
     update: (item: VaultItemEntity) => Promise<VaultItemEntity>;
     create: (item: VaultItemEntity) => Promise<VaultItemEntity>;
+    import: (items: VaultItemEntity[]) => Promise<boolean>;
     delete: (id: string) => Promise<boolean>;
     getTags: () => Promise<string[]>;
     favorite: (id: string, fav: boolean) => Promise<void>;

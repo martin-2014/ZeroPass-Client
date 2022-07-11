@@ -12,5 +12,9 @@
     "pages.import.hint.line1.middle": "导入模板 (.csv) ",
     "pages.import.hint.line1.after": "然后根据要求填写相应的字段值。",
     "pages.import.hint.line2": "只支持csv文件，文件大小不超过10M，每次导入的数据量不超过300条。",
-    "pages.import.inProgress.hint": "数据正在导入..."
+    "pages.import.inProgress.hint": "数据正在导入...",
+    "pages.importLogin.title": "导入账号密码",
+    "pages.importLogin.hint.line1.before": "请下载 ",
+    "pages.importLogin.hint.line1.middle": "导入模板 (.csv) ",
+    "pages.importLogin.hint.line1.after": "来导入数据. 你也可以从Chrome或者Edge浏览器导入账号密码。比如打开Chrome浏览器，输入地址chrome://settings/passwords进入自动填充设置，你可以把账号密码导出到csv文件，然后在这此导入。"
 }

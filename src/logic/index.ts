@@ -92,6 +92,23 @@ const webRequestController: {
         return succRes(convertToVaultItemModel(newEnt));
     },
 
+    importVaultItem: async (
+        params: ParamsType
+    ): Promise<Message.WebResponseData> => {
+        const items = params.data as [];
+        const entities = items.map((item) => {
+            const entity = convertVaultItemModelToEntity(item);
+            entity.id = createId();
+            entity.createTime = Date.now();
+            entity.isDeleted = false;
+            entity.updateTime = Date.now();
+            entity.useTime = Date.now();
+            return entity;
+        });
+        const success = await repos.vaultItems.import(entities);
+        return success ? succRes() : errRes("");
+    },
+
     updateVaultItem: async (
         params: ParamsType
     ): Promise<Message.WebResponseData> => {

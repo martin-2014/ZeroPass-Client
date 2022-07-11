@@ -12,5 +12,9 @@
     "pages.import.hint.line1.middle": "importar plantilla (.csv)",
     "pages.import.hint.line1.after": "y complete la plantilla de acuerdo con los requisitos antes de cargar.",
     "pages.import.hint.line2": "Solo se admiten archivos con sufijos csv, el tamaño del archivo está limitado a 10M y la cantidad de entradas importadas cada vez no supera las 300.",
-    "pages.import.inProgress.hint": "Importación de datos en curso..."
+    "pages.import.inProgress.hint": "Importación de datos en curso...",
+    "pages.importLogin.title": "Importar inicios de sesión/contraseñas desde un archivo CSV",
+    "pages.importLogin.hint.line1.before": "Por favor descarga el",
+    "pages.importLogin.hint.line1.middle": "importar plantilla (.csv)",
+    "pages.importLogin.hint.line1.after": "para preparar los datos para la importación. También puede importar sus nombres de usuario/contraseñas que se guardaron en sus navegadores Chrome o Edge. Por ejemplo, en Chrome, vaya a <chrome://settings/passwords>, puede exportar todos sus registros de inicio de sesión/contraseñas en un archivo csv, y este archivo csv se puede importar aquí."
 }

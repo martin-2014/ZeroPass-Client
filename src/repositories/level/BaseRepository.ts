@@ -33,8 +33,20 @@ export class BaseRepository<T extends RecordEntity>
         const value = await this.level.get(id);
         return this.toRecordEntity(value);
     }
+
     async save(entity: T): Promise<void> {
         await this.level.put(entity.id, JSON.stringify(entity));
+    }
+
+    async import(entities: T[]): Promise<boolean> {
+        const batch = this.level.batch();
+        entities.forEach((e) => batch.put(e.id, JSON.stringify(e)));
+        try {
+            await batch.write();
+            return true;
+        } catch {
+            return false;
+        }
     }
 
     async del(id: string): Promise<void> {

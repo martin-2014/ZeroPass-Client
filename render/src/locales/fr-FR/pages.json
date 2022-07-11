@@ -12,5 +12,9 @@
     "pages.import.hint.line1.middle": "modèle d'importation (.csv)",
     "pages.import.hint.line1.after": "et remplissez le modèle en fonction des exigences avant de le télécharger.",
     "pages.import.hint.line2": "Seuls les fichiers avec les suffixes csv sont pris en charge, la taille du fichier est limitée à 10 Mo et le nombre d'entrées importées à chaque fois ne dépasse pas 300.",
-    "pages.import.inProgress.hint": "Importation des données en cours..."
+    "pages.import.inProgress.hint": "Importation des données en cours...",
+    "pages.importLogin.title": "Importer les identifiants/mots de passe à partir du fichier CSV",
+    "pages.importLogin.hint.line1.before": "Veuillez télécharger le",
+    "pages.importLogin.hint.line1.middle": "modèle d'importation (.csv)",
+    "pages.importLogin.hint.line1.after": "pour préparer les données à importer. Vous pouvez également importer vos identifiants/mots de passe enregistrés dans vos navigateurs Chrome ou Edge. Par exemple, dans Chrome, accédez à <chrome://settings/passwords>, vous pouvez exporter tous vos enregistrements de connexion/mot de passe dans un fichier csv, et ce fichier csv peut être importé ici."
 }

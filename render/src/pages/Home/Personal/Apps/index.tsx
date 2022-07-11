@@ -16,6 +16,8 @@ export default (props: any) => {
                 {...props}
                 title={<FormattedMessage id="vault.home.title.logins" />}
                 addableItemTypes={[VaultItemType.Login]}
+                canImport={true}
+                canExport={true}
             />
         </ListContexProvider>
     );
