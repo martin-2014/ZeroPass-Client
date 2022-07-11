@@ -6,7 +6,7 @@ import message from '@/utils/message';
 import { Form, FormInstance, Input } from 'antd';
 import React from 'react';
 import { useIntl } from 'umi';
-import { useList } from '../../Context/hooks';
+import { useList } from '@/pages/Home/Context/hooks';
 import FormInput from '@/components/Form/FormInput';
 import FormItem from '@/components/Form/FormItem';
 import FormGroup from '@/components/Form/FormGroup';

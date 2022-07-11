@@ -1,11 +1,9 @@
 import RightForm from '@/components/RightForm';
+import { useList } from '@/pages/Home/Context/hooks';
 import { StarFilled } from '@ant-design/icons';
-import { Edit } from '@icon-park/react';
-import { Tooltip, Typography } from 'antd';
-import { useList } from '../../Context/hooks';
+import { Typography } from 'antd';
+import More from '@/pages/Home/components/More';
 import styles from './index.less';
-import More from '../More';
-import { useIntl } from 'umi';
 
 const { Text } = Typography;
 export type FormHeader = {
@@ -25,7 +23,6 @@ export type Props = {
 };
 
 export default (props: Props) => {
-    const Intl = useIntl();
     const { onCancel, onSave, isEdit, onEdit, loadingVisible, formHeader, editLoading, visible } =
         props;
     const { selectedItem } = useList();
@@ -42,6 +39,7 @@ export default (props: Props) => {
         <RightForm
             visible={visible}
             loading={loadingVisible}
+            btnLoading={editLoading}
             position="static"
             onCancel={handleCancel}
             onSave={handleSave}

@@ -8,7 +8,7 @@ import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Form, FormInstance, Input } from 'antd';
 import React, { useEffect, useRef } from 'react';
 import { useIntl } from 'umi';
-import { useList } from '../../Context/hooks';
+import { useList } from '@/pages/Home/Context/hooks';
 import Header from '../Header';
 import styles from './index.less';
 import FormInput from '@/components/Form/FormInput';

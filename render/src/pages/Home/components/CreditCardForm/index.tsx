@@ -1,25 +1,19 @@
+import Image from '@/components/Image';
 import ScrollContainter from '@/components/ScrollContainter';
 import SimpleModal from '@/components/SimpleModal';
 import AppForm, { FormHeader } from '@/pages/Home/components/BaseForm';
 import Tag from '@/pages/Home/components/Tag';
-import { cryptoServiceAPI as restAPI } from '@/secretKey/cryptoService/api/cryptoService';
 import { TCryptoService } from '@/secretKey/cryptoService/cryptoService';
-import {
-    getPersonalItemTags,
-    CreditCardDetail,
-    VaultItemView,
-    VaultItemType,
-} from '@/services/api/vaultItems';
+import { CreditCardDetail, VaultItemType, VaultItemView } from '@/services/api/vaultItems';
 import { Form, FormInstance } from 'antd';
 import { useEffect, useRef, useState } from 'react';
 import { FormattedMessage } from 'umi';
-import { useList, useTag } from '../../Context/hooks';
-import { TagOption } from '../../datatypes';
-import FormContent from './Form';
-import styles from './index.less';
+import { useList, useTag } from '@/pages/Home/Context/hooks';
+import { TagOption } from '@/pages/Home/datatypes';
 import { FORM_ICON_SIZE, getImgUriByType } from '../../tools';
 import IconMap from '../IconMap';
-import Image from '@/components/Image';
+import FormContent from './Form';
+import styles from './index.less';
 
 type EditProps = {
     editing: boolean;

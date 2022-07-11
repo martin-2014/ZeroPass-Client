@@ -2,7 +2,8 @@ import { getPersonalFavouriteItems } from '@/services/api/vaultItems';
 import { filterData } from '@/utils/tools';
 import { FormattedMessage } from 'umi';
 import AppList from '../components/AppList';
-import { ListContexProvider } from '../Context/ListContext';
+import { EditForm } from '../components/PersonalForm';
+import { ListContexProvider } from '@/pages/Home/Context/ListContext';
 import { itemRequesters } from '../requesters';
 
 const requesters = {
@@ -21,7 +22,11 @@ export default (props: any) => {
                 );
             }}
         >
-            <AppList {...props} title={<FormattedMessage id="vault.home.title.favourites" />} />
+            <AppList
+                {...props}
+                EditForm={EditForm}
+                title={<FormattedMessage id="vault.home.title.favourites" />}
+            />
         </ListContexProvider>
     );
 };

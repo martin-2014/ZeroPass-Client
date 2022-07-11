@@ -1,4 +1,10 @@
+import { localStore } from '@/browserStore/store';
+import { OpenDefaultBrowser } from '@/components/Actions';
+import FormGroup from '@/components/Form/FormGroup';
+import FormInput from '@/components/Form/FormInput';
+import FormItem from '@/components/Form/FormItem';
 import { HubEye, HubEyeInvisible } from '@/components/HubEye';
+import Image from '@/components/Image';
 import PasswordGenerate from '@/components/PasswordGenerate';
 import useTagList from '@/hooks/useTagList';
 import { TCryptoService } from '@/secretKey/cryptoService/cryptoService';
@@ -8,21 +14,15 @@ import { VaultItemType } from '@/services/api/vaultItems';
 import message from '@/utils/message';
 import { ScanOutlined } from '@ant-design/icons';
 import { Form, FormInstance, Input, Progress, Space, Tooltip } from 'antd';
+import debounce from 'lodash/debounce';
 import { HOTP, TOTP, URI } from 'otpauth';
 import React, { useCallback, useEffect, useState } from 'react';
 import { FormattedMessage, useIntl } from 'umi';
-import { useList } from '../../Context/hooks';
-import FormInput from '@/components/Form/FormInput';
-import FormItem from '@/components/Form/FormItem';
-import FormGroup from '@/components/Form/FormGroup';
-import Header from '../Header';
-import styles from './index.less';
-import debounce from 'lodash/debounce';
-import { OpenDefaultBrowser, OpenSuperBrowser } from '@/components/Actions';
-import { localStore } from '@/browserStore/store';
-import Image from '@/components/Image';
-import IconMap from '../IconMap';
+import { useList } from '@/pages/Home/Context/hooks';
 import { FORM_ICON_SIZE } from '../../tools';
+import Header from '../Header';
+import IconMap from '../IconMap';
+import styles from './index.less';
 
 type Props = {
     form: FormInstance<any>;
@@ -50,15 +50,13 @@ const FormContent = React.forwardRef((props: Props, ref: any) => {
         tags = [],
         passwordVisible,
         isShowPassWord,
-        onShowPassword,
         isEdit,
+        onShowPassword,
         img,
-        accesses,
     } = props;
     const [showCreatePass, setShowCreatePass] = useState(false);
-    const { selectedId, selectedItem, personal, work } = useList();
+    const { selectedId, selectedItem, personal } = useList();
     const { setNewTag } = useTagList();
-    const isDomainItem = !!selectedItem?.isDomainItem;
     const containerId = selectedItem?.containerId;
     const [passwordInputType, setPasswordInputType] = useState<'text' | 'password'>('text');
     const isEditing = props.isNewItem || props.isEdit;
@@ -100,92 +98,49 @@ const FormContent = React.forwardRef((props: Props, ref: any) => {
         form.setFieldsValue({ description, alias });
         changeLoadingState?.(true);
 
-        if (selectedItem?.isDomainItem) {
-            if (selectedItem.assignable && accesses) {
-                const res = await work.update({
-                    id,
-                    accesses,
-                    alias,
-                });
-                if (res.fail) {
-                    errHandlers.default(res);
-                } else {
-                    message.successIntl('common.save.success');
-                    onClose?.(alias);
-                }
+        const payload: any = {};
+        const keys = Object.keys(data);
+        var cryptoService = new TCryptoService();
+        for (const key of keys) {
+            if (key == 'loginPassword' || key == 'oneTimePassword') {
+                payload[key] = await cryptoService.encryptText(data[key], true);
+            } else if (key == 'passwordUpdateTime') {
+                payload[key] =
+                    data['loginPassword'] !== prePassword ? new Date().toISOString() : data[key];
             } else {
-                const res = await work.updateAlias({
-                    id,
-                    alias,
-                });
-                if (res.fail) {
-                    errHandlers.default(res);
-                } else {
-                    onClose?.(alias);
-                }
+                payload[key] = data[key];
             }
-        } else {
-            const payload: any = {};
-            const keys = Object.keys(data);
-            var cryptoService = new TCryptoService();
-            for (const key of keys) {
-                if (key == 'loginPassword' || key == 'oneTimePassword') {
-                    payload[key] = await cryptoService.encryptText(data[key], true);
-                } else if (key == 'passwordUpdateTime') {
-                    payload[key] =
-                        data['loginPassword'] !== prePassword
-                            ? new Date().toISOString()
-                            : data[key];
-                } else {
-                    payload[key] = data[key];
-                }
-            }
+        }
 
-            const requester = isNewItem ? personal.create : personal.update;
-            const {
+        const requester = isNewItem ? personal.create : personal.update;
+        const { loginUser, loginUri, loginPassword, oneTimePassword, note, passwordUpdateTime } =
+            payload;
+
+        const res = await requester({
+            id: id,
+            type: VaultItemType.Login,
+            name: data.name,
+            description: loginUser,
+            detail: {
                 loginUser,
                 loginUri,
                 loginPassword,
                 oneTimePassword,
                 note,
                 passwordUpdateTime,
-            } = payload;
-
-            const res = await requester({
-                id: id,
-                type: VaultItemType.Login,
-                name: data.name,
-                description: loginUser,
-                detail: {
-                    loginUser,
-                    loginUri,
-                    loginPassword,
-                    oneTimePassword,
-                    note,
-                    passwordUpdateTime,
-                },
-                tags: tags,
-            });
-            changeLoadingState?.(false);
-            if (!res.fail) {
-                message.successIntl('common.save.success', 3);
-                setNewTag();
-                onClose?.('');
-            } else {
-                errHandlers.default(res);
-            }
-        }
+            },
+            tags: tags,
+        });
         changeLoadingState?.(false);
-    };
-
-    const handleShowPwd = (show: boolean) => {
-        if (show && passwordVisible) {
-            onShowPassword?.(true);
-            setPasswordInputType('text');
+        if (!res.fail) {
+            message.successIntl('common.save.success', 3);
+            setNewTag();
+            onClose?.('');
         } else {
-            onShowPassword?.(show);
-            setPasswordInputType('password');
+            errHandlers.default(res);
         }
+
+        changeLoadingState?.(false);
     };
 
     useEffect(() => {
@@ -197,7 +152,7 @@ const FormContent = React.forwardRef((props: Props, ref: any) => {
     });
 
     const getFieldDisplay = (field: string) => {
-        return !isDomainItem && (isEditing || form.getFieldValue(field)) ? '' : 'none';
+        return isEditing || form.getFieldValue(field) ? '' : 'none';
     };
 
     const removeBlank = (secret: any) => {
@@ -274,6 +229,15 @@ const FormContent = React.forwardRef((props: Props, ref: any) => {
         return password ?? '';
     };
 
+    const handleShowPwd = (show: boolean) => {
+        if (show && passwordVisible) {
+            onShowPassword?.(true);
+            setPasswordInputType('text');
+        } else {
+            onShowPassword?.(show);
+            setPasswordInputType('password');
+        }
+    };
     return (
         <Form
             ref={ref}
@@ -289,7 +253,7 @@ const FormContent = React.forwardRef((props: Props, ref: any) => {
             style={{ width: '100%' }}
         >
             <FormItem
-                name={isDomainItem ? 'alias' : 'name'}
+                name={'name'}
                 rules={[
                     {
                         required: true,
@@ -324,7 +288,7 @@ const FormContent = React.forwardRef((props: Props, ref: any) => {
                 >
                     <FormInput
                         title="vault.loginUserName"
-                        isEdit={isNewItem || (isEdit && !isDomainItem)}
+                        isEdit={isNewItem || isEdit}
                         copyValue={() => form.getFieldValue('loginUser')}
                         isRequiredField={true}
                     >
@@ -342,25 +306,19 @@ const FormContent = React.forwardRef((props: Props, ref: any) => {
                 >
                     <FormInput
                         title="vault.loginPassword"
-                        isEdit={isNewItem || (isEdit && !isDomainItem)}
+                        isEdit={isNewItem || isEdit}
                         isRequiredField={true}
-                        copyValue={
-                            !isDomainItem ? () => form.getFieldValue('loginPassword') : undefined
-                        }
-                        fieldButtions={
-                            !isDomainItem
-                                ? [
-                                      {
-                                          icon: isShowPassWord ? <HubEye /> : <HubEyeInvisible />,
-                                          onclick: () => {
-                                              handleShowPwd(!isShowPassWord);
-                                          },
-                                      },
-                                  ]
-                                : undefined
-                        }
+                        copyValue={() => form.getFieldValue('loginPassword')}
+                        fieldButtions={[
+                            {
+                                icon: isShowPassWord ? <HubEye /> : <HubEyeInvisible />,
+                                onclick: () => {
+                                    handleShowPwd(!isShowPassWord);
+                                },
+                            },
+                        ]}
                     >
-                        {isNewItem || (isEdit && !isDomainItem) ? (
+                        {isNewItem || isEdit ? (
                             <Input.Password maxLength={MAX_LENGTH} className={styles.inputPwd} />
                         ) : (
                             <Input
@@ -373,7 +331,7 @@ const FormContent = React.forwardRef((props: Props, ref: any) => {
                 </FormItem>
             </FormGroup>
             <div style={{ textAlign: 'right' }}>
-                {(isEdit || isNewItem) && !isDomainItem ? (
+                {isEdit || isNewItem ? (
                     <a onClick={() => setShowCreatePass(!showCreatePass)}>
                         <FormattedMessage id="password.generator" />
                     </a>
@@ -399,11 +357,10 @@ const FormContent = React.forwardRef((props: Props, ref: any) => {
                     <FormInput
                         title="vault.loginUri"
                         wrapperStyle={{ marginTop: '20px' }}
-                        isEdit={isNewItem || (isEdit && !isDomainItem)}
+                        isEdit={isNewItem || isEdit}
                         isRequiredField={true}
                         copyValue={() => form.getFieldValue('loginUri')}
                         anyClientMachine={anyClientMachine}
-                        isDomainItem={isDomainItem}
                         appId={selectedId}
                         containerId={containerId}
                         fieldButtions={
@@ -411,21 +368,7 @@ const FormContent = React.forwardRef((props: Props, ref: any) => {
                                 ? undefined
                                 : [
                                       {
-                                          icon: isDomainItem ? (
-                                              containerId ? (
-                                                  <OpenSuperBrowser
-                                                      type="workassign"
-                                                      appId={selectedItem.key}
-                                                      containerId={containerId}
-                                                  />
-                                              ) : (
-                                                  <OpenDefaultBrowser
-                                                      type="workassign"
-                                                      appId={selectedItem.key}
-                                                      domainId={-1}
-                                                  />
-                                              )
-                                          ) : (
+                                          icon: (
                                               <OpenDefaultBrowser
                                                   type="personal"
                                                   appId={selectedItem.key}
@@ -444,22 +387,13 @@ const FormContent = React.forwardRef((props: Props, ref: any) => {
                         />
                     </FormInput>
                 </FormItem>
-                {isDomainItem && anyClientMachine === false ? (
-                    <FormItem name="clientMachineName" noStyle>
-                        <FormInput title="vault.clientMachineName" isEdit={false}>
-                            <Input maxLength={MAX_LENGTH} />
-                        </FormInput>
-                    </FormItem>
-                ) : (
-                    <></>
-                )}
                 <FormItem name="oneTimePassword" noStyle>
                     <FormInput
                         wrapperStyle={{
                             display: getFieldDisplay('oneTimePassword'),
                         }}
                         title="vault.oneTimePassword"
-                        isEdit={isNewItem || (isEdit && !isDomainItem)}
+                        isEdit={isNewItem || isEdit}
                         copyValue={copyOneTimePassword}
                     >
                         {isEditing ? (
@@ -512,7 +446,7 @@ const FormContent = React.forwardRef((props: Props, ref: any) => {
                     <FormInput
                         title="vault.note"
                         wrapperStyle={{ display: getFieldDisplay('note'), marginTop: '20px' }}
-                        isEdit={isNewItem || (isEdit && !isDomainItem)}
+                        isEdit={isNewItem || isEdit}
                         copyValue={() => form.getFieldValue('note')}
                     >
                         <Input.TextArea

@@ -2,16 +2,12 @@ import { Result } from '../../services/api/requester';
 import {
     createPersonalItem,
     deletePersonalItem,
-    favouritePersonalItem,
-    favouriteWorkItem,
-    unfavouritePersonalItem,
-    unfavouriteWorkItem,
-    updatePersonalItem,
-    patchPersonalItem,
-    updateWorkItem,
-    updateWorkItemAlias,
-    updateWorkItemUsing,
     deletePersonalLogin,
+    favouritePersonalItem,
+    patchPersonalItem,
+    unfavouritePersonalItem,
+    updatePersonalItem,
+    updateWorkItemUsing,
     importPersonalItems,
 } from '../../services/api/vaultItems';
 import { VaultItem } from './datatypes';
@@ -24,12 +20,6 @@ export type ItemRequesters = {
         update: (payload: any) => Promise<Result<any>>;
         patch: (payload: any) => Promise<Result<any>>;
         delete: (payload: any) => Promise<Result<any>>;
-        favourite: (payload: any) => Promise<Result<any>>;
-        unfavourite: (payload: any) => Promise<Result<any>>;
-    };
-    work: {
-        updateAlias: (payload: any) => Promise<Result<any>>;
-        update: (payload: any) => Promise<Result<any>>;
         favourite: (payload: any) => Promise<Result<any>>;
         unfavourite: (payload: any) => Promise<Result<any>>;
     };
@@ -46,12 +36,6 @@ export const loginRequesters: ItemRequesters = {
         favourite: favouritePersonalItem,
         unfavourite: unfavouritePersonalItem,
     },
-    work: {
-        updateAlias: updateWorkItemAlias,
-        update: updateWorkItem,
-        favourite: favouriteWorkItem,
-        unfavourite: unfavouriteWorkItem,
-    },
 };
 
 export const itemRequesters: ItemRequesters = {
@@ -64,11 +48,5 @@ export const itemRequesters: ItemRequesters = {
         delete: deletePersonalItem,
         favourite: favouritePersonalItem,
         unfavourite: unfavouritePersonalItem,
-    },
-    work: {
-        updateAlias: updateWorkItemAlias,
-        update: updateWorkItem,
-        favourite: favouriteWorkItem,
-        unfavourite: unfavouriteWorkItem,
     },
 };

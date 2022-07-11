@@ -1,10 +1,10 @@
 import { FormattedMessage, useModel } from 'umi';
 import Popconfirm from '@/components/Popconfirm';
-import { Item } from '../../datatypes';
-import GeneralMore from '../../../../components/GeneralMore';
+import { Item } from '@/pages/Home/datatypes';
+import GeneralMore from '@/components/GeneralMore';
 import { MenuRender } from '@/components/GeneralMore';
 import { StarFilled, StarOutlined, UnorderedListOutlined } from '@ant-design/icons';
-import { useList } from '../../Context/hooks';
+import { useList } from '@/pages/Home/Context/hooks';
 import useTagList from '@/hooks/useTagList';
 import { useMemo, useRef, useState } from 'react';
 import { MetaMaskRawDataDetail, VaultItemType, VaultItemView } from '@/services/api/vaultItems';

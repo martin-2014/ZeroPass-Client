@@ -12,7 +12,7 @@ import { MinusCircleOutlined } from '@ant-design/icons';
 import { Col, Form, FormInstance, Input, Row, Tooltip } from 'antd';
 import React, { useState } from 'react';
 import { FormattedMessage, useIntl, useModel } from 'umi';
-import { useList } from '../../Context/hooks';
+import { useList } from '@/pages/Home/Context/hooks';
 import Header from '../Header';
 import styles from './index.less';
 import MetaMaskProfileSelect from './MetaMaskProfileSelect';

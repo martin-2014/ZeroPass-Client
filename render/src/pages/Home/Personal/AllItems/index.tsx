@@ -1,9 +1,10 @@
 import { getAllItems, VaultItemType } from '../../../../services/api/vaultItems';
 import { FormattedMessage, useIntl } from 'umi';
 import AppList from '../../components/AppList';
-import { ListContexProvider } from '../../Context/ListContext';
+import { ListContexProvider } from '@/pages/Home/Context/ListContext';
 import { itemRequesters } from '../../requesters';
 import { IconMap } from '../../../../components/MenuIcon';
+import { EditForm } from '../../components/PersonalForm';
 
 const requesters = {
     ...itemRequesters,
@@ -17,6 +18,7 @@ export default (props: any) => {
         <ListContexProvider requesters={requesters} containsWork={true}>
             <AppList
                 {...props}
+                EditForm={EditForm}
                 addableItemTypes={[
                     VaultItemType.Login,
                     VaultItemType.MetaMaskRawData,
