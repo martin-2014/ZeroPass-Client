@@ -12,5 +12,9 @@
     "pages.import.hint.line1.middle": "import template (.csv) ",
     "pages.import.hint.line1.after": "and fill in the template according to the requirements before uploading.",
     "pages.import.hint.line2": "Only files with suffixes csv are supported, the file size is limited to 10M, and the number of imported entries each time does not exceed 300.",
-    "pages.import.inProgress.hint": "Data import in progress..."
+    "pages.import.inProgress.hint": "Data import in progress...",
+    "pages.importLogin.title": "Import Logins/Passwords from CSV file",
+    "pages.importLogin.hint.line1.before": "Please download the ",
+    "pages.importLogin.hint.line1.middle": "import template (.csv) ",
+    "pages.importLogin.hint.line1.after": "to prepare the data for importing. You may also import your logins/passwords which saved in your Chrome or Edge browsers. For example, in Chrome, go to <chrome://settings/passwords>, you can export all your login/password records in a csv file, and this csv file can be imported here."
 }

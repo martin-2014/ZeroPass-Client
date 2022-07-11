@@ -30,6 +30,11 @@ import { EditForm as EditLoginForm, NewForm as NewLoginForm } from '../WorkForm'
 import styles from './index.less';
 import IconMap from '../IconMap';
 import type { Icon } from '@icon-park/react/es/runtime';
+import ImportItem from '../ImportItem';
+import { createParser } from '../../../../utils/csvParser/factory';
+import { createObjectCsvStringifier } from 'csv-writer';
+import moment from 'moment';
+import { downloadFile, utf8BOM } from '@/utils/secretKeyDownloader';
 
 type Props = {
     route: any;
@@ -39,6 +44,8 @@ type Props = {
     onChange?: (data: Item[]) => void;
     filter?: (items: Item[], search: string) => Item[];
     subMemus?: SubMenu[];
+    canImport?: boolean;
+    canExport?: boolean;
 };
 
 type SubMenu = {
@@ -57,6 +64,7 @@ export default (props: Props) => {
     const [editItemType, setEditItemType] = useState<VaultItemType>();
     const { addableItemTypes = [], subMemus } = props;
     const { setSelectedId, items, loadItems, setSearch, selectedId } = useList();
+    const [importVisible, setImportVisible] = useState(false);
 
     const hideForm = () => {
         setSelectedId(-1);
@@ -221,99 +229,156 @@ export default (props: Props) => {
         </>
     );
 
+    const extraHeader = (
+        <Space size={15}>
+            {addableItemTypes.length === 1 && props.canImport && (
+                <HubButton
+                    width={70}
+                    onClick={() => {
+                        setImportVisible(true);
+                    }}
+                >
+                    {Intl.formatMessage({ id: 'common.import' })}
+                </HubButton>
+            )}
+            {addableItemTypes.length === 1 && props.canExport && (
+                <HubButton
+                    width={70}
+                    onClick={() => {
+                        exportItems();
+                    }}
+                >
+                    {Intl.formatMessage({ id: 'common.export' })}
+                </HubButton>
+            )}
+        </Space>
+    );
+
+    const exportItems = async () => {
+        const parser = createParser(addableItemTypes[0]);
+        const objects = await parser.parseCsvObjects(items);
+        const header = Object.keys(parser.csvNameMap).map((k) => ({
+            id: k,
+            title: parser.csvNameMap[k],
+        }));
+        const writer = createObjectCsvStringifier({
+            header: header,
+        });
+        const title = addButtonsForTypes.find((t) => t.type === addableItemTypes[0])?.title;
+        const fileName = `${Intl.formatMessage({ id: title })
+            .replace(' ', '_')
+            .toLowerCase()}-${moment().format('YYYYMMDD')}.csv`;
+        const content = `${utf8BOM}${writer.getHeaderString()}${writer.stringifyRecords(objects)}`;
+        downloadFile(fileName, content);
+    };
+
     const handleListEdit = (edit: boolean, item: Item) => {
         onItemSelected(item, edit);
         setEditItem(edit);
     };
     return (
-        <BaseContentLayout
-            onSearch={(e) => {
-                setSearch(e.target.value);
-            }}
-            header={header}
-        >
-            <div style={{ height: '100%' }}>
-                {items === undefined ? (
-                    <div
-                        style={{
-                            width: 300,
-                        }}
-                    ></div>
-                ) : (
-                    <List onSelected={onItemSelected} changeEdit={handleListEdit} />
-                )}
-                <>
-                    {
-                        <TagsContextProvider>
-                            {newItemType === VaultItemType.Login && newItem && (
-                                <NewLoginForm changeNew={setNewItem}></NewLoginForm>
-                            )}
-                            {editItemType === VaultItemType.Login && (
-                                <EditLoginForm
-                                    editing={editItem}
-                                    changeEditing={setEditItem}
-                                ></EditLoginForm>
-                            )}
-                            {newItemType === VaultItemType.SecureNodes && newItem && (
-                                <NewSecureNoteForm changeNew={setNewItem}></NewSecureNoteForm>
-                            )}
-                            {editItemType === VaultItemType.SecureNodes && (
-                                <EditSecureNoteForm
-                                    editing={editItem}
-                                    changeEditing={setEditItem}
-                                ></EditSecureNoteForm>
-                            )}
-                            {newItemType === VaultItemType.CreditCard && newItem && (
-                                <NewCreditCardForm changeNew={setNewItem}></NewCreditCardForm>
-                            )}
-                            {editItemType === VaultItemType.CreditCard && (
-                                <EditCreditCardForm
-                                    editing={editItem}
-                                    changeEditing={setEditItem}
-                                ></EditCreditCardForm>
-                            )}
-                            {newItemType === VaultItemType.PersonalInfo && newItem && (
-                                <NewPersonalInfoForm changeNew={setNewItem}></NewPersonalInfoForm>
-                            )}
-                            {editItemType === VaultItemType.PersonalInfo && (
-                                <EditPersonalInfoForm
-                                    editing={editItem}
-                                    changeEditing={setEditItem}
-                                ></EditPersonalInfoForm>
-                            )}
-                            {newItemType === VaultItemType.MetaMaskMnemonicPhrase && newItem && (
-                                <NewMetaMaskMnemonicPhraseForm
-                                    changeNew={setNewItem}
-                                ></NewMetaMaskMnemonicPhraseForm>
-                            )}
-                            {editItemType === VaultItemType.MetaMaskMnemonicPhrase && (
-                                <EditMetaMaskMnemonicPhraseForm
-                                    editing={editItem}
-                                    changeEditing={setEditItem}
-                                ></EditMetaMaskMnemonicPhraseForm>
-                            )}
-                            {newItemType === VaultItemType.MetaMaskRawData && newItem && (
-                                <NewDataWalletForm changeNew={setNewItem}></NewDataWalletForm>
-                            )}
-                            {editItemType === VaultItemType.MetaMaskRawData && (
-                                <EditDataWalletForm
-                                    editing={editItem}
-                                    changeEditing={setEditItem}
-                                ></EditDataWalletForm>
-                            )}
-                            {newItemType === VaultItemType.Addresses && newItem && (
-                                <NewAddresseseForm changeNew={setNewItem}></NewAddresseseForm>
-                            )}
-                            {editItemType === VaultItemType.Addresses && (
-                                <EditAddressesForm
-                                    editing={editItem}
-                                    changeEditing={setEditItem}
-                                ></EditAddressesForm>
-                            )}
-                        </TagsContextProvider>
-                    }
-                </>
-            </div>
-        </BaseContentLayout>
+        <>
+            <BaseContentLayout
+                onSearch={(e) => {
+                    setSearch(e.target.value);
+                }}
+                header={header}
+                extraHeader={extraHeader}
+            >
+                <div style={{ height: '100%' }}>
+                    {items === undefined ? (
+                        <div
+                            style={{
+                                width: 300,
+                            }}
+                        ></div>
+                    ) : (
+                        <List onSelected={onItemSelected} changeEdit={handleListEdit} />
+                    )}
+                    <>
+                        {
+                            <TagsContextProvider>
+                                {newItemType === VaultItemType.Login && newItem && (
+                                    <NewLoginForm changeNew={setNewItem}></NewLoginForm>
+                                )}
+                                {editItemType === VaultItemType.Login && (
+                                    <EditLoginForm
+                                        editing={editItem}
+                                        changeEditing={setEditItem}
+                                    ></EditLoginForm>
+                                )}
+                                {newItemType === VaultItemType.SecureNodes && newItem && (
+                                    <NewSecureNoteForm changeNew={setNewItem}></NewSecureNoteForm>
+                                )}
+                                {editItemType === VaultItemType.SecureNodes && (
+                                    <EditSecureNoteForm
+                                        editing={editItem}
+                                        changeEditing={setEditItem}
+                                    ></EditSecureNoteForm>
+                                )}
+                                {newItemType === VaultItemType.CreditCard && newItem && (
+                                    <NewCreditCardForm changeNew={setNewItem}></NewCreditCardForm>
+                                )}
+                                {editItemType === VaultItemType.CreditCard && (
+                                    <EditCreditCardForm
+                                        editing={editItem}
+                                        changeEditing={setEditItem}
+                                    ></EditCreditCardForm>
+                                )}
+                                {newItemType === VaultItemType.PersonalInfo && newItem && (
+                                    <NewPersonalInfoForm
+                                        changeNew={setNewItem}
+                                    ></NewPersonalInfoForm>
+                                )}
+                                {editItemType === VaultItemType.PersonalInfo && (
+                                    <EditPersonalInfoForm
+                                        editing={editItem}
+                                        changeEditing={setEditItem}
+                                    ></EditPersonalInfoForm>
+                                )}
+                                {newItemType === VaultItemType.MetaMaskMnemonicPhrase &&
+                                    newItem && (
+                                        <NewMetaMaskMnemonicPhraseForm
+                                            changeNew={setNewItem}
+                                        ></NewMetaMaskMnemonicPhraseForm>
+                                    )}
+                                {editItemType === VaultItemType.MetaMaskMnemonicPhrase && (
+                                    <EditMetaMaskMnemonicPhraseForm
+                                        editing={editItem}
+                                        changeEditing={setEditItem}
+                                    ></EditMetaMaskMnemonicPhraseForm>
+                                )}
+                                {newItemType === VaultItemType.MetaMaskRawData && newItem && (
+                                    <NewDataWalletForm changeNew={setNewItem}></NewDataWalletForm>
+                                )}
+                                {editItemType === VaultItemType.MetaMaskRawData && (
+                                    <EditDataWalletForm
+                                        editing={editItem}
+                                        changeEditing={setEditItem}
+                                    ></EditDataWalletForm>
+                                )}
+                                {newItemType === VaultItemType.Addresses && newItem && (
+                                    <NewAddresseseForm changeNew={setNewItem}></NewAddresseseForm>
+                                )}
+                                {editItemType === VaultItemType.Addresses && (
+                                    <EditAddressesForm
+                                        editing={editItem}
+                                        changeEditing={setEditItem}
+                                    ></EditAddressesForm>
+                                )}
+                            </TagsContextProvider>
+                        }
+                    </>
+                </div>
+            </BaseContentLayout>
+            {importVisible && (
+                <ImportItem
+                    type={addableItemTypes[0]}
+                    close={() => {
+                        setImportVisible(false);
+                    }}
+                ></ImportItem>
+            )}
+        </>
     );
 };

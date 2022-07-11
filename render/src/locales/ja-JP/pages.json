@@ -12,5 +12,9 @@
     "pages.import.hint.line1.middle": "テンプレートのインポート（.csv）",
     "pages.import.hint.line1.after": "次に、必要に応じて対応するフィールド値を入力します。",
     "pages.import.hint.line2": "csvファイルのみがサポートされており、ファイルサイズは10Mを超えず、毎回インポートされるデータの量は300を超えません。",
-    "pages.import.inProgress.hint": "データをインポートしています..."
+    "pages.import.inProgress.hint": "データをインポートしています...",
+    "pages.importLogin.title": "アカウントのパスワードをインポートする",
+    "pages.importLogin.hint.line1.before": "ダウンロードしてください",
+    "pages.importLogin.hint.line1.middle": "テンプレートのインポート（.csv）",
+    "pages.importLogin.hint.line1.after": "データをインポートします。ChromeまたはEdgeブラウザからアカウントのパスワードをインポートすることもできます。たとえば、Chromeブラウザを開き、アドレスchrome：// settings / passwordsを入力して自動入力設定を入力します。アカウントのパスワードをcsvファイルにエクスポートして、ここにインポートできます。"
 }

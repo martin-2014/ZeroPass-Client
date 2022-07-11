@@ -104,6 +104,7 @@ export type ListContextType = {
     loadItems: (args?: any) => Promise<void>;
     personal: {
         create: (payload: Message.VaultItem) => Promise<Result<any>>;
+        import: (payload: Message.VaultItem[]) => Promise<Result<any>>;
         update: (payload: Message.VaultItem) => Promise<Result<any>>;
         delete: (payload: any) => Promise<Result<any>>;
         favourite: (payload: any) => Promise<Result<any>>;
@@ -230,6 +231,15 @@ export const ListContexProvider = (
         return res;
     };
 
+    const impoertPersonal = async (payload: any) => {
+        const res = await requesters.personal.import(payload);
+        if (!res.fail) {
+            load();
+            onListChange?.(listState.items!);
+        }
+        return res;
+    };
+
     const deletePersonal = async (payload: any) => {
         const res = await requesters.personal.delete(payload);
         if (!res.fail && !isUnmount.current) {
@@ -312,6 +322,7 @@ export const ListContexProvider = (
                 loadItems: load,
                 personal: {
                     create: createPersonal,
+                    import: impoertPersonal,
                     update: updatePersonal,
                     delete: deletePersonal,
                     favourite: favouritePersonal,

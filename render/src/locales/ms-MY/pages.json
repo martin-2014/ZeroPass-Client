@@ -12,5 +12,9 @@
     "pages.import.hint.line1.middle": "Import Templat (.csv)",
     "pages.import.hint.line1.after": "Kemudian isikan nilai medan yang sepadan seperti yang diperlukan.",
     "pages.import.hint.line2": "Hanya fail csv yang disokong, saiz fail tidak melebihi 10M dan jumlah data yang diimport setiap kali tidak melebihi 300.",
-    "pages.import.inProgress.hint": "Data sedang mengimport..."
+    "pages.import.inProgress.hint": "Data sedang mengimport...",
+    "pages.importLogin.title": "Import kata laluan akaun",
+    "pages.importLogin.hint.line1.before": "Sila muat turun",
+    "pages.importLogin.hint.line1.middle": "Import Templat (.csv)",
+    "pages.importLogin.hint.line1.after": "untuk mengimport data. Anda juga boleh mengimport kata laluan akaun daripada penyemak imbas Chrome atau Edge. Contohnya, buka penyemak imbas Chrome, masukkan alamat chrome://settings/passwords untuk memasukkan tetapan autolengkap, anda boleh mengeksport kata laluan akaun ke fail csv, dan kemudian mengimportnya di sini."
 }

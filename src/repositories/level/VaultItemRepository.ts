@@ -35,6 +35,10 @@ export class VaultItemRepositoryLevel
         return item;
     }
 
+    async import(items: VaultItemEntity[]) {
+        return await super.import(items);
+    }
+
     async delete(id: string): Promise<boolean> {
         const entity = await this.findById(id);
         if (entity) {

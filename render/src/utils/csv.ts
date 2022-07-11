@@ -1,11 +1,80 @@
+import * as csvWriter from 'csv-writer';
+
+const quote = `"`;
+
 export const CSVToArray = (strData: string, strDelimiter: any = undefined) => {
-    // Check to see if the delimiter is defined. If not,
-    // then default to comma.
+    const arrData: string[][] = [[]];
+    let header: string[] | null = null;
+    for (let { rowParsed } of csvInterator(strData, strDelimiter)) {
+        if (!header) {
+            header = rowParsed;
+        } else {
+            arrData.push(rowParsed);
+        }
+    }
+    return arrData;
+};
+
+interface ParseCsvResult {
+    result: 'success' | 'partialSuccess' | 'headermissing';
+    header?: string[];
+    objects?: CsvObject[];
+    failContent?: string;
+}
+
+export interface CsvObject {
+    [prop: string]: string;
+}
+
+export const parseCsv = (strData: string, requiredHeaders: string[]): ParseCsvResult => {
+    let headerRaw: string | null = null;
+    let headerParsed: string[] | null = null;
+    const successObjects: CsvObject[] = [];
+    const failRows: string[] = [];
+    for (let { rowParsed, rowRaw } of csvInterator(strData, ',')) {
+        if (!headerRaw) {
+            headerParsed = rowParsed;
+            headerRaw = rowRaw;
+            const missingHeaders = requiredHeaders.filter((h) => !rowParsed.includes(h));
+            if (missingHeaders.length > 0) {
+                console.log('header missing: ', missingHeaders);
+                return { result: 'headermissing', header: headerParsed };
+            }
+        } else {
+            const obj = {} as CsvObject;
+            headerParsed!.forEach((header, index) => {
+                obj[header] = rowParsed[index] as any;
+            });
+            const isAllRequired = requiredHeaders.every((h) => Object.hasOwn(obj, h) && obj[h]);
+            if (isAllRequired) {
+                successObjects.push(obj);
+            } else {
+                if (rowRaw) {
+                    failRows.push(rowRaw);
+                }
+            }
+        }
+    }
+    return {
+        result: failRows.length === 0 ? 'success' : 'partialSuccess',
+        header: headerParsed!,
+        objects: successObjects,
+        failContent: failRows.length === 0 ? '' : [headerRaw, ...failRows].join('\n'),
+    };
+};
+
+function* csvInterator(strData: string, strDelimiter: any = undefined) {
+    let rowParsed: string[] = [];
+    let rowRaw = '';
+
+    if (!strData) {
+        yield { rowParsed, rowRaw };
+        return;
+    }
+
     strDelimiter = strDelimiter || ',';
 
-    // Create a regular expression to parse the CSV values.
-    var objPattern = new RegExp(
-        // Delimiters.
+    const objPattern = new RegExp(
         '(\\' +
             strDelimiter +
             '|\\r?\\n|\\r|^)' +
@@ -18,28 +87,19 @@ export const CSVToArray = (strData: string, strDelimiter: any = undefined) => {
         'gi',
     );
 
-    // Create an array to hold our data. Give the array
-    // a default empty first row.
-    var arrData: string[][] = [[]];
+    let arrMatches = null;
 
-    // Create an array to hold our individual pattern
-    // matching groups.
-    var arrMatches = null;
-
-    // Keep looping over the regular expression matches
-    // until we can no longer find a match.
     while ((arrMatches = objPattern.exec(strData))) {
-        // Get the delimiter that was found.
-        var strMatchedDelimiter = arrMatches[1];
+        const strMatchedDelimiter = arrMatches[1];
 
         // Check to see if the given delimiter has a length
         // (is not the start of string) and if it matches
         // field delimiter. If id does not, then we know
         // that this delimiter is a row delimiter.
         if (strMatchedDelimiter.length && strMatchedDelimiter !== strDelimiter) {
-            // Since we have reached a new row of data,
-            // add an empty row to our data array.
-            arrData.push([]);
+            yield { rowParsed, rowRaw };
+            rowParsed = [];
+            rowRaw = '';
         }
 
         let strMatchedValue;
@@ -50,16 +110,18 @@ export const CSVToArray = (strData: string, strDelimiter: any = undefined) => {
         if (arrMatches[2]) {
             // We found a quoted value. When we capture
             // this value, unescape any double quotes.
+            const raw = `${quote}${arrMatches[2]}${quote}`;
+            rowRaw = rowRaw ? [rowRaw, raw].join(strDelimiter) : raw;
             strMatchedValue = arrMatches[2].replace(new RegExp('""', 'g'), '"');
         } else {
             // We found a non-quoted value.
+            rowRaw = rowRaw ? [rowRaw, arrMatches[3]].join(strDelimiter) : arrMatches[3];
             strMatchedValue = arrMatches[3];
         }
 
         // Now that we have our value string, let's add
         // it to the data array.
-        arrData[arrData.length - 1].push(strMatchedValue);
+        rowParsed.push(strMatchedValue);
     }
-    // Return the parsed data.
-    return arrData;
-};
+    yield { rowParsed, rowRaw };
+}

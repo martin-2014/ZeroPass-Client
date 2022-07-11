@@ -12,5 +12,9 @@
     "pages.import.hint.line1.middle": "modelo de importação (.csv)",
     "pages.import.hint.line1.after": "e preencha o modelo de acordo com os requisitos antes de fazer o upload.",
     "pages.import.hint.line2": "Somente arquivos com sufixos csv são suportados, o tamanho do arquivo é limitado a 10M e o número de entradas importadas a cada vez não excede 300.",
-    "pages.import.inProgress.hint": "Importação de dados em andamento..."
+    "pages.import.inProgress.hint": "Importação de dados em andamento...",
+    "pages.importLogin.title": "Importar logins/senhas do arquivo CSV",
+    "pages.importLogin.hint.line1.before": "Faça o download do",
+    "pages.importLogin.hint.line1.middle": "modelo de importação (.csv)",
+    "pages.importLogin.hint.line1.after": "para preparar os dados para importação. Você também pode importar seus logins/senhas salvos em seus navegadores Chrome ou Edge. Por exemplo, no Chrome, vá para <chrome://settings/passwords>, você pode exportar todos os seus registros de login/senha em um arquivo csv, e esse arquivo csv pode ser importado aqui."
 }

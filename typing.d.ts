@@ -164,6 +164,7 @@ declare namespace Message {
         | "getAllVaultItems"
         | "getVaultItems"
         | "createVaultItem"
+        | "importVaultItem"
         | "updateVaultItem"
         | "patchVaultItem"
         | "deleteVaultItem"

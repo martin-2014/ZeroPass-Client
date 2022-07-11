@@ -12,5 +12,9 @@
     "pages.import.hint.line1.middle": "Vorlage importieren (.csv)",
     "pages.import.hint.line1.after": "und füllen Sie die Vorlage vor dem Hochladen gemäß den Anforderungen aus.",
     "pages.import.hint.line2": "Es werden nur Dateien mit dem Suffix csv unterstützt, die Dateigröße ist auf 10 MB begrenzt und die Anzahl der importierten Einträge übersteigt jeweils 300 nicht.",
-    "pages.import.inProgress.hint": "Datenimport läuft..."
+    "pages.import.inProgress.hint": "Datenimport läuft...",
+    "pages.importLogin.title": "Logins/Passwörter aus CSV-Datei importieren",
+    "pages.importLogin.hint.line1.before": "Bitte laden Sie die herunter",
+    "pages.importLogin.hint.line1.middle": "Vorlage importieren (.csv)",
+    "pages.importLogin.hint.line1.after": "um die Daten für den Import vorzubereiten. Sie können auch Ihre Logins/Passwörter importieren, die in Ihren Chrome- oder Edge-Browsern gespeichert sind. Gehen Sie beispielsweise in Chrome zu <chrome://settings/passwords>, Sie können alle Ihre Anmelde-/Passwortdatensätze in eine CSV-Datei exportieren, und diese CSV-Datei kann hier importiert werden."
 }

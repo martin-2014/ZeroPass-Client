@@ -115,6 +115,10 @@ export function createPersonalItem<T = any>(data: Message.VaultItem) {
     return localRequester<T>('createVaultItem', { data: data });
 }
 
+export function importPersonalItems<T = any>(data: Message.VaultItem[]) {
+    return localRequester<T>('importVaultItem', { data: data });
+}
+
 export function updatePersonalItem<T = any>(data: Message.VaultItem) {
     return localRequester('updateVaultItem', { data: data });
 }

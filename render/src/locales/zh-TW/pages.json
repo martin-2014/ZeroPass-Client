@@ -12,5 +12,9 @@
     "pages.import.hint.line1.middle": "導入模板 (.csv) ",
     "pages.import.hint.line1.after": "然後根據要求填寫相應的字段值。",
     "pages.import.hint.line2": "只支持csv文件，文件大小不超過10M，每次導入的數據量不超過300條。",
-    "pages.import.inProgress.hint": "數據正在導入..."
+    "pages.import.inProgress.hint": "數據正在導入...",
+    "pages.importLogin.title": "導入賬號密碼",
+    "pages.importLogin.hint.line1.before": "請下載 ",
+    "pages.importLogin.hint.line1.middle": "導入模板 (.csv) ",
+    "pages.importLogin.hint.line1.after": "來導入數據. 你也可以從Chrome或者Edge瀏覽器導入賬號密碼。比如打開Chrome瀏覽器，輸入地址chrome://settings/passwords進入自動填充設置，你可以把賬號密碼導出到csv文件，然後在這此導入。"
 }

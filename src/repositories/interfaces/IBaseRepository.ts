@@ -3,6 +3,7 @@ import { AbstractIteratorOptions } from "abstract-level";
 
 export interface IBaseRepository<T extends RecordEntity> {
     save: (entity: T) => Promise<void>;
+    import: (entity: T[]) => Promise<boolean>;
     del: (id: string) => Promise<void>;
     getIterator: (
         precate?: (entity: T) => boolean,
