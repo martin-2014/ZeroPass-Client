@@ -1,14 +1,10 @@
-import { RecordEntity, VaultItemEntity, VaultItemType } from "../entities";
+import { RecordEntity, VaultItemType } from "../entities";
 import { IBaseRepository, ILocalDb, IMerge } from "../interfaces";
-import { PasswordHistoryRepository } from "./PasswordHistoryRepository";
-import { VaultItemRepositoryLevel } from "./VaultItemRepository";
 import logger from "electron-log";
 import repos from "./level";
 import fsPromise from "fs/promises";
 import { cleanDir, copy, createDirs, exists } from "../../logic/io";
 import path from "path";
-import { entities } from "..";
-import { defaultMaxListeners } from "ws";
 
 type MetaMaskRawDataDetail = {
     title: string;
@@ -54,13 +50,10 @@ const mergeNewEntity = async (
     await dst.batchSave(newEnts);
 };
 
-const mergeNewAndDeleteEntity = async (
-    local: IBaseRepository<RecordEntity>,
-    remote: IBaseRepository<RecordEntity>,
-    customMerge?: (
-        entity1: RecordEntity,
-        entity2: RecordEntity
-    ) => { [key: string]: any }
+const mergeNewAndDeleteEntity = async <T extends RecordEntity>(
+    local: IBaseRepository<T>,
+    remote: IBaseRepository<T>,
+    customMerge?: (entity1: T, entity2: T) => { [key: string]: any }
 ) => {
     if (customMerge === undefined) {
         customMerge = (e1, e2) => {
@@ -190,46 +183,30 @@ const exportData = async (
 
 const merge: IMerge = {
     mergeRepos: async (local: ILocalDb, remote: ILocalDb) => {
-        const localVaultItems =
-            local.vaultItems as unknown as VaultItemRepositoryLevel;
-        const remoteVaultItems =
-            remote.vaultItems as unknown as VaultItemRepositoryLevel;
         await mergeNewAndDeleteEntity(
-            localVaultItems,
-            remoteVaultItems,
+            local.vaultItems,
+            remote.vaultItems,
             (e1, e2) => {
-                const ee1 = e1 as VaultItemEntity;
-                const ee2 = e2 as VaultItemEntity;
-                if (ee1.useTime == ee2.useTime) {
+                if (e1.useTime == e2.useTime) {
                     return {};
                 }
                 const lastUsed =
-                    ee1.useTime > ee2.useTime ? ee1.useTime : ee2.useTime;
+                    e1.useTime > e2.useTime ? e1.useTime : e2.useTime;
                 return {
                     useTime: lastUsed,
                 };
             }
         );
 
-        const localPasswords =
-            local.passwordHistories as PasswordHistoryRepository;
-        const remotePasswords =
-            remote.passwordHistories as PasswordHistoryRepository;
-        await mergeNewAndDeleteEntity(localPasswords, remotePasswords);
+        await mergeNewAndDeleteEntity(
+            local.passwordHistories,
+            remote.passwordHistories
+        );
     },
 
     exportRepos: async (local: ILocalDb, remote: ILocalDb) => {
-        const localVaultItems =
-            local.vaultItems as unknown as VaultItemRepositoryLevel;
-        const remoteVaultItems =
-            remote.vaultItems as unknown as VaultItemRepositoryLevel;
-        await exportData(localVaultItems, remoteVaultItems);
-
-        const localPasswords =
-            local.passwordHistories as PasswordHistoryRepository;
-        const remotePasswords =
-            remote.passwordHistories as PasswordHistoryRepository;
-        await exportData(localPasswords, remotePasswords);
+        await exportData(local.vaultItems, remote.vaultItems);
+        await exportData(local.passwordHistories, remote.passwordHistories);
     },
 
     mergeWallet: async (localPath: string, remotePath: string) => {
@@ -273,15 +250,13 @@ const merge: IMerge = {
         await copy(localPath, exportPath);
     },
     importRepos: async (src: ILocalDb, dst: ILocalDb, overwrite: boolean) => {
-        const dstVaultItems =
-            dst.vaultItems as unknown as VaultItemRepositoryLevel;
-        const srcVaultItems =
-            src.vaultItems as unknown as VaultItemRepositoryLevel;
-        await importData(srcVaultItems, dstVaultItems, overwrite);
+        await importData(src.vaultItems, dst.vaultItems, overwrite);
 
-        const dstPasswords = dst.passwordHistories as PasswordHistoryRepository;
-        const srcPasswords = src.passwordHistories as PasswordHistoryRepository;
-        await importData(srcPasswords, dstPasswords, overwrite);
+        await importData(
+            src.passwordHistories,
+            dst.passwordHistories,
+            overwrite
+        );
     },
     importWallet: async (srcPath: string, dstPath: string) => {
         await importWallet(srcPath, dstPath);

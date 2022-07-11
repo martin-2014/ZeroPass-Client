@@ -105,8 +105,12 @@ const webRequestController: {
             entity.useTime = Date.now();
             return entity;
         });
-        const success = await repos.vaultItems.import(entities);
-        return success ? succRes() : errRes("");
+        try {
+            await repos.vaultItems.batchSave(entities);
+            return succRes();
+        } catch {
+            return errRes("");
+        }
     },
 
     updateVaultItem: async (
