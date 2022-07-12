@@ -4,7 +4,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './NoticeList.less';
 import { NoticeIconItem, NoticeIconItemType } from './NoticeIconTypes';
-import HubButton from '../HubButton';
+import HubButton from '@/components/HubButton';
 
 export type NoticeIconTabProps = {
     count?: number;

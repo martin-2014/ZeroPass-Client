@@ -113,8 +113,6 @@ export const IsPersonalItem = (id: number) => {
     return localStore.personalDomainId === id;
 };
 
-export const changeTheme = (type: 'dark' | 'light') => {};
-
 export const getUrlHost = (url: string) => {
     let result = '';
     try {
@@ -177,12 +175,6 @@ export const openServiceAggreement = () => {
 
 export const openPrivacy = () => {
     OpenUrlByBrowser.default('https://www.zpassapp.com/zero-password-app-privacy-notice/');
-};
-
-export const AdminTableDiffHeight = 345;
-
-export const openIPFS = () => {
-    OpenUrlByBrowser.default('https://ipfs.io/');
 };
 
 export const promiseDelay = (ms: number) => {

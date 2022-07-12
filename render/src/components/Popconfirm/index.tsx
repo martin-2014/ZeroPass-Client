@@ -1,5 +1,5 @@
 import { Popover, PopconfirmProps, PopoverProps } from 'antd';
-import HubButton from '../HubButton';
+import HubButton from '@/components/HubButton';
 import styles from './index.less';
 import { Attention } from '@icon-park/react';
 import { useState } from 'react';

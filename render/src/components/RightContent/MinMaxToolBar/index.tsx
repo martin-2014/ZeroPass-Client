@@ -1,8 +1,8 @@
 import { BorderOutlined, CloseOutlined, MinusOutlined, SwitcherOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 import { sessionStore, localStore } from '@/browserStore/store';
-import SimpleModal from '../../SimpleModal';
-import HubButton from '../../HubButton';
+import SimpleModal from '@/components/SimpleModal';
+import HubButton from '@/components/HubButton';
 import styles from '../index.less';
 import classNames from 'classnames';
 import { FormattedMessage, useIntl } from 'umi';

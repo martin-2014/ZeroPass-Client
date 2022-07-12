@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './index.less';
-import SimpleModal from '../SimpleModal';
+import SimpleModal from '@/components/SimpleModal';
 import PasswordHistory from './history';
 import PasswordGenerator from './generator';
 import { FormattedMessage } from 'umi';

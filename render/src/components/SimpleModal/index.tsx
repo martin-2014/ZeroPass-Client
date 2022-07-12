@@ -4,7 +4,7 @@ import { Space } from 'antd';
 import { useIntl } from 'umi';
 import { CloseOutlined } from '@ant-design/icons';
 import { useState, useEffect } from 'react';
-import HubButton from '../HubButton';
+import HubButton from '@/components/HubButton';
 
 interface PropItems {
     close?: () => void;

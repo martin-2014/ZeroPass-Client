@@ -59,5 +59,6 @@
     "common.group.reused.password": "重複する暗号スイート",
     "common.age": "年",
     "common.days": "空",
-    "common.close": "閉鎖"
+    "common.close": "閉鎖",
+    "common.upload": "アップロード"
 }

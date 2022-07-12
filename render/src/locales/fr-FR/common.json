@@ -59,5 +59,6 @@
     "common.group.reused.password": "Groupe avec mot de passe réutilisé",
     "common.days": "journées",
     "common.close": "proche",
-    "common.age": "Âge"
+    "common.age": "Âge",
+    "common.upload": "Télécharger"
 }

@@ -21,7 +21,7 @@ import generator from 'generate-password';
 import owasp from 'owasp-password-strength-test';
 import { useEffect, useState } from 'react';
 import { FormattedMessage, useIntl } from 'umi';
-import HubButton from '../HubButton';
+import HubButton from '@/components/HubButton';
 import styles from './index.less';
 
 type PasswordType = 'char' | 'phrase';

@@ -46,5 +46,6 @@
     "err_data_sync_merge_failed": "同步数据，合并失败",
     "err_data_sync_upload_failed": "同步数据，上传文件失败",
     "err_data_sync_timeout": "同步数据超时",
-    "err_import_data_user_incorrect": "数据文件不属于当前用户"
+    "err_import_data_user_incorrect": "数据文件不属于当前用户",
+    "err_data_sync_start_error": "同步数据启动失败"
 }

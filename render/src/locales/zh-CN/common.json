@@ -59,5 +59,6 @@
     "common.group.reused.password": "重复密码组",
     "common.age": "年龄",
     "common.days": "天",
-    "common.close": "关闭"
+    "common.close": "关闭",
+    "common.upload": "上传"
 }

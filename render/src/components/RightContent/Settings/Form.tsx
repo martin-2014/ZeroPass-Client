@@ -1,6 +1,6 @@
 import { Row, Select } from 'antd';
 import { localStore } from '@/browserStore/store';
-import { FormattedMessage } from 'umi';
+import { FormattedMessage, useIntl } from 'umi';
 import styles from './index.less';
 import FormItem from '@/components/Form/FormItem';
 import FormInput from '@/components/Form/FormInput';
@@ -31,6 +31,7 @@ export const FormItems = (props: {
 };
 
 const getForm = () => {
+    const Intl = useIntl();
     const { selectedLang, lock, handleLanguageChange, handleCloseAppChange, hangeLockChange } =
         useSettings();
 
@@ -80,7 +81,7 @@ const getForm = () => {
             <Select defaultValue={lock ?? 0} onChange={hangeLockChange}>
                 {lockOptions.map((item) => (
                     <Option value={item.value} key={item.value}>
-                        {<FormattedMessage id={item.label} />}
+                        {Intl.formatMessage({ id: item.label })}
                     </Option>
                 ))}
             </Select>

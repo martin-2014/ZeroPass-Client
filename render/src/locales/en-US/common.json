@@ -59,5 +59,6 @@
     "common.group.reused.password": "Group with reused password",
     "common.age": "Age",
     "common.days": "days",
-    "common.close": "Close"
+    "common.close": "Close",
+    "common.upload": "Upload"
 }

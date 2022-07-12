@@ -59,5 +59,6 @@
     "common.group.reused.password": "중복 암호 제품군",
     "common.age": "나이",
     "common.days": "하늘",
-    "common.close": "폐쇄"
+    "common.close": "폐쇄",
+    "common.upload": "업로드"
 }

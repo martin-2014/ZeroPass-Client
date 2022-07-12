@@ -46,5 +46,6 @@
     "err_data_sync_merge_failed": "Đồng bộ hóa dữ liệu, hợp nhất không thành công",
     "err_data_sync_upload_failed": "Đồng bộ hóa dữ liệu, tải tệp lên không thành công",
     "err_data_sync_timeout": "đồng bộ hóa dữ liệu thời gian chờ",
-    "err_import_data_user_incorrect": "Tệp dữ liệu không thuộc về người dùng hiện tại"
+    "err_import_data_user_incorrect": "Tệp dữ liệu không thuộc về người dùng hiện tại",
+    "err_data_sync_start_error": "Không thể bắt đầu đồng bộ hóa dữ liệu"
 }
