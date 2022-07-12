@@ -11,7 +11,7 @@ import { parseCsv } from '@/utils/csv';
 import { DraggerProps } from 'antd/lib/upload';
 import { VaultItemType } from '@/services/api/vaultItems';
 import React from 'react';
-import { useList } from '../../Context/hooks';
+import { useList } from '@/pages/Home/Context/hooks';
 import { createParser } from '../../../../utils/csvParser/factory';
 
 const { Dragger } = Upload;
@@ -50,7 +50,6 @@ const ImportItems: React.FC<PropsItem> = ({ type, close }) => {
     const onFinish = async () => {
         setLoading(true);
         const res = parseCsv(csvText.current, mapper.requiredHeaders);
-        console.log('import items res: ', res);
         const { result, objects = [], failContent = '' } = res;
         if (result !== 'success' && result !== 'partialSuccess') {
             message.errorIntl('pages.import.format.error');
@@ -62,8 +61,8 @@ const ImportItems: React.FC<PropsItem> = ({ type, close }) => {
             close();
         } else {
             setFailedContent(failContent);
+            setLoading(false);
         }
-        setLoading(false);
     };
 
     const handleOk = () => {
