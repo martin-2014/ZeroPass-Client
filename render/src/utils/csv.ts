@@ -1,16 +1,9 @@
-import * as csvWriter from 'csv-writer';
-
 const quote = `"`;
 
 export const CSVToArray = (strData: string, strDelimiter: any = undefined) => {
-    const arrData: string[][] = [[]];
-    let header: string[] | null = null;
+    const arrData: string[][] = [];
     for (let { rowParsed } of csvInterator(strData, strDelimiter)) {
-        if (!header) {
-            header = rowParsed;
-        } else {
-            arrData.push(rowParsed);
-        }
+        arrData.push(rowParsed);
     }
     return arrData;
 };
