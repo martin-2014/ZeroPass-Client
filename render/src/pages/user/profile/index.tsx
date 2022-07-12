@@ -159,7 +159,7 @@ const UserProfile: FC<pros> = (pros) => {
         <div>
             <PlusOutlined />
             <div style={{ marginTop: 8 }}>
-                <FormattedMessage id="domainProfile.upload" />
+                <FormattedMessage id="common.upload" />
             </div>
         </div>
     );

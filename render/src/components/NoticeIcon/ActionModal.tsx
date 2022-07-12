@@ -1,8 +1,8 @@
 import { Space } from 'antd';
 import { ButtonType } from 'antd/lib/button';
 import { useState } from 'react';
-import HubButton from '../HubButton';
-import SimpleModal from '../SimpleModal';
+import HubButton from '@/components/HubButton';
+import SimpleModal from '@/components/SimpleModal';
 interface NotificationActionButton {
     type?: ButtonType;
     text?: JSX.Element | string;

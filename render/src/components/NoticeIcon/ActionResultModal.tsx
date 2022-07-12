@@ -1,7 +1,7 @@
 import { useIntl } from 'umi';
 import { Row, Col, Space } from 'antd';
-import SimpleModal from '../SimpleModal';
-import HubButton from '../HubButton';
+import SimpleModal from '@/components/SimpleModal';
+import HubButton from '@/components/HubButton';
 import { CheckCircleOutlined } from '@ant-design/icons';
 
 interface PropsItem {

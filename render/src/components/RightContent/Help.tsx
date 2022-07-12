@@ -13,7 +13,7 @@ import { history, FormattedMessage, useModel } from 'umi';
 import HeaderDropdownWithTip from '../HeaderDropdownWithTip';
 import styles from './index.less';
 import type { MenuInfo } from 'rc-menu/lib/interface';
-import SimpleModal from '../SimpleModal';
+import SimpleModal from '@/components/SimpleModal';
 import About from './About';
 import Settings from '@/components/RightContent/Settings';
 import { sessionStore } from '@/browserStore/store';

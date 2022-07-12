@@ -46,5 +46,6 @@
     "err_data_sync_merge_failed": "La combinación de datos de sincronización falló",
     "err_data_sync_upload_failed": "No se han podido sincronizar los archivos de carga de datos",
     "err_data_sync_timeout": "Tiempo de espera de sincronización de datos",
-    "err_import_data_user_incorrect": "El archivo de datos no es propiedad del usuario actual"
+    "err_import_data_user_incorrect": "El archivo de datos no es propiedad del usuario actual",
+    "err_data_sync_start_error": "No se pudo iniciar la sincronización de datos"
 }

@@ -65,14 +65,13 @@ const useRegister = (emailName: string) => {
             message.errorIntl(res.errorId);
         }
     };
-    const resendEmail = (send: () => void = sendEmail) => {
-        return () => {
-            setShowResend(true);
-            send();
-            setTimeout(() => {
-                setShowResend(false);
-            }, 10 * 1000);
-        };
+
+    const resendEmail = () => {
+        setShowResend(true);
+        sendEmail();
+        setTimeout(() => {
+            setShowResend(false);
+        }, 10 * 1000);
     };
 
     const checkCode = async () => {

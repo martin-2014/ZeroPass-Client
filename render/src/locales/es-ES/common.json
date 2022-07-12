@@ -59,5 +59,6 @@
     "common.group.reused.password": "Grupo con contraseña reutilizada",
     "common.days": "días",
     "common.close": "Cerca",
-    "common.age": "Años"
+    "common.age": "Años",
+    "common.upload": "Subir"
 }

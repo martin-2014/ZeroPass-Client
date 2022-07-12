@@ -1,5 +1,5 @@
 import { FormattedMessage, useIntl } from 'umi';
-import HubButton from '../HubButton';
+import HubButton from '@/components/HubButton';
 import { OpenUrlByBrowser } from '@/utils/tools';
 
 const Extension = (props: { gap?: number }) => {

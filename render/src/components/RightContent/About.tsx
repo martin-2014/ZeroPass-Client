@@ -3,7 +3,7 @@ import { FormattedMessage, useIntl } from 'umi';
 import styles from './index.less';
 import { useState, useEffect } from 'react';
 import { localStore } from '@/browserStore/store';
-import HubButton from '../HubButton';
+import HubButton from '@/components/HubButton';
 import { openServiceAggreement, openPrivacy } from '@/utils/tools';
 
 export type Props = {

@@ -142,9 +142,9 @@ const useLogin = () => {
                 id: 'login.failure',
             });
             message.error(defaultLoginFailureMessage);
+            setSubmited(false);
+            setLoading(false);
         }
-        setSubmited(false);
-        setLoading(false);
     };
     const createFileUpload = () => {
         const upload = document.createElement('input');

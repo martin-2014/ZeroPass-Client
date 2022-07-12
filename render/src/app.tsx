@@ -1,24 +1,24 @@
 import type { Settings as LayoutSettings } from '@ant-design/pro-layout';
 import { PageLoading, MenuDataItem } from '@ant-design/pro-layout';
-import { RunTimeLayoutConfig, RequestConfig, useModel } from 'umi';
+import { RunTimeLayoutConfig, RequestConfig } from 'umi';
 import { history } from 'umi';
-import { currentUser as queryCurrentUser } from './services/api/user';
+import { currentUser as queryCurrentUser } from '@/services/api/user';
 import type { RequestOptionsInit } from 'umi-request';
 import { baseUrl } from '@/.hub/config';
 import message from '@/utils/message';
 import { freshToken } from '@/services/api/user';
-import Header from './components/Header';
-import { sessionStore, localStore } from './browserStore/store';
+import Header from '@/components/Header';
+import { sessionStore, localStore } from '@/browserStore/store';
 import { IconMap } from '@/components/MenuIcon';
-import LeftContent from './components/LeftContent';
+import LeftContent from '@/components/LeftContent';
 import Menus from '@/components/Menus';
-import { priceRequester } from './services/api/cryptos';
-import { getLocalTimeZone } from './hooks/useLocalTime';
+import { priceRequester } from '@/services/api/cryptos';
+import { getLocalTimeZone } from '@/hooks/useLocalTime';
 
 const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/user/login';
 const logoutPath = '/user/logout';
-const whiteList = [
+export const whiteList = [
     '/user/login',
     '/user/domain/register',
     '/user/domain/register/result',
@@ -55,7 +55,6 @@ export async function getInitialState(): Promise<{
     fetchUserInfo: () => Promise<API.UserProfile | undefined>;
 }> {
     sessionStore.deviceId = await window.electron.GetDeviceId();
-    const isEnterpriseDomain = (domain: API.domain) => domain.domainType === 2;
     const fetchUserInfo = async () => {
         try {
             if (!sessionStore.token && sessionStore.token.length) {
@@ -81,20 +80,7 @@ export async function getInitialState(): Promise<{
                 };
                 electron.sendUserProfile(msg);
             }
-            const domains = responsePayload.domains!.filter(isEnterpriseDomain);
-            let data = {
-                ...responsePayload,
-                domains,
-            };
-            const currentDomainId = localStore.currentDomainId;
-            let currentDomain = data.domains.find((item) => item.domainId === currentDomainId);
-            if (!currentDomain) {
-                currentDomain = data.domains[0];
-            }
-            data = {
-                ...currentDomain,
-                ...data,
-            };
+            let data = responsePayload;
             for (const domain of responsePayload.domains!) {
                 if (domain.domainType === 1) {
                     data = {

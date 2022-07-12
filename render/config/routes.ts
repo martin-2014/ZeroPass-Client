@@ -29,9 +29,6 @@ export default [
                     },
                 ],
             },
-            {
-                component: './404',
-            },
         ],
     },
     {
@@ -143,12 +140,5 @@ export default [
                 component: './Home/Personal/AllItems',
             },
         ],
-    },
-    {
-        path: '/401',
-        component: './401',
-    },
-    {
-        component: './404',
     },
 ];
