@@ -18,7 +18,7 @@ import { getLocalTimeZone } from '@/hooks/useLocalTime';
 const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/user/login';
 const logoutPath = '/user/logout';
-export const whiteList = [
+const whiteList = [
     '/user/login',
     '/user/domain/register',
     '/user/domain/register/result',
