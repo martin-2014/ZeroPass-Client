@@ -1,6 +1,4 @@
-import { RoamingSettingData } from '@/components/RightContent/Settings/DataRoamingSetting';
-
-class LocalStore {
+export class LocalStore {
     get currentDomainId() {
         const currentDomainId = localStorage.getItem('currentDomainId');
         if (currentDomainId) {
@@ -17,14 +15,8 @@ class LocalStore {
             return 0;
         }
     }
-    set skipAdmin(value: boolean) {
-        localStorage.setItem('skipAdmin', value.toString());
-    }
     set skipUser(value: boolean) {
         localStorage.setItem('skipUser', value.toString());
-    }
-    get skipAdmin() {
-        return localStorage.getItem('skipAdmin') === 'true';
     }
     get skipUser() {
         return localStorage.getItem('skipUser') === 'true';
@@ -109,30 +101,9 @@ class LocalStore {
             localStorage.setItem('closeOption', value.toString());
         }
     }
-
-    get roamingSetting(): RoamingSettingData {
-        const value = localStorage.getItem('roamingSetting');
-        const emptyValue: RoamingSettingData = { enable: false };
-        if (!!value) {
-            try {
-                return JSON.parse(value!) as RoamingSettingData;
-            } catch {
-                return emptyValue;
-            }
-        }
-        return emptyValue;
-    }
-
-    set roamingSetting(value: RoamingSettingData) {
-        if (!!value) {
-            localStorage.setItem('roamingSetting', JSON.stringify(value));
-        } else {
-            localStorage.removeItem('roamingSetting');
-        }
-    }
 }
 
-class SessionStore {
+export class SessionStore {
     get token() {
         return sessionStorage.getItem('token')!;
     }
@@ -157,17 +128,9 @@ class SessionStore {
     set lock(value: string) {
         sessionStorage.setItem('lock', value);
     }
-
-    get nextSyncTime() {
-        return +(sessionStorage.getItem('nextSyncTime') ?? '0');
-    }
-
-    set nextSyncTime(time: number) {
-        sessionStorage.setItem('nextSyncTime', `${time}`);
-    }
 }
 
-class SecretKeyStore {
+export class SecretKeyStore {
     private generateStoreKey(email: string) {
         return `zeropass-secret-key-${email.toLocaleLowerCase()}`;
     }
