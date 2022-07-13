@@ -53,6 +53,7 @@ const ImportItems: React.FC<PropsItem> = ({ type, close }) => {
         const { result, objects = [], failContent = '' } = res;
         if (result !== 'success' && result !== 'partialSuccess') {
             message.errorIntl('pages.import.format.error');
+            setLoading(false);
             return;
         }
         const items = await mapper.parseItems(objects);
