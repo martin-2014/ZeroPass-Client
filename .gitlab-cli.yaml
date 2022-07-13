@@ -74,7 +74,7 @@ deploy-dev: # This job runs in the deploy stage.
         - npm run render:install
         - yarn
         - npm version $CURRENT_VERSION --no-git-tag --allow-same-version
-        - npm run electron-win:build:dev --BASE_URL=$DEV_BASE_URL --UPDATE_URL=$DEV_UPDATE_URL --CSC_PASSWORD=$CSC_PASSWORD --ETH_API_KEY=$ETH_API_KEY --BSC_API_KEY=$BSC_API_KEY --CRYPTOCOMPARE_API_KEY=$CRYPTOCOMPARE_API_KEY
+        - npm run electron-win:build:dev:sign --BASE_URL=$DEV_BASE_URL --UPDATE_URL=$DEV_UPDATE_URL --CSC_PASSWORD=$CSC_PASSWORD --ETH_API_KEY=$ETH_API_KEY --BSC_API_KEY=$BSC_API_KEY --CRYPTOCOMPARE_API_KEY=$CRYPTOCOMPARE_API_KEY
         - cp $SOURCE_FOLDER$CURRENT_INSTALLER $SOURCE_FOLDER$LATEST_INSTALLER
         - AWS_ACCESS_KEY_ID=$DEV_AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$DEV_AWS_SECRET_ACCESS_KEY aws s3 cp $SOURCE_FOLDER s3://zeropass-community-app-dev-$DEV_AWS_DEFAULT_REGION --recursive --exclude "*/*" --acl public-read
     environment:
@@ -95,7 +95,7 @@ deploy-test: # This job runs in the deploy stage.
         - npm run render:install
         - yarn
         - npm version $CURRENT_VERSION --no-git-tag --allow-same-version
-        - npm run electron-win:build:dev --BASE_URL=$TEST_BASE_URL --UPDATE_URL=$TEST_UPDATE_URL --CSC_PASSWORD=$CSC_PASSWORD --ETH_API_KEY=$ETH_API_KEY --BSC_API_KEY=$BSC_API_KEY --CRYPTOCOMPARE_API_KEY=$CRYPTOCOMPARE_API_KEY
+        - npm run electron-win:build:dev:sign --BASE_URL=$TEST_BASE_URL --UPDATE_URL=$TEST_UPDATE_URL --CSC_PASSWORD=$CSC_PASSWORD --ETH_API_KEY=$ETH_API_KEY --BSC_API_KEY=$BSC_API_KEY --CRYPTOCOMPARE_API_KEY=$CRYPTOCOMPARE_API_KEY
         - cp $SOURCE_FOLDER$CURRENT_INSTALLER $SOURCE_FOLDER$LATEST_INSTALLER
         - AWS_ACCESS_KEY_ID=$DEV_AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$DEV_AWS_SECRET_ACCESS_KEY aws s3 cp $SOURCE_FOLDER s3://zeropass-community-app-test-$DEV_AWS_DEFAULT_REGION --recursive --exclude "*/*" --acl public-read
     environment:
@@ -113,7 +113,7 @@ deploy-staging: # This job runs in the deploy stage.
         - npm run render:install
         - yarn
         - npm version $CURRENT_VERSION --no-git-tag --allow-same-version
-        - npm run electron-win:build --BASE_URL=$STAGING_BASE_URL --UPDATE_URL=$STAGING_UPDATE_URL --CSC_PASSWORD=$CSC_PASSWORD --ETH_API_KEY=$ETH_API_KEY --BSC_API_KEY=$BSC_API_KEY --CRYPTOCOMPARE_API_KEY=$CRYPTOCOMPARE_API_KEY
+        - npm run electron-win:build:sign --BASE_URL=$STAGING_BASE_URL --UPDATE_URL=$STAGING_UPDATE_URL --CSC_PASSWORD=$CSC_PASSWORD --ETH_API_KEY=$ETH_API_KEY --BSC_API_KEY=$BSC_API_KEY --CRYPTOCOMPARE_API_KEY=$CRYPTOCOMPARE_API_KEY
         - cp $SOURCE_FOLDER$CURRENT_INSTALLER $SOURCE_FOLDER$LATEST_INSTALLER
         - AWS_ACCESS_KEY_ID=$PROD_AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$PROD_AWS_SECRET_ACCESS_KEY aws s3 cp $SOURCE_FOLDER s3://zeropass-community-app-staging-$PROD_AWS_DEFAULT_REGION --recursive --exclude "*/*" --acl public-read
     environment:
@@ -131,7 +131,7 @@ deploy-prod: # This job runs in the deploy stage.
         - npm run render:install
         - yarn
         - npm version $CURRENT_VERSION --no-git-tag --allow-same-version
-        - npm run electron-win:build --BASE_URL=$PROD_BASE_URL --UPDATE_URL=$PROD_UPDATE_URL --CSC_PASSWORD=$CSC_PASSWORD --ETH_API_KEY=$ETH_API_KEY --BSC_API_KEY=$BSC_API_KEY --CRYPTOCOMPARE_API_KEY=$CRYPTOCOMPARE_API_KEY
+        - npm run electron-win:build:sign --BASE_URL=$PROD_BASE_URL --UPDATE_URL=$PROD_UPDATE_URL --CSC_PASSWORD=$CSC_PASSWORD --ETH_API_KEY=$ETH_API_KEY --BSC_API_KEY=$BSC_API_KEY --CRYPTOCOMPARE_API_KEY=$CRYPTOCOMPARE_API_KEY
         - cp $SOURCE_FOLDER$CURRENT_INSTALLER $SOURCE_FOLDER$LATEST_INSTALLER
         - AWS_ACCESS_KEY_ID=$PROD_AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$PROD_AWS_SECRET_ACCESS_KEY aws s3 cp $SOURCE_FOLDER s3://zeropass-community-app-prod-$PROD_AWS_DEFAULT_REGION --recursive --exclude "*/*" --acl public-read
     environment:
