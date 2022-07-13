@@ -11,31 +11,15 @@ import { FormattedMessage } from 'umi';
 import PersonalForm from './components/PersonalForm';
 import styles from './index.less';
 import { strengthBackground, close } from './tools';
+import useRegister from '@/pages/domain/register/useRegister';
 
-export interface Props {
-    formMapRef: React.MutableRefObject<React.MutableRefObject<ProFormInstance<any> | undefined>[]>;
-    loading: boolean;
-    sendEmail: () => Promise<void>;
-    checkCode: () => Promise<boolean>;
-    onFinish: () => Promise<boolean>;
-    getFormEmail: () => any;
-    showResend: boolean;
-    resendEmail: () => void;
-    setCurrent: React.Dispatch<React.SetStateAction<number>>;
-    current: number;
-    checkPasswordLevel: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    passwordLevel: number;
-    validatorPassword: (
-        _: any,
-        value: string,
-        callback: (message?: string | undefined) => void,
-    ) => void;
-    passwordError: boolean;
-}
-
-const getStepsForms = (props: Props) => {
+const getStepsForms = (
+    emailName: string,
+    formMapRef: React.MutableRefObject<React.MutableRefObject<ProFormInstance<any> | undefined>[]>,
+    current: number,
+    setCurrent: React.Dispatch<React.SetStateAction<number>>,
+) => {
     const {
-        formMapRef,
         loading,
         sendEmail,
         checkCode,
@@ -43,19 +27,23 @@ const getStepsForms = (props: Props) => {
         getFormEmail,
         showResend,
         resendEmail,
-        setCurrent,
-        current,
         checkPasswordLevel,
         passwordLevel,
         validatorPassword,
         passwordError,
-    } = props;
+    } = useRegister(emailName, formMapRef, current, setCurrent);
     const intl = useIntl();
     return [
-        <StepsForm.StepForm requiredMark={false} autoFocusFirstInput style={{ width: 640 }}>
+        <StepsForm.StepForm
+            key={'email'}
+            requiredMark={false}
+            autoFocusFirstInput
+            style={{ width: 640 }}
+        >
             <PersonalForm form={formMapRef} loading={loading} commit={sendEmail} close={close} />
         </StepsForm.StepForm>,
         <StepsForm.StepForm
+            key={'code'}
             requiredMark={false}
             onFinish={() => {
                 return checkCode();
@@ -130,7 +118,7 @@ const getStepsForms = (props: Props) => {
                                     <FormattedMessage id="register.code.tips" />
                                 </span>
                                 &nbsp;
-                                <a onClick={resendEmail}>
+                                <a onClick={() => resendEmail()}>
                                     <FormattedMessage id="register.resend" />
                                 </a>
                             </div>
@@ -144,6 +132,7 @@ const getStepsForms = (props: Props) => {
                         width={120}
                         height={40}
                         onClick={() => {
+                            console.log(current);
                             formMapRef.current[current].current?.setFieldsValue({
                                 code: '',
                             });
@@ -165,6 +154,7 @@ const getStepsForms = (props: Props) => {
             </div>
         </StepsForm.StepForm>,
         <StepsForm.StepForm
+            key={'final'}
             autoFocusFirstInput
             requiredMark={false}
             onFinish={() => {
