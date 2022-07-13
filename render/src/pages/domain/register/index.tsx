@@ -1,18 +1,19 @@
-import { RegisterItem } from '@/services/api/register';
-import { StepsForm } from '@ant-design/pro-form';
+import { ProFormInstance, StepsForm } from '@ant-design/pro-form';
 import styles from './index.less';
 import BaseLayout from './baseLayout';
-import getStepsForms, { Props as StepsFormsProps } from './StepsForms';
-import useRegister from './useRegister';
+import getStepsForms from './StepsForms';
+import { useRef, useState } from 'react';
 
-let callBackData: RegisterItem;
 export const Layout = ({
     children,
     formMapRef,
     current,
     setCurrent,
     header,
-}: Pick<StepsFormsProps, 'formMapRef' | 'current' | 'setCurrent'> & {
+}: {
+    formMapRef: React.MutableRefObject<React.MutableRefObject<ProFormInstance<any> | undefined>[]>;
+    setCurrent: React.Dispatch<React.SetStateAction<number>>;
+    current: number;
     children: JSX.Element[];
     header?: string | JSX.Element;
 }) => {
@@ -35,36 +36,11 @@ export const Layout = ({
     );
 };
 const Register = () => {
+    const formMapRef = useRef<React.MutableRefObject<ProFormInstance<any> | undefined>[]>([]);
+    const [current, setCurrent] = useState(0);
     const EMAIL_NAME = 'pemail';
 
-    const {
-        formMapRef,
-        checkCode: getCheckCodeData,
-        current,
-        setCurrent,
-        getFinish,
-        ...rest
-    } = useRegister(EMAIL_NAME);
-
-    const checkCode = async () => {
-        const data = await getCheckCodeData();
-        if (data) {
-            callBackData = data;
-            return true;
-        }
-        return false;
-    };
-
-    const onFinish = getFinish(callBackData);
-
-    const StepForms = getStepsForms({
-        formMapRef,
-        current,
-        onFinish,
-        setCurrent,
-        checkCode,
-        ...rest,
-    });
+    const StepForms = getStepsForms(EMAIL_NAME, formMapRef, current, setCurrent);
 
     return (
         <Layout formMapRef={formMapRef} current={current} setCurrent={setCurrent}>

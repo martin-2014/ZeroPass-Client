@@ -13,14 +13,18 @@ import { ProFormInstance } from '@ant-design/pro-form';
 import { useRef, useState } from 'react';
 import { history, useIntl } from 'umi';
 
-const useRegister = (emailName: string) => {
+const useRegister = (
+    emailName: string,
+    formMapRef: React.MutableRefObject<React.MutableRefObject<ProFormInstance<any> | undefined>[]>,
+    current: number,
+    setCurrent: React.Dispatch<React.SetStateAction<number>>,
+) => {
     const intl = useIntl();
-    const formMapRef = useRef<React.MutableRefObject<ProFormInstance<any> | undefined>[]>([]);
-    const [current, setCurrent] = useState(0);
     const [passwordError, setPasswordError] = useState(true);
     const [passwordLevel, setPasswordLevel] = useState(0);
     const [loading, setLoading] = useState(false);
     const [showResend, setShowResend] = useState(false);
+    const registerDataRef = useRef<RegisterItem>();
 
     const getFormEmail = () => {
         return formMapRef.current[0].current?.getFieldValue(emailName);
@@ -81,10 +85,11 @@ const useRegister = (emailName: string) => {
         const res = await checkRegisterCode(email, code);
         setLoading(false);
         if (!res.fail && res.payload) {
-            return res.payload;
+            registerDataRef.current = res.payload;
+            return true;
         } else {
             message.errorIntl(res.errorId);
-            return null;
+            return false;
         }
     };
     const validatorPassword = (_: any, value: string, callback: (message?: string) => void) => {
@@ -100,50 +105,40 @@ const useRegister = (emailName: string) => {
             callback();
         }
     };
-    const getFinish = (callBackData: RegisterItem) => {
-        return async () => {
-            setLoading(true);
-            const email = getFormEmail();
-            const password = formMapRef.current[current].current?.getFieldValue('password');
-            try {
-                const secretKey = new SecretKey();
-                const createKeyModel = await TCryptoService.createUserKeyModel(
-                    email,
-                    password,
-                    secretKey,
-                );
-                callBackData.userKey = createKeyModel;
-                const res = await register(callBackData);
-                if (!res.fail) {
-                    const secretKeyValue = secretKey.export();
-                    if (secretKeyValue) {
-                        const index =
-                            formMapRef.current[0].current?.getFieldValue('accountType') || 0;
-                        const subs = ['domain-business', 'personal-basic', 'personal-standard'];
-                        history.push({
-                            pathname: '/user/domain/register/result',
-                            query: {
-                                key: secretKeyValue,
-                                pre: email.split('@')[0],
-                                sub: subs[index],
-                            },
-                        });
-                        return true;
-                    } else {
-                        message.error(intl.formatMessage({ id: 'register.failed' }));
-                    }
-                } else {
-                    message.errorIntl(res.errorId);
-                }
-            } finally {
-                setLoading(false);
-            }
+    const onFinish = async () => {
+        setLoading(true);
+        const email = getFormEmail();
+        const password = formMapRef.current[current].current?.getFieldValue('password');
+        const secretKey = new SecretKey();
+        const createKeyModel = await TCryptoService.createUserKeyModel(email, password, secretKey);
+        if (registerDataRef.current) {
+            registerDataRef.current.userKey = createKeyModel;
+        } else {
             return false;
-        };
+        }
+        const res = await register(registerDataRef.current);
+        if (!res.fail) {
+            const secretKeyValue = secretKey.export();
+            if (secretKeyValue) {
+                history.push({
+                    pathname: '/user/domain/register/result',
+                    query: {
+                        key: secretKeyValue,
+                        pre: email.split('@')[0],
+                    },
+                });
+                return true;
+            } else {
+                message.error(intl.formatMessage({ id: 'register.failed' }));
+            }
+        } else {
+            message.errorIntl(res.errorId);
+        }
+        return false;
     };
     return {
         validatorPassword,
-        formMapRef,
+        registerDataRef,
         checkPasswordLevel,
         passwordLevel,
         passwordError,
@@ -151,7 +146,8 @@ const useRegister = (emailName: string) => {
         resendEmail,
         checkCode,
         showResend,
-        getFinish,
+        setShowResend,
+        onFinish,
         sendEmail,
         current,
         setCurrent,
