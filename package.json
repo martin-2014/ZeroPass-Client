@@ -7,9 +7,12 @@
     "description": "ZeroPass",
     "repository": "https://github.com/electron/electron-quick-start",
     "scripts": {
-        "electron-win:build": "cross-env BASE_URL=$npm_config_base_url UPDATE_URL=$npm_config_update_url npm run build && npm run etsc && cross-env CSC_KEY_PASSWORD=$npm_config_csc_password electron-builder --win -p never",
-        "electron-win:build:dev": "cross-env BASE_URL=$npm_config_base_url UPDATE_URL=$npm_config_update_url DEV_TOOLS=true npm run build && npm run etsc && cross-env CSC_KEY_PASSWORD=$npm_config_csc_password electron-builder --win -p never",
-        "electron:build": "electron-builder --win",
+        "electron-win:build": "cross-env BASE_URL=$npm_config_base_url UPDATE_URL=$npm_config_update_url npm run build && npm run etsc && cross-env CSC_KEY_PASSWORD=$npm_config_csc_password npm run electron:build",
+        "electron-win:build:dev": "cross-env BASE_URL=$npm_config_base_url UPDATE_URL=$npm_config_update_url DEV_TOOLS=true npm run build && npm run etsc && cross-env CSC_KEY_PASSWORD=$npm_config_csc_password npm run electron:build",
+        "electron-win:build:sign": "cross-env BASE_URL=$npm_config_base_url UPDATE_URL=$npm_config_update_url npm run build && npm run etsc && cross-env CSC_KEY_PASSWORD=$npm_config_csc_password npm run electron:build:sign",
+        "electron-win:build:dev:sign": "cross-env BASE_URL=$npm_config_base_url UPDATE_URL=$npm_config_update_url DEV_TOOLS=true npm run build && npm run etsc && cross-env CSC_KEY_PASSWORD=$npm_config_csc_password npm run electron:build:sign",
+        "electron:build": "electron-builder --win -p never",
+        "electron:build:sign": "if [ -f zeropass.pfx ]; then rm -r zeropass.pfx; fi; ln -s ~/zeropass.pfx; electron-builder --win -c.win.certificateFile=zeropass.pfx -c.win.sign=sign.js -p never",
         "electron": "npm run tsc && npm run etsc && set NODE_ENV=deve&& electron .",
         "etsc": "etsc",
         "tsc": "tsc",
@@ -49,9 +52,7 @@
                     ]
                 }
             ],
-            "signDlls": false,
-            "certificateFile": "zeropass.pfx",
-            "sign": "./sign.js"
+            "signDlls": false
         },
         "extraResources": [
             {
