@@ -21,7 +21,7 @@ stages: # List of stages for jobs, and their order of execution
 
 variables:
     SOURCE_FOLDER: "build/"
-    VERSTION_PREFIX: "1.3"
+    VERSTION_PREFIX: "1.4"
     CURRENT_VERSION: "$VERSTION_PREFIX.$CI_PIPELINE_IID"
     INSTALLER_PREFIX: "ZeroPass-Community"
     CURRENT_INSTALLER: "$INSTALLER_PREFIX-$VERSTION_PREFIX.$CI_PIPELINE_IID.exe"
