@@ -1,6 +1,5 @@
 import { TCryptoService } from '@/secretKey/cryptoService/cryptoService';
 import { freePersonalDb, lockPersonalDb, updatePersonalDbLock } from '@/services/api/locks';
-import { LoginDetail } from '@/services/api/logins';
 import {
     deletePasswordHistory,
     deletePasswordHistoryAll,
@@ -76,7 +75,7 @@ const createCredential = async (msg: Message.ExtensionsMessage) => {
 const updateCredential = async (msg: Message.ExtensionsMessage) => {
     var cryptoService = new TCryptoService();
     const cred = msg.message;
-    const itemResult = await getPersonalLoginDetail<Message.VaultItem<LoginDetail>>(cred.id);
+    const itemResult = await getPersonalLoginDetail<Message.VaultItem<API.LoginDetail>>(cred.id);
     if (itemResult.fail) {
         msg.errorId = itemResult.errorId;
         return msg;

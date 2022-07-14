@@ -1,4 +1,3 @@
-import { getManagerAppOpen, getWorkAppOpen, OpenDetail } from '@/services/api/logins';
 import { getPersonalLoginDetail } from '@/services/api/vaultItems';
 import { AppItem, BrowserEvent, openBrowser } from '@/utils/appBrowser';
 import { EditOutlined } from '@ant-design/icons';
@@ -51,66 +50,30 @@ export const Edit = (props: PropsItem) => {
     );
 };
 
-enum AppType {
-    PERSONAL = 0,
-    WORKASSIGN = 1,
-    MANAGER = 2,
-}
-
-enum BrowserStatus {
-    Running = 0,
-    Waiting = 1,
-    InProgress = 2,
-    Failed = 3,
-    Closed = 4,
-}
-
-export interface AppPropsItem extends PropsItem {
-    type: 'manager' | 'workassign' | 'personal';
-    appId: number | string;
-    setProgress?: (progress: number) => void;
-    setStatus?: (status: StatusItem) => void;
-    containerId: null | string;
-    superBrowserStatus?: BrowserStatus;
-    noTips?: boolean;
-}
-
-export type StatusItem = 'closed' | 'opening' | 'opened' | 'fail';
-
-export const getOpenInfo = async (type: AppPropsItem['type'], appId: number | string) => {
-    let res: { payload?: OpenDetail; fail: boolean } = { fail: true };
-    if (type == 'manager') {
-        res = await getManagerAppOpen(appId);
-    } else if (type == 'workassign') {
-        res = await getWorkAppOpen(appId);
-    } else {
-        const detail = await getPersonalLoginDetail(appId);
-        if (!detail.fail) {
-            const info = detail.payload!;
-            res = {
-                payload: {
-                    ...info,
-                    address: info.loginUri,
-                    loginUser: info.loginUser,
-                    loginPassword: info.loginPassword,
-                    name: info.name,
-                },
-                fail: false,
-            };
-        }
+const getOpenInfo = async (appId: number | string) => {
+    let res: { payload?: API.OpenDetail; fail: boolean } = { fail: true };
+    const detail = await getPersonalLoginDetail(appId);
+    if (!detail.fail) {
+        const info = detail.payload!;
+        res = {
+            payload: {
+                ...info,
+                address: info.loginUri,
+                loginUser: info.loginUser,
+                loginPassword: info.loginPassword,
+                name: info.name,
+            },
+            fail: false,
+        };
     }
     return res;
 };
 
 class AppBrowserEvent extends BrowserEvent {}
 
-export const OpenSuperBrowser = React.forwardRef((props: AppPropsItem, ref: any) => {
-    return <></>;
-});
-
 type DefaultPropsItem = {
     domainId: number;
-    type: 'manager' | 'workassign' | 'personal';
+    type: 'personal';
     appId: number | string;
     action?: 'login' | 'fill' | 'goto';
     size?: number;
@@ -127,7 +90,7 @@ export const OpenDefaultBrowser = React.forwardRef((props: DefaultPropsItem, ref
         if (e) e.stopPropagation();
 
         if (props.action != undefined) action = props.action;
-        const res = await getOpenInfo(props.type, props.appId);
+        const res = await getOpenInfo(props.appId);
         if (!res.fail && res.payload) {
             var item: AppItem = new AppItem(res.payload);
             (item.domainId = props.domainId), (item.type = action);
@@ -146,11 +109,7 @@ export const OpenDefaultBrowser = React.forwardRef((props: DefaultPropsItem, ref
             className={props.noTips ? '' : 'zp-icon'}
             onClick={(e) => {
                 e.stopPropagation();
-                if (props.type === 'manager') {
-                    handleClick(e, '');
-                } else {
-                    handleClick(e, 'fill');
-                }
+                handleClick(e, 'fill');
             }}
         />
     ) : (
@@ -159,11 +118,7 @@ export const OpenDefaultBrowser = React.forwardRef((props: DefaultPropsItem, ref
                 className={props.noTips ? '' : 'zp-icon'}
                 onClick={(e) => {
                     e.stopPropagation();
-                    if (props.type === 'manager') {
-                        handleClick(e, '');
-                    } else {
-                        handleClick(e, 'fill');
-                    }
+                    handleClick(e, 'fill');
                 }}
             />
         </Tooltip>

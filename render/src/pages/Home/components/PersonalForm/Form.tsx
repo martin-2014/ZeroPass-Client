@@ -36,7 +36,6 @@ type Props = {
     isShowPassWord?: boolean;
     onShowPassword?: (show: boolean) => void;
     isNewItem?: boolean;
-    anyClientMachine?: boolean;
 };
 
 const MAX_LENGTH = 255;
@@ -44,7 +43,6 @@ const FormContent = React.forwardRef((props: Props, ref: any) => {
     const {
         isNewItem,
         form,
-        anyClientMachine,
         onClose,
         changeLoadingState,
         tags = [],
@@ -360,7 +358,6 @@ const FormContent = React.forwardRef((props: Props, ref: any) => {
                         isEdit={isNewItem || isEdit}
                         isRequiredField={true}
                         copyValue={() => form.getFieldValue('loginUri')}
-                        anyClientMachine={anyClientMachine}
                         appId={selectedId}
                         containerId={containerId}
                         fieldButtions={

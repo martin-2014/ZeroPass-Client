@@ -2,7 +2,7 @@ import { useLocalTimeSimple } from '@/hooks/useLocalTime';
 import { FormattedMessage, useModel } from 'umi';
 import { Table, Typography } from 'antd';
 import { ColumnsType } from 'antd/lib/table';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './index.less';
 import useResizeHeight from '@/components/HubList/useResizeHeight';
 
@@ -22,9 +22,6 @@ export interface ListProps<T> {
     toolbarRender?: (data: Item<T>) => JSX.Element;
     onClick?: (data: Item<T>) => void;
 }
-const getTableHeight = () => {
-    return document.body.clientHeight - 330;
-};
 
 export const Title = (record: Omit<Item, 'lastUsed' | 'key'>) => {
     return (

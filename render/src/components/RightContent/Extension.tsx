@@ -1,11 +1,9 @@
-import { FormattedMessage, useIntl } from 'umi';
+import { FormattedMessage } from 'umi';
 import HubButton from '@/components/HubButton';
 import { OpenUrlByBrowser } from '@/utils/tools';
 
 const Extension = (props: { gap?: number }) => {
-    const Intl = useIntl();
     const copy = (type: 'chrome' | 'edge') => {
-        let msg;
         switch (type) {
             case 'edge':
                 OpenUrlByBrowser.edge(

@@ -43,7 +43,13 @@ export default (pros: Props) => {
             <div style={{ marginTop: '10px', display: newVersion ? '' : 'none' }}>
                 <Tooltip title={<FormattedMessage id="about.upgrade.tip" />} zIndex={9999}>
                     <Badge dot>
-                        <HubButton size="big" type="primary" onClick={installEvent}>
+                        <HubButton
+                            height={32}
+                            style={{ padding: '0 20px' }}
+                            size="big"
+                            type="primary"
+                            onClick={installEvent}
+                        >
                             {Intl.formatMessage({ id: 'about.upgrade' }) + ' ' + newVersion}
                         </HubButton>
                     </Badge>

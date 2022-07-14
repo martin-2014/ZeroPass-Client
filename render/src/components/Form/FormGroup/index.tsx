@@ -34,7 +34,7 @@ const FormGroup = (props: PropsItem) => {
                 if (!React.isValidElement(child)) {
                     return null;
                 }
-                if (child.type.name === 'FormItem') {
+                if (child.type !== 'div') {
                     const childProps = {
                         ...child.props,
                         extraStyle: getStyle(index),

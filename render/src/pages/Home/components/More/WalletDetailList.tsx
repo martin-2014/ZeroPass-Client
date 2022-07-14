@@ -7,7 +7,7 @@ import {
     VaultItemType,
     VaultItemView,
 } from '@/services/api/vaultItems';
-import { openUrlByDefaultBrowser } from '@/utils/tools';
+import { OpenUrlByBrowser } from '@/utils/tools';
 import { AppstoreOutlined } from '@ant-design/icons';
 import { InputNumber, Select, Space, Table, Tooltip, Typography } from 'antd';
 import { ColumnsType } from 'antd/lib/table';
@@ -188,7 +188,7 @@ export default (props: { onClose: () => void; item?: Item; loadToken: boolean })
         const firstMenu = (d: WalletAccount) => {
             const icon = <Share />;
             const onClick = () => {
-                openUrlByDefaultBrowser(walletConfigs.getOnlineUrl(d.address, network));
+                OpenUrlByBrowser.default(walletConfigs.getOnlineUrl(d.address, network));
             };
             const label = (
                 <div>

@@ -21,7 +21,6 @@ export default defineConfig({
         ...defaultSettings,
     },
     locale: {
-        // default zh-CN
         default: 'en-US',
         antd: true,
         // default true, when it is true, will use `navigator.language` overwrite default
@@ -35,7 +34,6 @@ export default defineConfig({
     },
     publicPath: './',
     routes,
-    // Theme for antd: https://ant.design/docs/react/customize-theme-cn
     theme: {
         'primary-color': defaultSettings.primaryColor,
         'root-entry-name': 'default',
@@ -48,7 +46,6 @@ export default defineConfig({
     manifest: {
         basePath: '/',
     },
-    // Fast Refresh 热更新
     fastRefresh: {},
     plugins: ['./plugins/urlPlugin'],
     nodeModulesTransform: { type: 'none' },

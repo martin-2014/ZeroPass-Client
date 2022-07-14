@@ -26,8 +26,6 @@ export interface Props extends InputProps {
     fieldButtions?: fieldButtion[];
     isEdit?: boolean;
     copyValue?: () => string;
-    anyClientMachine?: boolean;
-    isDomainItem?: boolean;
     appId?: number;
     containerId?: string;
     isRequiredField?: boolean;
@@ -46,8 +44,6 @@ const FormInput = (props: Props) => {
         innerStyle,
         onChange,
         onBlur,
-        anyClientMachine,
-        isDomainItem,
         appId,
         containerId,
         isRequiredField = false,
@@ -60,7 +56,6 @@ const FormInput = (props: Props) => {
     const [focus, setFocus] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const value = useContext(FormItemContent);
-    const Intl = useIntl();
     const canCopy = copyValue !== undefined;
     const inputRef = useRef<Input>();
     const [preValue, setPreValue] = useState('');

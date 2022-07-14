@@ -1,7 +1,7 @@
 import Image from '@/components/Image';
 import { itemRequesters, ItemRequesters } from '@/pages/Home/requesters';
 import { createContext, PropsWithChildren } from 'react';
-import { filterData, getFaviconUrl } from '../../..//utils/tools';
+import { filterData, getFaviconUrl } from '@/utils/tools';
 import { Result } from '@/services/api/requester';
 import { VaultItemType } from '@/services/api/vaultItems';
 import IconMap from '@/pages/Home/components/IconMap';
