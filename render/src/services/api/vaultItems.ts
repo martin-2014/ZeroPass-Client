@@ -101,14 +101,11 @@ export type LoginDetail = VaultItem & {
     loginUser: string;
     note: string;
     oneTimePassword: string;
+    passwordUpdateTime: string;
 };
 
 export function getAllItems() {
     return localRequester<VaultItem[]>('getAllVaultItems');
-}
-
-export async function getItems(type: number) {
-    return await requester.get<VaultItem[]>(`/api/items/typed/${type}`);
 }
 
 export function createPersonalItem<T = any>(data: Message.VaultItem) {
@@ -140,18 +137,6 @@ export function getPersonalItemTags(id: number | string) {
     return localRequester<{ id?: number; name: string }[]>('getVaultItemsByTag', { tag: id });
 }
 
-export function favouriteWorkItem(id: number) {
-    return requester.post(`/api/me/items/work/${id}/star`);
-}
-
-export function unfavouriteWorkItem(id: number) {
-    return requester.delete(`/api/me/items/work/${id}/star`);
-}
-
-export function updateWorkItemAlias(payload: { id: number; alias: string }) {
-    return requester.put('/api/me/items/work/alias', payload);
-}
-
 export function updateWorkItemUsing(payload: { id: number; lastUsed: string }) {
     return requester.put('/api/me/items/work/using', { ...payload, id: +payload.id });
 }
@@ -160,10 +145,6 @@ export type Access = {
     userId: number;
     canAssign: boolean;
 };
-
-export function updateWorkItem(payload: { id: number; alias: string; accesses: Access[] }) {
-    return requester.put('/api/me/items/work', payload);
-}
 
 export function favouritePersonalItem(id: number) {
     return localRequester('favoriteVaultItem', { id: id });

@@ -1,54 +1,8 @@
 declare namespace API {
-    type DomainRegister = {
-        registeredFirstName?: string;
-        registeredLastName?: string;
-        registeredEmail?: string;
-        registeredPhone?: string;
-        domainName?: string;
-        company?: string;
-        numberOfEmployees?: string;
-        country?: string;
-        timezone?: string;
-        language?: string;
-        password?: string;
-    };
-
-    type ActivationValidate = {
-        DomainName: string;
-        Code: string;
-    };
-
-    type Activation = {
-        domainName?: string;
-        code?: string;
-        loginId?: number;
-        password?: string;
-        email?: string;
-        domainId?: number;
-    };
-
-    type DomainUpdateModel = {
-        company: string;
-        contactPhone: string;
-        contactPerson: string;
-        country: string;
-        logo?: string;
-    };
-
     type UpdateUserProfile = {
         userName?: string;
         timezone?: string;
         photo?: string;
-    };
-
-    type UserModel = {
-        domainId?: number;
-        id?: number;
-        firstName?: string;
-        lastName?: string;
-        isDomainOwner?: boolean;
-        isDomainAdmin?: boolean;
-        isActivate?: boolean;
     };
 
     type domain = {
@@ -91,48 +45,6 @@ declare namespace API {
         email: string;
         secretKey: string;
     };
-    type DomianProfile = {
-        id: number;
-        country: string;
-        timezone: string;
-        language: string;
-        logo: string;
-    };
-
-    type MockClientItem = {
-        id: number;
-        machineName: string;
-        proxyAddress: string;
-        description: string;
-        isActive: boolean;
-    };
-
-    type MyAppsItem = {
-        id: number;
-        machineName?: string;
-        appEntryDescription?: string;
-        appEntryLoginUri?: string;
-        appEntryLoginUser?: string;
-        alias: string;
-        star: boolean;
-    };
-
-    type ResendCodeItem = {
-        email: string;
-        isResend: boolean;
-        id: number;
-    };
-
-    type UserApproveItem = {
-        userId: number;
-        approve: boolean;
-        cipherSharedKey?: string;
-    };
-
-    type UserChangeRoleItem = {
-        userId: number;
-        isAdmin: boolean;
-    };
 
     type RegisterItem = {
         accountType?: number;
@@ -141,45 +53,32 @@ declare namespace API {
         timezone?: string;
     };
 
-    type UserListItem = {
+    type OpenDetail = {
         id: number;
-        email: string;
-        isDomainAdmin: boolean;
-        isDomainOwner: boolean;
-        status: number;
-        userName: string;
-        domainId: number;
-        zpUserId: string;
+        address: string;
+        loginUser: string;
+        loginPassword: string;
+        name: string;
+        machineEnvData?: {
+            userId: string;
+            containerId: string;
+            containerName: string;
+            networkId: string;
+            accessToken: string;
+            proxyBriefData: {
+                ip: string;
+                type: string;
+                region: string;
+                timezone: string;
+            };
+        };
     };
 
-    type DomainUserItem = {
-        domainId: number;
-        id: number;
-        email: string;
-        userName: string;
-        isDomainOwner: boolean;
-        isDomainAdmin: boolean;
-        status: number;
-        createTime: string;
-        updateTime: string;
-    };
-
-    type AppUsedReport = {
-        domainId: number;
-        vaultItemId: number;
-        vaultItemName: string;
-        userId: number;
-        userName: string;
-        email: string;
-        canAssign: boolean;
-        lastUsed: string;
+    type LoginDetail = {
+        clientMachineId: number | null;
+        loginPassword: string;
         loginUri: string;
-        isOwner: boolean;
-        isAdmin: boolean;
-    };
-
-    type InviteUserResult = {
-        existedEmails: string[];
-        ownerEmails: string[];
+        loginUser: string;
+        note?: string;
     };
 }

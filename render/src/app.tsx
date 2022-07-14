@@ -27,7 +27,6 @@ const whiteList = [
     '/user/activate/result',
 ];
 
-/** 获取用户信息比较慢的时候会展示一个 loading */
 export const initialStateConfig = {
     loading: <PageLoading />,
 };
@@ -66,9 +65,8 @@ export async function getInitialState(): Promise<{
                 return undefined;
             }
 
-            //由于页面取消的修改时区功能，在不变动原有的接口情况下，每次获取用户配置时自获取当时系统的时区，以替代原来服务器上的保存的时区。
-            const responsePayload = { ...res.payload, timezone: getLocalTimeZone() }!; // getLocalTimeZone();
-
+            //use local timezone
+            const responsePayload = { ...res.payload, timezone: getLocalTimeZone() }!;
             if (window.electron) {
                 const msg: Message.ExtensionsMessage = {
                     type: 'ReturnUserProfileFromApp',
@@ -98,7 +96,7 @@ export async function getInitialState(): Promise<{
         }
         return undefined;
     };
-    // 已登录
+
     if (!whiteList.includes(history.location.pathname)) {
         const currentUser = await fetchUserInfo();
         if (!currentUser) {
@@ -123,7 +121,6 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
         breadcrumbRender: false,
         onPageChange: () => {
             const { location } = history;
-            // 如果没有登录，重定向到 login
             if (!whiteList.includes(location.pathname)) {
                 if (!initialState?.currentUser) {
                     history.push(loginPath);
@@ -213,7 +210,6 @@ export const request: RequestConfig = {
     prefix: baseUrl,
     timeout: 30000,
     errorHandler,
-    // 新增自动添加AccessToken的请求前拦截器
     requestInterceptors: [authHeaderInterceptor],
     responseInterceptors: [responseInterceptor],
 };

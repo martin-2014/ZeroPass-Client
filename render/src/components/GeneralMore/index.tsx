@@ -60,7 +60,7 @@ export default (props: Props) => {
         if (menuItems.length === 0) return;
         let actions: React.ReactNode[] = [];
         props.extraAction?.map((item) => {
-                actions.push(item);
+            actions.push(item);
         });
         const menuAction: MoreMenuItem[] = [];
         const localMenu = moreMenu[props.menuKey];

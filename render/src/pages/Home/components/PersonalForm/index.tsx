@@ -5,7 +5,7 @@ import AppForm, { FormHeader } from '@/pages/Home/components/BaseForm';
 import Tag from '@/pages/Home/components/Tag';
 import { TCryptoService } from '@/secretKey/cryptoService/cryptoService';
 import { errHandlers } from '@/services/api/errHandlers';
-import { WorkDetail } from '@/services/api/logins';
+import { AppDetail } from '@/services/api/logins';
 import { onceExecutor } from '@/services/api/requester';
 import { getPersonalLoginDetail, VaultItemType } from '@/services/api/vaultItems';
 import { getFaviconUrl } from '@/utils/tools';
@@ -29,7 +29,7 @@ const executor = onceExecutor();
 export const EditForm = (props: EditProps) => {
     const { editing, changeEditing } = props;
     const [loading, setLoading] = useState(false);
-    const originalFormData = useRef<Partial<WorkDetail> | null>(null);
+    const originalFormData = useRef<Partial<AppDetail> | null>(null);
     const originalTagList = useRef<TagOption[]>();
     const [form] = Form.useForm();
     const formRef = useRef<FormInstance>();
@@ -38,7 +38,6 @@ export const EditForm = (props: EditProps) => {
     const [isShowPassword, setIsShowPassword] = useState(false);
     const [img, setImg] = useState('');
     const [mainLoading, setMainloading] = useState(false);
-    const [anyClientMachine, setAnyClientMachine] = useState(true);
     const [formHeader, setFormHeader] = useState<FormHeader>();
     const submitClick = () => {
         formRef.current?.submit();
@@ -60,8 +59,8 @@ export const EditForm = (props: EditProps) => {
             return;
         }
 
-        const payload = res.payload as WorkDetail;
-
+        const payload = res.payload;
+        if (!payload) return;
         const cryptoService = new TCryptoService();
         payload.loginPassword = await cryptoService.decryptText(payload?.loginPassword!, true);
 
@@ -74,14 +73,8 @@ export const EditForm = (props: EditProps) => {
             ...payload!,
         };
         form.setFieldsValue({ name: payload?.name });
-        if (payload?.clientMachineName) {
-            setAnyClientMachine(false);
-        } else {
-            setAnyClientMachine(true);
-        }
         form.setFieldsValue({ loginUri: payload?.loginUri });
         form.setFieldsValue({ loginUser: payload?.loginUser });
-        form.setFieldsValue({ clientMachineName: payload?.clientMachineName });
         form.setFieldsValue({ oneTimePassword: payload?.oneTimePassword });
         form.setFieldsValue({ note: payload?.note });
         form.setFieldsValue({ passwordUpdateTime: payload?.passwordUpdateTime });
@@ -100,7 +93,7 @@ export const EditForm = (props: EditProps) => {
         form.setFieldsValue({ loginPassword: payload?.loginPassword });
         setPasswordVisible(true);
         form.setFieldsValue({ id: payload?.id });
-        const taglist = payload?.tags.map((item) => ({
+        const taglist = payload?.tags?.map((item) => ({
             id: item.id!,
             value: item.name,
         }));
@@ -155,7 +148,6 @@ export const EditForm = (props: EditProps) => {
             >
                 <div style={{ padding: '0 10px 0 5px', width: '100%' }}>
                     <FormContent
-                        anyClientMachine={anyClientMachine}
                         onClose={onCloseEdit}
                         isNewItem={false}
                         img={img}

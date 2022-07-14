@@ -1,6 +1,5 @@
 import { IsPersonalItem, prependHttp } from '@/utils/tools';
 import { TCryptoService } from '@/secretKey/cryptoService/cryptoService';
-import { OpenDetail } from '@/services/api/logins';
 
 export type AppBrief = {
     id: number;
@@ -32,7 +31,7 @@ export class AppItem {
     appBrief: AppBrief;
     containerBrief?: ContainerBrief;
 
-    constructor(openDetail: OpenDetail) {
+    constructor(openDetail: API.OpenDetail) {
         this.appBrief = {
             id: openDetail?.id!,
             address: openDetail?.address!,

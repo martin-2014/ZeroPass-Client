@@ -1,7 +1,8 @@
 import ScrollContainter from '@/components/ScrollContainter';
 import SimpleModal from '@/components/SimpleModal';
 import AppForm, { FormHeader } from '@/pages/Home/components/BaseForm';
-import Tag, { Option } from '@/pages/Home/components/Tag';
+import Tag from '@/pages/Home/components/Tag';
+import { TagOption } from '@/pages/Home/datatypes';
 import { TCryptoService } from '@/secretKey/cryptoService/cryptoService';
 import { SecureNoteDetail, VaultItemType, VaultItemView } from '@/services/api/vaultItems';
 import { Form, FormInstance } from 'antd';
@@ -24,8 +25,8 @@ export const EditForm = (props: EditProps) => {
     const [form] = Form.useForm();
     const formRef = useRef<FormInstance>();
     const [loading, setLoading] = useState(false);
-    const [tagList, setTagList] = useState<Option[]>([]);
-    const originalTagList = useRef<Option[]>();
+    const [tagList, setTagList] = useState<TagOption[]>([]);
+    const originalTagList = useRef<TagOption[]>();
     const [mainLoading, setMainloading] = useState(false);
     const [formHeader, setFormHeader] = useState<FormHeader>();
     const { selectedId, selectedItem, setSelectedId } = useList();
@@ -80,7 +81,7 @@ export const EditForm = (props: EditProps) => {
         changeEditing(false);
     };
 
-    const handleChangeTagList = (data: Option[]) => {
+    const handleChangeTagList = (data: TagOption[]) => {
         setTagList(data);
     };
 
@@ -128,13 +129,13 @@ export const NewForm = (props: NewProps) => {
     const [form] = Form.useForm();
     const formRef = useRef<FormInstance>();
     const [loading, setLoading] = useState(false);
-    const [tagList, setTagList] = useState<Option[]>([]);
+    const [tagList, setTagList] = useState<TagOption[]>([]);
 
     const clearForm = (form: FormInstance) => {
         form.setFieldsValue({ title: '', note: '' });
     };
 
-    const onSelectedTagsChange = (data: Option[]) => {
+    const onSelectedTagsChange = (data: TagOption[]) => {
         setTagList(data);
     };
 

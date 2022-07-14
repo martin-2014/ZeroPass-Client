@@ -31,7 +31,7 @@ import styles from './index.less';
 import IconMap from '../IconMap';
 import type { Icon } from '@icon-park/react/es/runtime';
 import ImportItem from '../ImportItem';
-import { createParser } from '../../../../utils/csvParser/factory';
+import { createParser } from '@/utils/csvParser/factory';
 import { createObjectCsvStringifier } from 'csv-writer';
 import moment from 'moment';
 import { downloadFile, utf8BOM } from '@/utils/secretKeyDownloader';

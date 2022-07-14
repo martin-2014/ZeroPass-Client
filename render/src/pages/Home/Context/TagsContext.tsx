@@ -1,4 +1,4 @@
-import { getPersonalEntryTag } from '../../../services/api/tag';
+import { getPersonalEntryTag } from '@/services/api/tag';
 import { createContext, PropsWithChildren, useEffect, useRef, useState } from 'react';
 import { TagOption } from '../datatypes';
 

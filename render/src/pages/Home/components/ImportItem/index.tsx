@@ -12,7 +12,7 @@ import { DraggerProps } from 'antd/lib/upload';
 import { VaultItemType } from '@/services/api/vaultItems';
 import React from 'react';
 import { useList } from '@/pages/Home/Context/hooks';
-import { createParser } from '../../../../utils/csvParser/factory';
+import { createParser } from '@/utils/csvParser/factory';
 
 const { Dragger } = Upload;
 

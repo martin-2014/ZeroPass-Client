@@ -1,8 +1,8 @@
 import { BellOutlined } from '@ant-design/icons';
-import { Avatar, Badge, Spin, Tabs, Tooltip } from 'antd';
+import { Badge, Spin, Tabs } from 'antd';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
 import React from 'react';
-import { FormattedMessage, useModel } from 'umi';
+import { FormattedMessage } from 'umi';
 import classNames from 'classnames';
 import type { NoticeIconTabProps } from './NoticeList';
 import NoticeList from './NoticeList';
@@ -34,8 +34,6 @@ export type NoticeIconProps = {
 const NoticeIcon: React.FC<NoticeIconProps> & {
     Tab: typeof NoticeList;
 } = (props) => {
-    const { initialState } = useModel('@@initialState');
-
     const getNotificationBox = (): React.ReactNode => {
         const {
             children,

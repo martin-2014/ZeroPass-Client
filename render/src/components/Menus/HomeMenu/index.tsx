@@ -17,12 +17,7 @@ const MenuTools = ({
     title: string | React.ReactNode;
     style?: React.HTMLAttributes<HTMLDivElement>['style'];
 }) => {
-    const Header = (
-        <div className={styles.headerContainter}>
-            {/* <div className={styles.header}>{title}</div>
-            <Down size={18} fill="#949494"></Down> */}
-        </div>
-    );
+    const Header = <div className={styles.headerContainter}></div>;
     const children = props.children;
     if (children) {
         const data = children.find((item) => item.name === 'tools');

@@ -91,7 +91,6 @@ const useLogin = () => {
             let token = res.payload.token;
             sessionStore.token = token;
             secretKeyStore.setSecretKey(values.email, secretKeyVaule);
-            // TODO: get the domain key id also. luis
             await setKeyStore(new KeyStore(secretKeyVaule, 'enterprise', keyObj));
             const userInfo = await initDataWhenLogin(token);
             await loginLocal({ email: values.email, id: userInfo?.id! });
