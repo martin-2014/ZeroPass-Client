@@ -12,9 +12,9 @@ import { autoUpdater } from "electron-updater";
 import log from "electron-log";
 import { version } from "uuid";
 //@ts-ignore
-import updateUrl from "../render/src/.hub/node_config";
+// import updateUrl from "../render/src/.hub/node_config";
 
-function update() {
+function update(updateUrl: any) {
     let quitNotification;
     let mainWindow;
     let startDownload = false;

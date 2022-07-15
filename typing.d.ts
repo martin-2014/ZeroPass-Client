@@ -13,8 +13,6 @@ type MsgType =
     | "DecryptAndReturnPasswordFromExtension"
     | "LogoutFromExtension"
     | "LoginFromExtension"
-    | "GetFillPasswordFromZINIAOExtension"
-    | "ReturnFillPasswordFromZINIAOExtension"
     | "GetPasswordCheckingFromExtension"
     | "ReturnPasswordCheckingFromExtension"
     | "SavePasswordFromExtension"
@@ -181,8 +179,6 @@ declare namespace Message {
         | "deleteAllPwdHistories"
         | "getPwdHistories"
         | "exportData"
-        | "mergeData"
-        | "getMergeStatus"
         | "importData";
 
     type MergeDataErrorType = "error" | "timeout";

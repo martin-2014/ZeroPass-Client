@@ -11,10 +11,7 @@
         "allowJs": true,
         "moduleResolution": "node",
         "noEmit": true,
-        "resolveJsonModule": true,
-        "paths": {
-            "#@/*": ["./src/*"]
-        }
+        "resolveJsonModule": true
     },
     "include": [
         "src/**/*",

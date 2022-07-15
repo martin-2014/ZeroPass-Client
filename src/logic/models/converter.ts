@@ -2,6 +2,7 @@ import {
     PasswordHistoryEntity,
     VaultItemEntity,
 } from "../../repositories/entities";
+import { PasswordHistoryModel, VaultItemModel } from "./model";
 
 enum dataType {
     string = 0,

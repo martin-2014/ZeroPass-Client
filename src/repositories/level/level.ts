@@ -3,12 +3,13 @@ import { VaultItemRepositoryLevel } from "./VaultItemRepository";
 import {
     IAppConfigRepository,
     ILocalDb,
+    IMerge,
     IPasswordHistoryRepository,
     IVaultItemRepository,
 } from "../interfaces";
 import { PasswordHistoryRepository } from "./PasswordHistoryRepository";
 import { AppConfigRepository } from "./AppConfigRepository";
-import { merge } from "./merge";
+import { Merge } from "./merge";
 import path from "path";
 import { copy, createDirs, sevenZip, exists } from "../../logic/io";
 import fsPromise from "fs/promises";
@@ -19,6 +20,11 @@ class LevelDb implements ILocalDb {
     private vaultItemRepository: IVaultItemRepository;
     private passwordHistoryRepository: IPasswordHistoryRepository;
     private appconfigRepository: IAppConfigRepository;
+    private merge: IMerge;
+
+    constructor(_merge: IMerge) {
+        this.merge = _merge;
+    }
 
     private checkDbOpened = (resolve, reject) => {
         const self = this;
@@ -78,23 +84,13 @@ class LevelDb implements ILocalDb {
         }
     }
 
-    async merge(dbPath: string): Promise<void> {
-        const remoteRepos = new LevelDb();
-        try {
-            await remoteRepos.switch(dbPath);
-            await merge.mergeRepos(this, remoteRepos);
-        } finally {
-            await remoteRepos.close();
-        }
-    }
-
     async export(
         exportPath: string,
         filePath: string,
         userId: number,
         domainId: number
     ): Promise<void> {
-        const exRepos: ILocalDb = new LevelDb();
+        const exRepos: ILocalDb = new LevelDb(this.merge);
         const dbPath = dataStoreUtils.dbPath(exportPath);
         const dbFilePath = dataStoreUtils.dbFile(exportPath);
         const exportWalletPath = dataStoreUtils.walletPath(exportPath);
@@ -107,8 +103,11 @@ class LevelDb implements ILocalDb {
         try {
             try {
                 await exRepos.switch(dbPath);
-                await merge.exportRepos(this, exRepos);
-                await merge.exportWallet(localWalletPath, exportWalletPath);
+                await this.merge.exportRepos(this, exRepos);
+                await this.merge.exportWallet(
+                    localWalletPath,
+                    exportWalletPath
+                );
                 await exRepos.close();
             } finally {
                 await exRepos.close();
@@ -135,7 +134,7 @@ class LevelDb implements ILocalDb {
         domainId: number,
         overwrite: boolean
     ): Promise<string> {
-        const imRepos: ILocalDb = new LevelDb();
+        const imRepos: ILocalDb = new LevelDb(this.merge);
         const dbPath = dataStoreUtils.dbPath(importPath);
         const dbFile = dataStoreUtils.dbFile(importPath);
         const localWalletPath = dataStoreUtils.walletPath(
@@ -160,16 +159,16 @@ class LevelDb implements ILocalDb {
 
             await sevenZip.extract(dbFile, dbPath);
             await imRepos.switch(dbPath);
-            await merge.importRepos(imRepos, this, overwrite);
-            await merge.importWallet(remoteWalletPath, localWalletPath);
+            await this.merge.importRepos(imRepos, this, overwrite);
+            await this.merge.importWallet(
+                this,
+                remoteWalletPath,
+                localWalletPath
+            );
         } finally {
             await imRepos.close();
             await fsPromise.rm(importPath, { recursive: true });
         }
-    }
-
-    async mergeWallet(local: string, remote: string): Promise<string[]> {
-        return await merge.mergeWallet(local, remote);
     }
 
     get dbLocation() {
@@ -177,5 +176,4 @@ class LevelDb implements ILocalDb {
     }
 }
 
-const repos: ILocalDb = new LevelDb();
-export default repos;
+export { LevelDb };

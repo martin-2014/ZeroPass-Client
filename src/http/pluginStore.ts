@@ -1,9 +1,7 @@
-interface IPluginStore {
+export interface IPluginStore {
     openDetail: Message.Detail;
     personalList: any[];
-    workList: any[];
     userProfileMessage: Message.ExtensionsMessage;
-    openClientMachineDetail: Message.ClienMachineDetail[];
     loginFormExtension: boolean;
     windowFocusFn: () => void;
 }
@@ -13,12 +11,10 @@ export const emptyUserProfileMessage: Message.ExtensionsMessage = {
     message: {},
 };
 
-class PluginStore implements IPluginStore {
+export class PluginStore implements IPluginStore {
     private _openDetail: Message.Detail | null;
     private _personalList: any[] = [];
-    private _workList: any[] = [];
     private _userProfileMessage: Message.ExtensionsMessage;
-    private _openClientMachineDetail: Message.ClienMachineDetail[] = [];
     private _loginFormExtension: boolean = false;
     private _windowFocusFn: () => void;
 
@@ -37,29 +33,12 @@ class PluginStore implements IPluginStore {
     set personalList(v: any[]) {
         this._personalList = v;
     }
-
-    get workList() {
-        return this._workList;
-    }
-
-    set workList(v: any[]) {
-        this._workList = v;
-    }
-
     get userProfileMessage() {
         return this._userProfileMessage;
     }
 
     set userProfileMessage(v: Message.ExtensionsMessage) {
         this._userProfileMessage = v;
-    }
-
-    get openClientMachineDetail() {
-        return this._openClientMachineDetail;
-    }
-
-    set openClientMachineDetail(v: Message.ClienMachineDetail[]) {
-        this._openClientMachineDetail = v;
     }
 
     get loginFormExtension() {
