@@ -16,6 +16,7 @@ import registerMainHandles from "./registerMainHandles";
 import { configureLogger, getMainWindow, getOpenDevTools } from "./utils";
 import path from "path";
 
+const { NODE_ENV } = process.env;
 const Open_DevTools = getOpenDevTools(devTools);
 initApp(Open_DevTools, init);
 function init() {
@@ -47,5 +48,13 @@ function init() {
     });
     app.whenReady().then(() => {
         createWindow(Open_DevTools);
+        if (NODE_ENV === "deve") {
+            // Dev mode on local
+            getMainWindow().loadURL("http://localhost:8000");
+        } else {
+            getMainWindow().loadFile(
+                path.join(__dirname, "../../render/dist/index.html")
+            );
+        }
     });
 }

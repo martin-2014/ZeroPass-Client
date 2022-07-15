@@ -86,14 +86,6 @@ function registerMainHandles(
         ]);
         getTray().setContextMenu(contextMenu);
     }
-    if (NODE_ENV === "deve") {
-        // Dev mode on local
-        mainWindow.loadURL("http://localhost:8000");
-    } else {
-        mainWindow.loadFile(
-            path.join(__dirname, "../../render/dist/index.html")
-        );
-    }
 
     mainWindow.on("unmaximize", () => {
         mainWindow.webContents.send("window-unmaxed");
