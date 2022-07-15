@@ -1,16 +1,5 @@
-import { shell } from "electron";
-import { exec, spawn, ExecException } from "child_process";
+import { exec, ExecException } from "child_process";
 
-function htmlEncode(text: string) {
-    return text
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/\"/g, "&#34;")
-        .replace(/\'/g, "&#39;");
-}
-
-const path = require("path");
 export default function openAppEntry(url, browser: Message.BrowserType) {
     let cmd: string;
     switch (browser) {

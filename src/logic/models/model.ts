@@ -1,4 +1,4 @@
-interface VaultItemModel {
+export interface VaultItemModel {
     id: string;
     name: string;
     description: string;
@@ -11,7 +11,7 @@ interface VaultItemModel {
     tags: string[];
 }
 
-interface PasswordHistoryModel {
+export interface PasswordHistoryModel {
     id: string;
     password: string;
     source: number;

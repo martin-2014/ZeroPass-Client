@@ -1,3 +1,4 @@
-import repos from "./level";
+import { LevelDb } from "./level";
+import { Merge } from "./merge";
 
-export default repos;
+export { LevelDb, Merge };

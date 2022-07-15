@@ -1,84 +1,77 @@
-import express, {RequestHandler} from 'express'
-import bodyParser from 'body-parser'
-import SseStream from 'ssestream'
-import {v4 as uuid} from 'uuid'
-import requestHandler from './pluginRequestHandler'
+import express, { RequestHandler, Express } from "express";
+import bodyParser from "body-parser";
+import SseStream from "ssestream";
+import { v4 as uuid } from "uuid";
 import logger from "electron-log";
 import net from "net";
 import ipcService from "../ExtensionIPC";
-import cors from 'cors'
-import pluginStore from './pluginStore'
+import cors from "cors";
+import { IPluginStore } from "./pluginStore";
 import child_Process from "child_process";
 
 interface EventClient {
-    id: string,
-    client: SseStream
+    id: string;
+    client: SseStream;
 }
+const eventClientList: EventClient[] = [];
 
-const eventClientList: EventClient[] = []
-const server = express()
-server.use(bodyParser.urlencoded({extended: false}))
-server.use(bodyParser.json())
-server.use(cors())
 const httpBasePort: number = 54684;
 
-const sserver = {
-    startUp: (port: number, cb?: () => void) => {
-        server.listen(port, 'localhost', () => {
-            console.log(`listening ${port}`)
-            ipcService.getInstance().startIpcServer(port);
-            if(cb){
-                cb()
-            }
-        })
-    },
-    broadcast: (data: any) => {
-        eventClientList.forEach(v => {
-            v.client.writeMessage({data: data})
-        })
-    }
-}
+class Sserver {
+    protected _server: Express;
+    protected _pluginStore: IPluginStore;
+    eventsHandler: RequestHandler = (req, res, next) => {
+        const client = new SseStream(req);
+        const id = uuid();
+        client.pipe(res);
+        eventClientList.push({
+            id: id,
+            client: client,
+        });
+        if (this.onConnect) {
+            this.onConnect(client);
+        }
 
-const formatList = (data: any[]) => {
-    return data.map((item) => ({
-        ...item,
-        alias: item.alias || item.name,
-    }));
-}
+        res.on("close", () => {
+            const index = eventClientList.findIndex((c) => c.id === id);
+            eventClientList.splice(index, 1);
+            client.unpipe(res);
+        });
 
-const onConnect = async (client: SseStream) => {
-    client.writeMessage({data: pluginStore.userProfileMessage})
-    const list: Message.ExtensionsMessage = {
-        type: "ReturnListFromApp",
-        message: [...pluginStore.workList, ...pluginStore.personalList],
+        next();
     };
-    client.writeMessage({data: list})
-}
-
-const eventsHandler: RequestHandler = (req, res, next) =>{
-    const client = new SseStream(req)
-    const id = uuid()
-    client.pipe(res)
-    eventClientList.push({
-        id: id,
-        client: client
-    })
-    if(onConnect){
-        onConnect(client)
+    constructor(port: number, pluginStore: IPluginStore, cb?: () => void) {
+        this._pluginStore = pluginStore;
+        this._server = express();
+        this._server.use(bodyParser.urlencoded({ extended: false }));
+        this._server.use(bodyParser.json());
+        this._server.use(cors());
+        this._server.get("/events", this.eventsHandler);
+        this._server.listen(port, "localhost", () => {
+            console.log(`listening ${port}`);
+            ipcService.getInstance().startIpcServer(port);
+            if (cb) {
+                cb();
+            }
+        });
     }
-    
-    res.on('close', () => {
-        const index = eventClientList.findIndex(c => c.id === id)
-        eventClientList.splice(index, 1)
-        client.unpipe(res)
-    })
-
-    next()
+    broadcast(data: any) {
+        eventClientList.forEach((v) => {
+            v.client.writeMessage({ data: data });
+        });
+    }
+    addPostPluginHandles(...handles: RequestHandler[]) {
+        this._server.post("/plugin", handles);
+    }
+    onConnect(client: SseStream) {
+        client.writeMessage({ data: this._pluginStore.userProfileMessage });
+        const list: Message.ExtensionsMessage = {
+            type: "ReturnListFromApp",
+            message: this._pluginStore.personalList,
+        };
+        client.writeMessage({ data: list });
+    }
 }
-
-server.post('/plugin', requestHandler)
-server.get('/events', eventsHandler)
-
 export type getFreePortCallback = (err: Error, freePort: number) => void;
 export function getFreePort(retcb: getFreePortCallback) {
     const wsIp = "localhost";
@@ -159,4 +152,4 @@ export function getFreePort(retcb: getFreePortCallback) {
     });
 }
 
-export default sserver
+export default Sserver;

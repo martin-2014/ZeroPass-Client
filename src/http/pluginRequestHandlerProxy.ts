@@ -1,14 +1,17 @@
 import ipcRequester from "../IpcRequester";
 import pluginStore from "./pluginStore";
 
+export interface StoreItemList {
+    (list: any): Message.ExtensionsMessage;
+}
 const formatList = (data: any[]) => {
     return data.map((item) => ({
         ...item,
-        alias: item.alias || item.name,
+        alias: item.name,
     }));
 };
 
-const storeItemList = (list: any) => {
+const storeItemList: StoreItemList = (list) => {
     const [personal] = list;
     pluginStore.personalList = !personal.fail
         ? formatList(personal.payload)

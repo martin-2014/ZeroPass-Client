@@ -1,4 +1,4 @@
-import repos from "./level";
+import { LevelDb, Merge } from "./level";
 import * as entities from "./entities";
 
-export { repos, entities };
+export { LevelDb, Merge, entities };

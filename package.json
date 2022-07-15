@@ -112,6 +112,7 @@
     },
     "devDependencies": {
         "@google-cloud/translate": "^6.3.1",
+        "@types/express": "^4.17.13",
         "@types/ws": "^8.5.2",
         "cpy-cli": "^4.1.0",
         "cross-env": "^7.0.3",
@@ -128,8 +129,5 @@
     },
     "gitHooks": {
         "commit-msg": "fabric verify-commit"
-    },
-    "imports": {
-        "#@/*": "./dist/src/*.js"
     }
 }

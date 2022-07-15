@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
 import ipcRequester from "../IpcRequester";
 import pluginStore from "./pluginStore";
-import { getAllItems } from "../http/pluginRequestHandlerProxy";
+import { getAllItems } from "./pluginRequestHandlerProxy";
 
 export enum VaultItemType {
     Login = 0,
@@ -191,26 +191,6 @@ const extensionHeartbeat = async () => {
     return message;
 };
 
-const returnFillPasswordFromZINIAOExtension = (
-    data: Message.ExtensionsMessage
-) => {
-    if (!data.message.containerid) {
-        return;
-    }
-    const index = pluginStore.openClientMachineDetail.findIndex(
-        (item) => item.containerid === data.message.containerid
-    );
-    if (index > -1) {
-        const msg: Message.ExtensionsMessage = {
-            type: "ReturnFillPasswordFromZINIAOExtension",
-            name: data.name,
-            errorId: "0",
-            message: pluginStore.openClientMachineDetail.splice(index, 1)[0],
-        };
-        return msg;
-    }
-};
-
 const windowFocus = () => {
     pluginStore.windowFocusFn();
     pluginStore.loginFormExtension = true;
@@ -224,10 +204,6 @@ const getPasswordHistoryAll = async () => {
         message: res.payload,
     };
     return msg;
-    if (res.fail) {
-        return;
-    }
-    return res.payload;
 };
 
 const postPasswordHistory = async (params: Message.ExtensionsMessage) => {
@@ -305,9 +281,6 @@ const requestHandler: RequestHandler = async (req, res, next) => {
         case "LoginFromExtension":
             windowFocus();
             break;
-        case "GetFillPasswordFromZINIAOExtension":
-            result = returnFillPasswordFromZINIAOExtension(msg);
-            break;
         case "DecryptTextFromExtension":
             result = await decryptTextFromExtension(msg);
             break;
@@ -327,8 +300,12 @@ const requestHandler: RequestHandler = async (req, res, next) => {
             extensionHeartbeat();
             result.type = "ExtensionHeartbeat";
             break;
+        default:
+            result = null;
     }
-    res.status(200).send(result);
+    if (result) {
+        res.status(200).send(result);
+    }
     next();
 };
 
