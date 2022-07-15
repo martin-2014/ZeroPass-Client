@@ -7,6 +7,7 @@
     "err.page.404.title2": "抱歉，您访问的页面不存在。",
     "err.page.404.back": "返回主页",
     "err.login.fail": "登录失败",
+    "err.login.domainOwner": "您的帐号是域所有者，需要使用ZeroPass专业版才能登录您的账户。如果您想尝试这个版本，请注册一个新的账户。",
     "err_activation_failed": "激活失败",
     "err_already_exist_in_domain": "已存在于域中",
     "err_app_not_found": "找不到应用",

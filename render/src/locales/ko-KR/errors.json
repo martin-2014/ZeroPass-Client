@@ -47,5 +47,6 @@
     "err_data_sync_upload_failed": "데이터 동기화, 파일 업로드 실패",
     "err_data_sync_timeout": "동기화 데이터 시간 초과",
     "err_import_data_user_incorrect": "데이터 파일은 현재 사용자에게 속하지 않습니다.",
-    "err_data_sync_start_error": "데이터 동기화를 시작하지 못했습니다."
+    "err_data_sync_start_error": "데이터 동기화를 시작하지 못했습니다.",
+    "err.login.domainOwner": "귀하의 계정은 도메인 소유자이며 계정에 로그인하려면 ZeroPass Professional Edition이 필요합니다. 이 버전을 사용하려면 새 계정에 가입하세요."
 }

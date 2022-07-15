@@ -17,7 +17,7 @@ const useLogin = () => {
     const [form] = Form.useForm();
     const intl = useIntl();
     const [submited, setSubmited] = useState(false);
-    const { initDataWhenLogin } = useInitData();
+    const { initDataWhenLogin, setCurrentUser } = useInitData();
 
     if (window.electron) {
         window.electron.logout();
@@ -81,6 +81,14 @@ const useLogin = () => {
             secretKey.current = fileString;
         }
     };
+    const IsEnterpriseOwner = (domains: API.domain[]): boolean => {
+        for (const domain of domains) {
+            if (domain.domainType == 2 && domain.isOwner === true) {
+                return true;
+            }
+        }
+        return false;
+    };
 
     const login = async (values: API.Login) => {
         const secretKeyVaule = secretKey.current;
@@ -93,6 +101,14 @@ const useLogin = () => {
             secretKeyStore.setSecretKey(values.email, secretKeyVaule);
             await setKeyStore(new KeyStore(secretKeyVaule, 'enterprise', keyObj));
             const userInfo = await initDataWhenLogin(token);
+            console.log('useInfo', userInfo);
+
+            // Community edition not support enterprise owner account because it's meaningless after logging in.
+            if (IsEnterpriseOwner(userInfo?.domains!)) {
+                setCurrentUser(undefined);
+                message.errorIntl('err.login.domainOwner', undefined, 10000);
+                return false;
+            }
             await loginLocal({ email: values.email, id: userInfo?.id! });
             if (userInfo) {
                 await cryptoService.preCacheDataKey(true);
@@ -137,10 +153,6 @@ const useLogin = () => {
             message.success(intl.formatMessage({ id: 'login.success' }));
         } else {
             setShowUpload(true);
-            const defaultLoginFailureMessage = intl.formatMessage({
-                id: 'login.failure',
-            });
-            message.error(defaultLoginFailureMessage);
             setSubmited(false);
             setLoading(false);
         }

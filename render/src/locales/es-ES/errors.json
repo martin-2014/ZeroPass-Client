@@ -47,5 +47,6 @@
     "err_data_sync_upload_failed": "No se han podido sincronizar los archivos de carga de datos",
     "err_data_sync_timeout": "Tiempo de espera de sincronización de datos",
     "err_import_data_user_incorrect": "El archivo de datos no es propiedad del usuario actual",
-    "err_data_sync_start_error": "No se pudo iniciar la sincronización de datos"
+    "err_data_sync_start_error": "No se pudo iniciar la sincronización de datos",
+    "err.login.domainOwner": "Su cuenta es un propietario de dominio. Debe usar ZeroPass Professional Edition para iniciar sesión en su cuenta. Si desea probar esta edición, registre una nueva cuenta."
 }

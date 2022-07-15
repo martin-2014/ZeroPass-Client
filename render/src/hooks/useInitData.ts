@@ -20,13 +20,17 @@ export default () => {
         return result;
     };
 
+    const setCurrentUser = async (userInfo: API.UserProfile | undefined) => {
+        await setInitialState((s) => ({
+            ...s!,
+            currentUser: userInfo,
+        }));
+    };
+
     const fetchUserInfo = async () => {
         const userInfo = await initialState?.fetchUserInfo();
         if (userInfo) {
-            await setInitialState((s) => ({
-                ...s!,
-                currentUser: userInfo,
-            }));
+            await setCurrentUser(userInfo);
         }
         return userInfo;
     };
@@ -43,5 +47,6 @@ export default () => {
         initDataWhenLogin,
         tokenParse,
         fetchUserInfo,
+        setCurrentUser,
     };
 };
