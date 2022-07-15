@@ -47,5 +47,6 @@
     "err_data_sync_upload_failed": "Synchronisierung von Daten-Upload-Dateien fehlgeschlagen",
     "err_data_sync_timeout": "Timeout für Synchronisierungsdaten",
     "err_import_data_user_incorrect": "Die Datendatei gehört nicht dem aktuellen Benutzer",
-    "err_data_sync_start_error": "Start der Synchronisierungsdaten fehlgeschlagen"
+    "err_data_sync_start_error": "Start der Synchronisierungsdaten fehlgeschlagen",
+    "err.login.domainOwner": "Ihr Konto ist ein Domaininhaber. Sie müssen die ZeroPass Professional Edition verwenden, um sich bei Ihrem Konto anzumelden. Wenn Sie diese Edition ausprobieren möchten, registrieren Sie bitte ein neues Konto."
 }

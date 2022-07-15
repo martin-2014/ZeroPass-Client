@@ -47,5 +47,6 @@
     "err_data_sync_upload_failed": "Segerakkan data, muat naik fail gagal",
     "err_data_sync_timeout": "penyegerakan tamat masa data",
     "err_import_data_user_incorrect": "Fail data bukan milik pengguna semasa",
-    "err_data_sync_start_error": "Gagal memulakan data penyegerakan"
+    "err_data_sync_start_error": "Gagal memulakan data penyegerakan",
+    "err.login.domainOwner": "Akaun anda ialah pemilik domain dan ZeroPass Professional Edition diperlukan untuk log masuk ke akaun anda. Jika anda ingin mencuba versi ini, sila daftar untuk akaun baharu."
 }

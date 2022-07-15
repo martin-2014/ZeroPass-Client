@@ -47,5 +47,6 @@
     "err_data_sync_upload_failed": "データの同期、ファイルのアップロードに失敗しました",
     "err_data_sync_timeout": "同期データタイムアウト",
     "err_import_data_user_incorrect": "データファイルは現在のユーザーのものではありません",
-    "err_data_sync_start_error": "同期データの開始に失敗しました"
+    "err_data_sync_start_error": "同期データの開始に失敗しました",
+    "err.login.domainOwner": "アカウントはドメイン所有者であり、アカウントにログインするにはZeroPassProfessionalEditionが必要です。このバージョンをお試しになりたい場合は、新しいアカウントにサインアップしてください。"
 }
