@@ -1,4 +1,4 @@
-import { preloadCallback, initRenderEvent } from "./preloadCallBack";
+import { preloadCallback, initRenderEvent } from "./preloadCallback";
 import { contextBridge } from "electron";
 
 window.addEventListener("DOMContentLoaded", () => {
