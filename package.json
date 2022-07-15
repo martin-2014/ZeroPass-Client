@@ -58,14 +58,6 @@
             {
                 "from": "resources/",
                 "to": "./"
-            },
-            {
-                "from": "src/addons/vc14/msvcp140.dll",
-                "to": "../"
-            },
-            {
-                "from": "src/addons/vc14/vcruntime140.dll",
-                "to": "../"
             }
         ]
     },
