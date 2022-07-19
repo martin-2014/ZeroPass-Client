@@ -2,7 +2,7 @@ export default [
     {
         path: '/user',
         layout: false,
-        component: './user',
+        component: './User',
         routes: [
             {
                 path: '/user',
@@ -10,22 +10,22 @@ export default [
                     {
                         name: 'login',
                         path: '/user/login',
-                        component: './user/login',
+                        component: './User/Login',
                     },
                     {
                         name: 'login',
                         path: '/user/logout',
-                        component: './user/logout',
+                        component: './User/Logout',
                     },
                     {
                         path: '/user/domain/register',
                         name: 'register',
-                        component: './domain/register',
+                        component: './Domain/Register',
                     },
                     {
                         path: '/user/domain/register/result',
                         name: 'result',
-                        component: './domain/register/result',
+                        component: './Domain/Register/result',
                     },
                 ],
             },

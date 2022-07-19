@@ -5,5 +5,6 @@
     "component.invitation.title": "Invitation",
     "component.invitation.message": "Vous êtes invité à rejoindre le domaine {domainName} ({company}) sur ZeroPass.",
     "component.tag.newTag.placeholder": "Entrez ici",
-    "component.domain.switch.title": "Changer d'entreprise"
+    "component.domain.switch.title": "Changer d'entreprise",
+    "component.invitation.accpet.success": "Vous avez accepté l'invitation à rejoindre le domaine {domainName} et vous devez encore attendre la confirmation de l'administrateur du domaine avant de pouvoir accéder au domaine."
 }

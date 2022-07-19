@@ -7,7 +7,7 @@ import { downloadSecretKey } from '@/utils/secretKeyDownloader';
 import message from '@/utils/message';
 import HubButton from '@/components/HubButton';
 import { CheckCircleOutlined } from '@ant-design/icons';
-import BaseLayout from './baseLayout';
+import BaseLayout from './BaseLayout';
 
 const { confirm } = Modal;
 

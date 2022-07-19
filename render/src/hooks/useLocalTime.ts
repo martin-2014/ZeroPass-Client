@@ -1,5 +1,4 @@
 import moment from 'moment';
-import { useModel } from 'umi';
 const dateTimeFormat = 'YYYY-MM-DD HH:mm:ss';
 
 export function getLocalTimeZone(): string {
@@ -25,9 +24,7 @@ export function getLocalTimeZone(): string {
 }
 
 export function useLocalTime() {
-    const { initialState } = useModel('@@initialState');
     return function (datetime: string) {
-        const userProfile = initialState?.currentUser!;
         return `${moment
             .utc(datetime)
             .zone(getLocalTimeZone())
@@ -36,9 +33,7 @@ export function useLocalTime() {
 }
 
 export function useLocalTimeSimple() {
-    const { initialState } = useModel('@@initialState');
     return function (datetime: string) {
-        const userProfile = initialState?.currentUser!;
         return `${moment.utc(datetime).zone(getLocalTimeZone()).format(dateTimeFormat)}`;
     };
 }

@@ -11,7 +11,7 @@ import { FormattedMessage } from 'umi';
 import PersonalForm from './components/PersonalForm';
 import styles from './index.less';
 import { strengthBackground, close } from './tools';
-import useRegister from '@/pages/domain/register/useRegister';
+import useRegister from '@/pages/Domain/Register/useRegister';
 
 const getStepsForms = (
     emailName: string,

@@ -1,6 +1,6 @@
 import { ProFormInstance, StepsForm } from '@ant-design/pro-form';
 import styles from './index.less';
-import BaseLayout from './baseLayout';
+import BaseLayout from './BaseLayout';
 import getStepsForms from './StepsForms';
 import { useRef, useState } from 'react';
 

@@ -5,5 +5,6 @@
     "component.invitation.title": "jemput",
     "component.invitation.message": "Anda dijemput untuk menyertai {domainName}({company}) di ZeroPass.",
     "component.tag.newTag.placeholder": "masuk sini",
-    "component.domain.switch.title": "tukar syarikat"
+    "component.domain.switch.title": "tukar syarikat",
+    "component.invitation.accpet.success": "Anda telah menerima jemputan untuk menyertai domain {domainName} dan anda masih perlu menunggu pentadbir domain mengesahkan sebelum mengakses domain."
 }
