@@ -6,7 +6,7 @@ import i18n from "./i18n";
 import { devTools } from "../render/src/.hub/dev_tools";
 import updateUrl from "../render/src/.hub/node_config";
 import createWindow from "./createWindow";
-import pluginRequestHandler from "./http/pluginRequestHandler";
+import getPluginRequestHandler from "./http/pluginRequestHandler";
 import { storeItemList } from "./http/pluginRequestHandlerProxy";
 import pluginStore from "./http/pluginStore";
 import Sserver, { getFreePort } from "./http/sserver";
@@ -20,6 +20,7 @@ const { NODE_ENV } = process.env;
 const Open_DevTools = getOpenDevTools(devTools);
 initApp(Open_DevTools, init);
 function init() {
+    const pluginRequestHandler = getPluginRequestHandler(pluginStore);
     const iconPath = path.join(__dirname, "../../icons/logo.ico");
     let sserver: Sserver = null;
     configureLogger(Open_DevTools, ClientInfo.getInstance());
@@ -28,6 +29,7 @@ function init() {
         sserver = new Sserver(freePort, pluginStore, () => {
             ClientInfo.getInstance().wssPort = freePort;
         });
+
         sserver.addPostPluginHandles(pluginRequestHandler);
         registerMainHandles(
             i18n,
