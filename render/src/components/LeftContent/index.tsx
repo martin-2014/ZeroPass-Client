@@ -2,6 +2,7 @@ import { useModel } from 'umi';
 import styles from './index.less';
 import { Typography } from 'antd';
 import Photo from '@/components/LeftContent/photo';
+import AutoLock from './AutoLock';
 
 const { Paragraph } = Typography;
 
@@ -22,6 +23,7 @@ export const Content = (props: { name?: string }) => {
                     {props.name}
                 </Paragraph>
             </div>
+            <AutoLock />
         </div>
     );
 };

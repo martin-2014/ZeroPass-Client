@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { exportData, importData } from '@/services/api/dataStorage';
 import message from '@/utils/message';
 import { FormattedMessage, useModel } from 'umi';
+import useTagList from '@/hooks/useTagList';
 
 const { Text } = Typography;
 
@@ -13,6 +14,7 @@ type RestoreType = 'overwrite' | 'merge';
 const dataStorage = () => {
     const [restoreType, setRestoreType] = useState<RestoreType>('overwrite');
     const { initialState } = useModel('@@initialState');
+    const { setNewTag } = useTagList();
 
     const onRestoreRadioChanged = (e: RadioChangeEvent) => {
         setRestoreType(e.target.value);
@@ -47,6 +49,7 @@ const dataStorage = () => {
                 message.errorIntl(res.errorId);
             }
         } else {
+            setNewTag();
             message.successIntl('dataStorage.message.restore.succefully');
         }
     };

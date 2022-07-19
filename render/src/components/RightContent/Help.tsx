@@ -18,7 +18,7 @@ import About from './About';
 import Settings from '@/components/RightContent/Settings';
 import { sessionStore } from '@/browserStore/store';
 import { localStore } from '@/browserStore/store';
-import UserProfile from '@/pages/user/profile';
+import UserProfile from '@/pages/User/Profile';
 import Extension from './Extension';
 import { openHelp } from '@/utils/tools';
 
