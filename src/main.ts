@@ -18,7 +18,8 @@ import path from "path";
 
 const { NODE_ENV } = process.env;
 const Open_DevTools = getOpenDevTools(devTools);
-initApp(Open_DevTools, init);
+const preloadPath = path.join(__dirname, "preload.js");
+initApp(Open_DevTools, preloadPath, init);
 function init() {
     const pluginRequestHandler = getPluginRequestHandler(pluginStore);
     const iconPath = path.join(__dirname, "../../icons/logo.ico");
@@ -49,7 +50,7 @@ function init() {
         };
     });
     app.whenReady().then(() => {
-        createWindow(Open_DevTools);
+        createWindow(Open_DevTools, preloadPath);
         if (NODE_ENV === "deve") {
             // Dev mode on local
             getMainWindow().loadURL("http://localhost:8000");

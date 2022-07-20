@@ -2,7 +2,7 @@ import { app, BrowserWindow } from "electron";
 import createWindow from "./createWindow";
 import { getMainWindow } from "./utils";
 
-function initApp(Open_DevTools: boolean, cb: () => void) {
+function initApp(Open_DevTools: boolean, preloadPath: string, cb: () => void) {
     const { NODE_ENV } = process.env;
     if (NODE_ENV === "deve") {
         require("source-map-support").install();
@@ -19,7 +19,7 @@ function initApp(Open_DevTools: boolean, cb: () => void) {
     });
     app.on("activate", function () {
         if (BrowserWindow.getAllWindows().length === 0) {
-            createWindow(Open_DevTools);
+            createWindow(Open_DevTools, preloadPath);
         }
     });
     app.on("second-instance", (event, commandLine, workingDirectory) => {
