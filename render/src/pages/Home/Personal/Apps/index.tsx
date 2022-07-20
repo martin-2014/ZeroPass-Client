@@ -4,6 +4,7 @@ import AppList from '../../components/AppList';
 import { ListContexProvider } from '@/pages/Home/Context/ListContext';
 import { itemRequesters } from '@/pages/Home/requesters';
 import { EditForm } from '../../components/PersonalForm';
+import InitRefreshList from './InitRefreshList';
 
 const requesters = {
     ...itemRequesters,
@@ -13,6 +14,7 @@ const requesters = {
 export default (props: any) => {
     return (
         <ListContexProvider requesters={requesters}>
+            <InitRefreshList></InitRefreshList>
             <AppList
                 {...props}
                 EditForm={EditForm}

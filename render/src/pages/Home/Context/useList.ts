@@ -1,4 +1,4 @@
-import { syncItemListToPlugin } from '@/ipc/ipcHandler';
+import { syncItemListToPlugin } from '@/ipc/useIpcHandler';
 import { onceExecutor } from '@/services/api/requester';
 import { VaultItemType } from '@/services/api/vaultItems';
 import { IsPersonalItem } from '@/utils/tools';

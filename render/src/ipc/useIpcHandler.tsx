@@ -1,3 +1,4 @@
+import { getPersonalAllItems } from '@/ipc/ipcHandlerProxy';
 import { TCryptoService } from '@/secretKey/cryptoService/cryptoService';
 import { freePersonalDb, lockPersonalDb, updatePersonalDbLock } from '@/services/api/locks';
 import {
@@ -11,15 +12,13 @@ import { requester } from '@/services/api/requester';
 import { currentUser } from '@/services/api/user';
 import {
     createPersonalItem,
-    getAllItems,
     getPersonalLoginDetail,
     updatePersonalItem,
     VaultItemType,
 } from '@/services/api/vaultItems';
 import { IsPersonalItem } from '@/utils/tools';
 import { cloneDeep } from 'lodash';
-import { history } from 'umi';
-import { getPersonalAllItems } from '@/ipc/ipcHandlerProxy';
+import { history, useModel } from 'umi';
 
 const decrypt = async (data: Message.DecryptItem) => {
     const cryptoService = new TCryptoService();
@@ -30,7 +29,7 @@ const decrypt = async (data: Message.DecryptItem) => {
 const logout = () => {
     history.push('/user/logout');
 };
-
+let refreshLoginItem: (() => void) | null = null;
 const savePassword = async (msg: Message.ExtensionsMessage) => {
     const cred = msg.message;
     if (cred == undefined) {
@@ -45,6 +44,9 @@ const savePassword = async (msg: Message.ExtensionsMessage) => {
     }
     if (!result.errorId) {
         syncItemListToPlugin();
+        if (refreshLoginItem) {
+            refreshLoginItem();
+        }
     }
     return result;
 };
@@ -164,12 +166,16 @@ const ipcRequestRouter = async (msg: Message.RequestMessage): Promise<any> => {
     return result;
 };
 
-const ipcRequester = {
-    startUp: function () {
+const ipcRequester = () => {
+    const { setRefreshLoginList } = useModel('refreshLoginList');
+    refreshLoginItem = () => {
+        setRefreshLoginList(true);
+    };
+    return () => {
         if (electron) {
             electron.initIpcRequest(ipcRequestRouter);
         }
-    },
+    };
 };
 
 export const syncItemListToPlugin = async () => {
