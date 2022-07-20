@@ -1,8 +1,7 @@
 import { BrowserWindow } from "electron";
 import { setMainWindow } from "./utils";
-import path from "path";
 
-function createWindow(Open_DevTools: boolean) {
+function createWindow(Open_DevTools: boolean, preloadPath: string) {
     // Create the browser window.
     const mainWindow = new BrowserWindow({
         width: 1152,
@@ -12,7 +11,7 @@ function createWindow(Open_DevTools: boolean) {
         show: false,
         frame: false,
         webPreferences: {
-            preload: path.join(__dirname, "preload.js"),
+            preload: preloadPath,
             nodeIntegration: true,
             devTools: Open_DevTools,
         },
