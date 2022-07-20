@@ -264,7 +264,7 @@ const FormContent = React.forwardRef((props: Props, ref: any) => {
                     isEdit={isEdit || isNewItem}
                     Icon={
                         <Image
-                            src={img}
+                            src={isNewItem ? 'defaultFavicon' : img}
                             defaulticon={IconMap(VaultItemType.Login, FORM_ICON_SIZE)}
                         ></Image>
                     }
