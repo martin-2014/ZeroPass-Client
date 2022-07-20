@@ -1,6 +1,6 @@
 import { localStore, secretKeyStore, sessionStore } from '@/browserStore/store';
 import useInitData from '@/hooks/useInitData';
-import ipcHandler, { syncItemListToPlugin } from '../../..//ipc/ipcHandler';
+import useIpcHandler, { syncItemListToPlugin } from '../../../ipc/useIpcHandler';
 import { KeyStore, setKeyStore } from '@/utils/keyStore';
 import { TCryptoService } from '@/secretKey/cryptoService/cryptoService';
 import { TEncryptionKey } from '@/secretKey/secretKey';
@@ -18,10 +18,10 @@ const useLogin = () => {
     const intl = useIntl();
     const [submited, setSubmited] = useState(false);
     const { initDataWhenLogin, setCurrentUser } = useInitData();
-
+    const ipcHandler = useIpcHandler();
     if (window.electron) {
         window.electron.logout();
-        ipcHandler.startUp();
+        ipcHandler();
     }
     const setFileKey = (value: string) => {
         form.setFieldsValue({ fileKey: value });
