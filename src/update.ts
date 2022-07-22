@@ -14,7 +14,7 @@ import { version } from "uuid";
 //@ts-ignore
 // import updateUrl from "../render/src/.hub/node_config";
 
-function update(updateUrl: any) {
+function update(updateBaseUrl: any) {
     let quitNotification;
     let mainWindow;
     let startDownload = false;
@@ -22,6 +22,11 @@ function update(updateUrl: any) {
     autoUpdater.autoInstallOnAppQuit = false;
     autoUpdater.logger = log;
     const logger = autoUpdater.logger as any;
+
+    let updateUrl: string =
+        updateBaseUrl === "undefined"
+            ? "https://zeropass-community-app-test-ap-southeast-1.s3.ap-southeast-1.amazonaws.com"
+            : updateBaseUrl;
 
     log.info(`Update url:${updateUrl}`);
     autoUpdater.setFeedURL(updateUrl);

@@ -40,7 +40,10 @@ export default (pros: Props) => {
             <div style={{ marginTop: '10px', fontSize: '20px', fontWeight: 'bold' }}>
                 {currentVersion}
             </div>
-            <div style={{ marginTop: '10px', display: newVersion ? '' : 'none' }}>
+            <div
+                style={{ marginTop: '10px', display: newVersion ? '' : 'none' }}
+                className={styles.upgradeButton}
+            >
                 <Tooltip title={<FormattedMessage id="about.upgrade.tip" />} zIndex={9999}>
                     <Badge dot>
                         <HubButton

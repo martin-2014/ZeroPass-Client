@@ -21,6 +21,7 @@ import { localStore } from '@/browserStore/store';
 import UserProfile from '@/pages/User/Profile';
 import Extension from './Extension';
 import { openHelp } from '@/utils/tools';
+import { checkClientMinVersion } from '@/services/api/version';
 
 const { Text } = Typography;
 
@@ -35,14 +36,21 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = (props) => {
     const { initialState } = useModel('@@initialState');
     const [showExtension, setShowExtension] = useState(false);
     const [showAbout, setShowAbout] = useState(false);
+    const [aboutClosable, setAboutClosable] = useState(true);
     const [newVersion, setNewVersion] = useState('');
 
     if (window.electron) {
         window.electron.checkForUpdates(
             (version) => {
-                window.electron.downloadUpdates(null, () => {
+                window.electron.downloadUpdates(null, async () => {
                     setNewVersion(version);
-                    if (localStore.isUpdateAutomatically && sessionStore.versionClosed != version) {
+                    const minVersion = await checkClientMinVersion();
+                    setAboutClosable(minVersion.payload?.meetMinVersion!);
+                    if (
+                        (localStore.isUpdateAutomatically &&
+                            sessionStore.versionClosed != version) ||
+                        minVersion.payload?.meetMinVersion === false
+                    ) {
                         setShowAbout(true);
                     }
                 });
@@ -202,7 +210,7 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = (props) => {
                 visible={showAbout}
                 destroyOnClose
                 close={closeAbout}
-                closable
+                closable={aboutClosable}
                 footer={null}
             >
                 <About newVersion={newVersion} />

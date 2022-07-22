@@ -54,6 +54,9 @@ export async function getInitialState(): Promise<{
     fetchUserInfo: () => Promise<API.UserProfile | undefined>;
 }> {
     sessionStore.deviceId = await window.electron.GetDeviceId();
+    localStore.edition = 'community';
+    localStore.version = window.electron.getCurrentVersion();
+
     const fetchUserInfo = async () => {
         try {
             if (!sessionStore.token && sessionStore.token.length) {
@@ -159,13 +162,14 @@ const customMenuDataRender = (menuData: MenuDataItem[]): MenuDataItem[] => {
 const authHeaderInterceptor = (url: string, options: RequestOptionsInit) => {
     const authHeader = { Authorization: `Bearer ${sessionStore.token}` };
     const deviceIdHeader = { 'Device-Id': sessionStore.deviceId };
+    const versionHeader = { Edition: localStore.edition, Version: localStore.version };
     const { headers, ...otherOptions } = options;
     return {
         url: `${url}`,
         options: {
             ...otherOptions,
             interceptors: true,
-            headers: { ...headers, ...authHeader, ...deviceIdHeader },
+            headers: { ...headers, ...authHeader, ...deviceIdHeader, ...versionHeader },
         },
     };
 };

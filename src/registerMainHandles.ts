@@ -102,13 +102,10 @@ function registerMainHandles(
     });
 
     ipcRequester.startUp(mainWindow.webContents);
+    update(updateUrl).Initialize(() => {
+        setIsQuiting(true);
+    }, mainWindow);
 
-    mainWindow.webContents.on("did-finish-load", () => {
-        if (NODE_ENV === "deve") return;
-        update(updateUrl).Initialize(() => {
-            setIsQuiting(true);
-        }, mainWindow);
-    });
     ipcMain.handle("web-request", async (event, data) => {
         const result = await webRequestRouter(data);
         return result;
