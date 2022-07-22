@@ -8,21 +8,6 @@ import classNames from 'classnames';
 import { FormattedMessage, useIntl } from 'umi';
 import { Space, Divider, Radio } from 'antd';
 
-const handleMax = () => {
-    window.electron.maxWindow();
-};
-const handleUnmax = () => {
-    window.electron.unmaxWindow();
-};
-function closeWindow() {
-    if (window.electron) {
-        window.electron.closeWindow(localStore.closeOption);
-    }
-}
-const handleMin = () => {
-    window.electron.minWindow();
-};
-
 type Props = {
     style?: React.HTMLAttributes<HTMLDivElement>['style'];
     btnClassName?: React.HTMLAttributes<HTMLDivElement>['className'];
@@ -37,6 +22,26 @@ export default (props: Props) => {
     const radioOnChange = (e) => {
         setCloseOptionValue(e.target.value);
     };
+
+    const handleMax = () => {
+        window.electron.maxWindow();
+        setIsMax(true);
+        window.Ismax = true;
+    };
+    const handleUnmax = () => {
+        window.electron.unmaxWindow();
+        setIsMax(false);
+        window.Ismax = false;
+    };
+    function closeWindow() {
+        if (window.electron) {
+            window.electron.closeWindow(localStore.closeOption);
+        }
+    }
+    const handleMin = () => {
+        window.electron.minWindow();
+    };
+
     if (window.Ismax === undefined) {
         window.Ismax = false;
     }
@@ -105,6 +110,7 @@ export default (props: Props) => {
                 afterClose={afterClose}
                 width={400}
                 closable
+                zIndex={20002}
                 footer={
                     <HubButton
                         width={65}

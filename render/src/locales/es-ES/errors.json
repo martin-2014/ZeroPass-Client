@@ -48,5 +48,6 @@
     "err_data_sync_timeout": "Tiempo de espera de sincronización de datos",
     "err_import_data_user_incorrect": "El archivo de datos no es propiedad del usuario actual",
     "err_data_sync_start_error": "No se pudo iniciar la sincronización de datos",
-    "err.login.domainOwner": "Su cuenta es un propietario de dominio. Debe usar ZeroPass Professional Edition para iniciar sesión en su cuenta. Si desea probar esta edición, registre una nueva cuenta."
+    "err.login.domainOwner": "Su cuenta es un propietario de dominio. Debe usar ZeroPass Professional Edition para iniciar sesión en su cuenta. Si desea probar esta edición, registre una nueva cuenta.",
+    "err_minimum_version_required": "Su versión de la aplicación no es compatible ahora. Tenga en cuenta el recordatorio de actualización automática para actualizar."
 }

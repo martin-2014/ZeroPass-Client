@@ -7,6 +7,10 @@ export class LocalStore {
             return 0;
         }
     }
+    set currentDomainId(value: number) {
+        localStorage.setItem('currentDomainId', value.toString());
+    }
+
     get personalDomainId() {
         const currentDomainId = localStorage.getItem('personalDomainId');
         if (currentDomainId) {
@@ -15,18 +19,17 @@ export class LocalStore {
             return 0;
         }
     }
+    set personalDomainId(value: number) {
+        localStorage.setItem('personalDomainId', value.toString());
+    }
+
     set skipUser(value: boolean) {
         localStorage.setItem('skipUser', value.toString());
     }
     get skipUser() {
         return localStorage.getItem('skipUser') === 'true';
     }
-    set currentDomainId(value: number) {
-        localStorage.setItem('currentDomainId', value.toString());
-    }
-    set personalDomainId(value: number) {
-        localStorage.setItem('personalDomainId', value.toString());
-    }
+
     get lastUser() {
         const value = localStorage.getItem('lastUser');
         if (value) {
@@ -65,7 +68,6 @@ export class LocalStore {
             return 0;
         }
     }
-
     set lastUserId(value: number) {
         localStorage.setItem('lastUserId', `${value}`);
     }
@@ -74,7 +76,6 @@ export class LocalStore {
         const value = localStorage.getItem('isUpdateAutomatically');
         return !value || value == 'true' ? true : false;
     }
-
     set isUpdateAutomatically(value: boolean) {
         var valueString = value ? 'true' : 'false';
         localStorage.setItem('isUpdateAutomatically', valueString);
@@ -84,7 +85,6 @@ export class LocalStore {
         const value = localStorage.getItem('lock');
         return value ? +value : 0;
     }
-
     set lock(value: number) {
         localStorage.setItem('lock', value.toString());
     }
@@ -95,11 +95,24 @@ export class LocalStore {
 
         return +value;
     }
-
     set closeOption(value: number | null) {
         if (value != null) {
             localStorage.setItem('closeOption', value.toString());
         }
+    }
+
+    get edition() {
+        return localStorage.getItem('edition')!;
+    }
+    set edition(value: string) {
+        localStorage.setItem('edition', value);
+    }
+
+    get version() {
+        return localStorage.getItem('version')!;
+    }
+    set version(value: string) {
+        localStorage.setItem('version', value);
     }
 }
 

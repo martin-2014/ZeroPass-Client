@@ -48,5 +48,6 @@
     "err_data_sync_timeout": "đồng bộ hóa dữ liệu thời gian chờ",
     "err_import_data_user_incorrect": "Tệp dữ liệu không thuộc về người dùng hiện tại",
     "err_data_sync_start_error": "Không thể bắt đầu đồng bộ hóa dữ liệu",
-    "err.login.domainOwner": "Tài khoản của bạn là chủ sở hữu miền và ZeroPass Professional Edition được yêu cầu đăng nhập vào tài khoản của bạn. Nếu bạn muốn dùng thử phiên bản này, vui lòng đăng ký một tài khoản mới."
+    "err.login.domainOwner": "Tài khoản của bạn là chủ sở hữu miền và ZeroPass Professional Edition được yêu cầu đăng nhập vào tài khoản của bạn. Nếu bạn muốn dùng thử phiên bản này, vui lòng đăng ký một tài khoản mới.",
+    "err_minimum_version_required": "Phiên bản ứng dụng của bạn không còn được hỗ trợ, vui lòng chú ý đến lời nhắc cập nhật tự động và nâng cấp."
 }

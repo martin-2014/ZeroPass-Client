@@ -48,5 +48,6 @@
     "err_data_sync_timeout": "同步數據超時",
     "err_import_data_user_incorrect": "數據文件不屬於當前用戶",
     "err_data_sync_start_error": "同步數據啟動失敗",
-    "err.login.domainOwner": "您的帳號是域所有者，需要使用ZeroPass專業版才能登錄您的賬戶。如果您想嘗試這個版本，請註冊一個新的賬戶。"
+    "err.login.domainOwner": "您的帳號是域所有者，需要使用ZeroPass專業版才能登錄您的賬戶。如果您想嘗試這個版本，請註冊一個新的賬戶。",
+    "err_minimum_version_required": "您的客戶端版本已經不支持，請留意自動更新提醒併升級。"
 }

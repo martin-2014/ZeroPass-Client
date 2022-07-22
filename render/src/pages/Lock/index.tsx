@@ -38,7 +38,11 @@ const Lock = (props: PropsItem) => {
             form.setFieldsValue({ password: '' });
             props.callback?.();
         } else {
-            message.errorIntl('login.unlock.fail', 20001);
+            if (result.errorId == 'err_minimum_version_required') {
+                message.errorIntl(result.errorId, 20001);
+            } else {
+                message.errorIntl('login.unlock.fail', 20001);
+            }
         }
         setLoading(false);
     };

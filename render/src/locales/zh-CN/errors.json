@@ -48,5 +48,6 @@
     "err_data_sync_upload_failed": "同步数据，上传文件失败",
     "err_data_sync_timeout": "同步数据超时",
     "err_import_data_user_incorrect": "数据文件不属于当前用户",
-    "err_data_sync_start_error": "同步数据启动失败"
+    "err_data_sync_start_error": "同步数据启动失败",
+    "err_minimum_version_required": "您的客户端版本已经不支持，请留意自动更新提醒并升级。"
 }

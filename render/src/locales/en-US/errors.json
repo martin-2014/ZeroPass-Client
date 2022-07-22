@@ -48,5 +48,6 @@
     "err_data_sync_upload_failed": "Sync data upload files failed",
     "err_data_sync_timeout": "Sync data timeout",
     "err_import_data_user_incorrect": "The data file is not owned by current user",
-    "err_data_sync_start_error": "Sync data start failed"
+    "err_data_sync_start_error": "Sync data start failed",
+    "err_minimum_version_required": "Your version of the App is not supported now. Please notice the auto-upgrade reminder to upgrade."
 }
